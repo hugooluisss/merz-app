@@ -1,0 +1,50 @@
+body[modulo="login"]{
+	background: url("../images/fondo.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	color: white;
+	
+	.logo{
+		margin-top: 40px;
+		max-height: 300px;
+		margin-bottom: 40px;
+	}
+	
+	.navbar{
+		font-size: 8px;
+	}
+	
+	.logoPie{
+		position: fixed;
+		bottom: 80px;
+		left: 40%;
+		width: 20%;
+	}
+	
+	[panel="login"]{
+		input{
+			border: 1px solid @inputBorderColor;
+			border-radius: 25px;
+			background: none;
+		}
+		
+		input[type="checkbox"]{
+			appearance: none;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			border: 1px solid #c8c6c6;
+			width: 20px;
+			height: 20px;
+			border-radius: 2px;
+			margin: 0 5px 0 0;
+		}
+		
+		.btn-link{
+			color: white;
+			&:hover{
+				color: @inputBorderColor;
+			}
+		}
+	}
+}
