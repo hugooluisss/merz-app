@@ -1,16 +1,16 @@
 TUsuario = function(){
 	var self = this;
-	self.idUsuario = window.locateStorage.getItem("session");
+	self.idUsuario = window.localStorage.getItem("session");
 	
 	this.isLogin = function(){
 		if (self.idUsuario == '' || self.idUsuario == undefined || self.idUsuario == null) return false;
-		if (self.idUsuario != window.locateStorage.getItem("session")) return false;
+		if (self.idUsuario != window.localStorage.getItem("session")) return false;
 		
 		return true;
 	};
 	
 	this.login = function(datos){
-		if (datos.before !== undefined) datos.before();
+		if (datos.fn.before !== undefined) datos.fn.before();
 		
 		$.post(server + 'clogin', {
 			"usuario": datos.usuario,
@@ -21,12 +21,12 @@ TUsuario = function(){
 			if (resp.band == false)
 				console.log(resp.mensaje);
 			else{
-				window.localStorage.setItem("session", resp.idUsuario);
-				self.idUsuario = resp.idUsuario;
+				window.localStorage.setItem("session", resp.datos.idUsuario);
+				self.idUsuario = resp.datos.idUsuario;
 			}
 				
-			if (datos.after !== undefined)
-				datos.after(resp);
+			if (datos.fn.after !== undefined)
+				datos.fn.after(resp);
 		}, "json");
 	};
 };

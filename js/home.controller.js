@@ -39,39 +39,13 @@ var app = {
 			return false;
 		}, true);
 		
-		showPanel("home", "slow");
-		objUsuario = new TUsuario;
-		
-		$("[showPanel]").click(function(){
-			showPanel($(this).attr("showPanel"));
+		$("button[data-target]").click(function(){
+			var self = $(this);
+			$(self.attr("data-target")).show("slide", { direction: "left" }, 500)
 		});
 		
-		
-		$("#frmLogin").validate({
-			debug: true,
-			errorClass: "validateError",
-			rules: {
-				txtUsuario: "required",
-				txtPass: "required"
-			},
-			wrapper: 'span',
-			submitHandler: function(form){
-				objUsuario.login({
-					'usuario': $("#txtUsuario").val(), 
-					'pass': $("#txtPass").val(), 
-					fn: {
-						before: function(){
-							$("#frmLogin [type=submit]").prop("disabled", true);
-						},
-						after: function(data){
-							$("#frmLogin [type=submit]").prop("disabled", false);
-							
-							if (data.band == true)
-								location.href = "inicio.html";
-						}
-					}
-				});
-			}
+		$("#menuBack").click(function(){
+			$("#menuSecciones").hide("slide", { direction: "left" }, 500)
 		});
 	}
 };

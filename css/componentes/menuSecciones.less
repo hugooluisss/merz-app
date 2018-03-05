@@ -1,0 +1,60 @@
+#menuSecciones{
+	background: white;
+	height: 100%;
+	border: none;
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	display: none;
+	
+	.encabezado{
+		height: 120px;
+		background: @navBlue;
+		color: white;
+		
+		> div{
+			float: left;
+			height: 100%;
+			margin-right: 10px;
+			margin-top: 10px;
+			font-size: 10px;
+		}
+		
+		img{
+			vertical-align: top;
+			&.imagenUsuario{
+				height: 50px;
+				margin-top: 20px;
+			}
+		}
+		
+		#menuBack{
+			background: none;
+			color: white;
+			border: none;
+			margin-top: 20px;
+		}
+	}
+	
+	.item{
+		height: 130px;
+		background: orange;
+		position: relative;
+		padding-left: 0px;
+		
+		.icono{
+			margin-left: 10px;
+			margin-top: 25px;
+		}
+		.texto{
+			position: absolute;
+			color: white;
+			text-align: right;
+			text-transform: uppercase;
+			width: 100%;
+			padding-right: 10px;
+			bottom: 10px;
+			font-size: 10px;
+		}
+	}
+}

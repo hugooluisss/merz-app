@@ -1,3 +1,5 @@
+var server = "http://192.168.2.4/merz/";
+
 function showPanel(panel, efecto = 0, after){
 	$("[panel]").hide();
 	
