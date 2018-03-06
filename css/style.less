@@ -8,4 +8,20 @@ html{
 	body{
 		font-family: 'Open Sans', sans-serif;
 	}
+	
+	[panel]{
+		display: none;
+		height: 100%;
+		background: @background-color;
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		padding-top: 60px;
+	}
+	
+	footer{
+		&.navbar-fixed-bottom{
+			z-index: 0;
+		}
+	}
 }

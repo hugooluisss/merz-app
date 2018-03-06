@@ -68,6 +68,8 @@ var app = {
 							
 							if (data.band == true)
 								location.href = "inicio.html";
+							else
+								mensajes.alert({"mensaje": "Tus datos no son correctos, intenta nuevamente", "titulo": "Identificación de usuario"});
 						}
 					}
 				});

@@ -18,6 +18,8 @@
  */
 var db = null;
 var objUsuario;
+var plantillas = {};
+var panelActivo = "";
 var app = {
 	// Application Constructor
 	initialize: function() {
@@ -54,4 +56,50 @@ var app = {
 
 $(document).ready(function(){
 	app.onDeviceReady();
+	
+	getPlantillas();
+	showPanel("home");
+	
+	$("[showPanel]").click(function(){
+		showPanel($(this).attr("showPanel"), "faderight");
+	});
+	
+	objUsuario = new TUsuario;
+	objUsuario.getData({
+		fn: {
+			after: function(resp){
+				$.each(resp, function(key, valor){
+					$('[campo="usuario.' + key + '"]').html(valor);
+				});
+			}
+		}
+	});
+	
+	$.post(server + "listadepartamentos", {
+		"movil": true,
+		"json": true
+	}, function(departamentos){
+		$.each(departamentos, function(key, depa){
+			var plDepa = $(plantillas['menu.departamento']);
+			
+			$.each(depa, function(campo, valor){
+				plDepa.find("[campo=" + campo + "]").html(valor);
+			});
+			if (depa.color2 == undefined)
+				plDepa.css("background", depa.color1);
+			else
+				plDepa.css("background", "linear-gradient(90deg, " + depa.color1 + ", " + depa.color2 + ")");
+			$(".departamentos").append(plDepa);
+		});
+	}, "json");
 });
+
+function getPlantillas(){
+	plantillas['menu.departamento'] = "";
+	
+	$.each(plantillas, function(pl, valor){
+		$.get("vistas/" + pl + ".html", function(html){
+			plantillas[pl] = html;
+		});
+	});
+}

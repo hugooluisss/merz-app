@@ -1,12 +1,29 @@
 var server = "http://192.168.2.4/merz/";
 
 function showPanel(panel, efecto = 0, after){
-	$("[panel]").hide();
+	console.log("Ocultando ", $(this).attr("showPanel"), "Mostrando ", $(this).attr("showPanel"));
+	duracion = 500;
 	
 	if (after == undefined)
-		$("[panel=" + panel + "]").show(efecto);
-	else
-		$("[panel=" + panel + "]").show(efecto, after);
+		after = null;
+	
+	$("[panel=" + panelActivo + "]").hide();
+	
+	switch(efecto){
+		case 'faderight':
+			$("[panel=" + panel + "]").show("slide", { direction: "right" }, duracion);
+		break;
+		case 'fadeleft':
+			$("[panel=" + panel + "]").show("slide", { direction: "left" }, duracion);
+		break;
+		case 'slow':
+			$("[panel=" + panel + "]").show("slow", after);
+		break;
+		default:
+			$("[panel=" + panel + "]").show(1, after);
+	}
+	
+	panelActivo = panel;
 }
 
 function checkConnection() {
@@ -35,3 +52,61 @@ function checkConnection() {
 		return true;
 	}
 }
+
+var mensajes = {
+	alert: function(data){
+		if (data.funcion == undefined)
+			data.funcion = function(){};
+			
+		if (data.titulo == undefined)
+			data.titulo = " ";
+		
+		try{
+			navigator.notification.alert(data.mensaje, data.funcion, data.titulo, data.boton);
+		}catch(err){
+			window.alert(data.mensaje);
+		}
+
+	},
+	
+	confirm: function(data){
+		if (data.funcion == undefined)
+			data.funcion = function(){};
+			
+		if (data.titulo == undefined)
+			data.titulo = " ";
+		
+		
+		try{
+			navigator.notification.confirm(data.mensaje, data.funcion, data.titulo, data.botones);
+		}catch(err){
+			if (confirm(data.mensaje))
+				data.funcion(1);
+			else
+				data.funcion(2);
+		}
+	},
+	
+	log: function(data){
+		alertify.log(data.mensaje);
+	},
+	
+	prompt: function(data){
+		if (data.funcion == undefined)
+			data.funcion = function(){};
+			
+		if (data.titulo == undefined)
+			data.titulo = " ";
+		
+		
+		try{
+			navigator.notification.prompt(data.mensaje, data.funcion, data.titulo, data.botones);
+		}catch(err){
+			var result = prompt(data.mensaje);
+			data.funcion({
+				buttonIndex: 1,
+				input1: result
+			});
+		}
+	},
+};
