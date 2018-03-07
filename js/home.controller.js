@@ -19,7 +19,7 @@
 var db = null;
 var objUsuario;
 var plantillas = {};
-var panelActivo = "";
+
 var app = {
 	// Application Constructor
 	initialize: function() {
@@ -62,6 +62,14 @@ $(document).ready(function(){
 	
 	$("[showPanel]").click(function(){
 		showPanel($(this).attr("showPanel"), "faderight");
+		$("div[vista]").hide();
+	});
+	
+	$("[showVista]").click(function(){
+		$.get("vistas/" + $(this).attr("showVista") + ".html", function(resp){
+			$("div[vista]").html(resp);
+			$("div[vista]").show();
+		});
 	});
 	
 	objUsuario = new TUsuario;
@@ -93,13 +101,3 @@ $(document).ready(function(){
 		});
 	}, "json");
 });
-
-function getPlantillas(){
-	plantillas['menu.departamento'] = "";
-	
-	$.each(plantillas, function(pl, valor){
-		$.get("vistas/" + pl + ".html", function(html){
-			plantillas[pl] = html;
-		});
-	});
-}

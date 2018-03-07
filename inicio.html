@@ -72,31 +72,33 @@
 		</nav>
 		
 		<div panel="home" class="container">
-			<h1 style="margin-top: 150px;" class="text-center">¡Hola <span campo="usuario.nombre"></span>!</h1>
-			<p class="text-center">¿en qué te podemos ayudar?
+			<h1 style="margin-top: 100px;" class="text-center">¡Hola <span campo="usuario.nombre"></span>!</h1>
+			<p class="text-center">¿en qué te podemos ayudar?</p>
 			<br />
 			<br />
 			<br />
 			
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<div class="row">
-						<div class="col-xs-1"></div>
-						<div class="col-xs-11"><h3>Al momento</h3></div>
-					</div>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-xs-8">
-							<div class="fuente">
-								reforma.com.mx
-							</div>
-							<div class="titulo">
-								Repunte de casos de influenza Tipo b
-							</div>
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-1"></div>
+							<div class="col-xs-11"><h3>Al momento</h3></div>
 						</div>
-						<div class="col-xs-4 text-center">
-							<img src="images/ejImagenNoticia.jpg" alt="..." class="img-thumbnail">
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-8">
+								<div class="fuente">
+									reforma.com.mx
+								</div>
+								<div class="titulo">
+									Repunte de casos de influenza Tipo b
+								</div>
+							</div>
+							<div class="col-xs-4 text-center">
+								<img src="images/ejImagenNoticia.jpg" alt="..." class="img-thumbnail">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -105,7 +107,7 @@
 			<br />
 			<br />
 			<div class="row">
-				<div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+				<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center">
 					<button class="btn btn-success btn-block" showPanel="quienessomos">¿QUIENES SOMOS?</button>
 					<button class="btn btn-success btn-block" showPanel="login">¿QUE SUCEDE EN MERZ?</button>
 				</div>
@@ -122,15 +124,19 @@
 		<div panel="quienessomos" class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-					<button class="btn btn-success btn-block" showPanel="areas">AREAS</button>
+					<button class="btn btn-success btn-block" showVista="areas">AREAS</button>
 					<br />
-					<button class="btn btn-success btn-block" showPanel="login">ORGANIGRAMA</button>
+					<button class="btn btn-success btn-block" showVista="organigrama">ORGANIGRAMA</button>
 					<br />
-					<button class="btn btn-success btn-block" showPanel="login">DIRECTORIO</button>
+					<button class="btn btn-success btn-block" showVista="login">DIRECTORIO</button>
 					<br />
-					<button class="btn btn-success btn-block" showPanel="login">PRIORITY NORMS</button>
+					<button class="btn btn-success btn-block" showVista="login">PRIORITY NORMS</button>
 					<br />
 				</div>
+			</div>
+			
+			<div vista="vista">
+				
 			</div>
 			
 			<footer class="navbar navbar-fixed-bottom menu2">

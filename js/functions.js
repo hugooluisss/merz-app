@@ -1,4 +1,5 @@
 var server = "http://192.168.2.4/merz/";
+var panelActivo = "";
 
 function showPanel(panel, efecto = 0, after){
 	console.log("Ocultando ", $(this).attr("showPanel"), "Mostrando ", $(this).attr("showPanel"));
@@ -109,4 +110,16 @@ var mensajes = {
 			});
 		}
 	},
+};
+
+
+function getPlantillas(){
+	plantillas['menu.departamento'] = "";
+	plantillas['quienessomos'] = "";
+	
+	$.each(plantillas, function(pl, valor){
+		$.get("vistas/" + pl + ".html", function(html){
+			plantillas[pl] = html;
+		});
+	});
 };
