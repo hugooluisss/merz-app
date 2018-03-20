@@ -63,13 +63,13 @@ $(document).ready(function(){
 	getPlantillas();
 	showPanel("home");
 	
-	$("[showPanel]").click(function(){
-		showPanel($(this).attr("showPanel"), "faderight");
+	$("[showpanel]").click(function(){
+		showPanel($(this).attr("showpanel"), "faderight");
 		$("div[vista]").hide();
 	});
 	
-	$("[showVista]").click(function(){
-		$.get("vistas/" + $(this).attr("showVista") + ".html", function(resp){
+	$("[showvista]").click(function(){
+		$.get("vistas/" + $(this).attr("showvista") + ".html", function(resp){
 			$("div[vista]").html(resp);
 			$("div[vista]").show();
 		});
@@ -141,8 +141,8 @@ $(document).ready(function(){
 		var el = $(resp);
 		$("body").append(el);
 		
-		el.find("#btnHideDepto").click(function(){
-			$("[panel=departamento]").hide("slide", { direction: "right" }, 500);
+		el.find("#btnHidePerfil").click(function(){
+			$("[panel=perfil]").hide("slide", { direction: "right" }, 500);
 			$("[panel=home]").show();
 		});
 		
@@ -155,6 +155,22 @@ $(document).ready(function(){
 		el.find("#menuBack").click(function(){
 			$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
 				$(".cinta").show();
+			});
+		});
+		
+		$("[panel=perfil] [showPanel]").click(function(){
+			showPanel($(this).attr("showpanel"), "faderight");
+			$("div[vista]").hide();
+		});
+		
+		$("[panel=perfil] [showVista]").click(function(){
+			$.get("vistas/" + $(this).attr("showvista") + ".html", function(resp){
+				$("div[vista]").html(resp);
+				$("div[vista]").show();
+				
+				$("[panel=perfil] [hidevista]").click(function(){
+					$("[panel=perfil] [vista]").hide();
+				});
 			});
 		});
 	});

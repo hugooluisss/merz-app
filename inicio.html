@@ -35,17 +35,17 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Russo+One" rel="stylesheet">
 
 	</head>
-	<modulo="home">
+	<body modulo="home">
 		<nav class="navbar blue navbar-fixed-top">
 			<div class="navbar-header">
 				<button class="pull-left" type="button" data-target="#menuSecciones">
 					<img src="images/buttonMenu.png" />
 				</button>
 				
-				<button class="pull-right" type="button">
+				<button class="pull-right" type="button" showpanel="perfil">
 					<i class="fa fa-envelope-o" aria-hidden="true"></i>
 					<span class="badge badge-danger">10</span>
-					<img src="images/usuario.jpg" class="imagenUsuario img-circle" />
+					<img src="images/usuario.jpg" class="imagenUsuario img-circle"/>
 				</button>
 			</div>
 			
@@ -108,8 +108,8 @@
 			<br />
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center">
-					<button class="btn btn-success btn-block" showPanel="quienessomos">¿QUIENES SOMOS?</button>
-					<button class="btn btn-success btn-block" showPanel="login">¿QUE SUCEDE EN MERZ?</button>
+					<button class="btn btn-success btn-block" showpanel="quienessomos">¿QUIENES SOMOS?</button>
+					<button class="btn btn-success btn-block" showpanel="login">¿QUE SUCEDE EN MERZ?</button>
 				</div>
 			</div>
 			
@@ -124,13 +124,13 @@
 		<div panel="quienessomos" class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-					<button class="btn btn-success btn-block" showVista="areas">AREAS</button>
+					<button class="btn btn-success btn-block" showvista="areas">AREAS</button>
 					<br />
-					<button class="btn btn-success btn-block" showVista="organigrama">ORGANIGRAMA</button>
+					<button class="btn btn-success btn-block" showvista="organigrama">ORGANIGRAMA</button>
 					<br />
-					<button class="btn btn-success btn-block" showVista="login">DIRECTORIO</button>
+					<button class="btn btn-success btn-block" showvista="login">DIRECTORIO</button>
 					<br />
-					<button class="btn btn-success btn-block" showVista="login">PRIORITY NORMS</button>
+					<button class="btn btn-success btn-block" showvista="login">PRIORITY NORMS</button>
 					<br />
 				</div>
 			</div>
@@ -144,7 +144,7 @@
 					<div class="col-xs-4">
 						<i class="fa fa-4x fa-user-circle"></i>
 					</div>
-					<div class="col-xs-4" showPanel="home">
+					<div class="col-xs-4" showpanel="home">
 						<i class="fa fa-4x fa-home"></i>
 					</div>
 					<div class="col-xs-4">
