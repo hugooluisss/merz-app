@@ -158,20 +158,6 @@ $(document).ready(function(){
 			});
 		});
 		
-		$("[panel=perfil] [showPanel]").click(function(){
-			showPanel($(this).attr("showpanel"), "faderight");
-			$("div[vista]").hide();
-		});
-		
-		$("[panel=perfil] [showVista]").click(function(){
-			$.get("vistas/" + $(this).attr("showvista") + ".html", function(resp){
-				$("div[vista]").html(resp);
-				$("div[vista]").show();
-				
-				$("[panel=perfil] [hidevista]").click(function(){
-					$("[panel=perfil] [vista]").hide();
-				});
-			});
-		});
+		callPerfil();
 	});
 });

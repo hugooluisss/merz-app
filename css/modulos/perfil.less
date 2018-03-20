@@ -84,6 +84,7 @@
 	
 	[vista]{
 		background: white;
+		width: 100%;
 		
 		h1{
 			width: 100%;
@@ -92,6 +93,60 @@
 		
 		p{
 			text-align: justify;
+		}
+		
+		.busquedaContactos{
+			width: 80%;
+			position: relative;
+			left: 10%;
+			
+			border-radius: 30px 30px 30px 30px;
+			
+			.input-group-addon{
+				border-radius: 30px 0 0 30px;
+				background: white;
+				border-right: none;
+			}
+			
+			input{
+				border-left: 0px;
+				background: white;
+				border-radius: 0 30px 30px 0;
+				
+			}
+			
+			-webkit-box-shadow: -1px 14px 96px -16px rgba(0,0,0,0.75);
+			-moz-box-shadow: -1px 14px 96px -16px rgba(0,0,0,0.75);
+			box-shadow: -1px 14px 96px -16px rgba(0,0,0,0.75);
+		}
+		
+		.listaContactos{
+			width: 100%;
+			
+			padding-top: 50px;
+			ul{
+				list-style: none;
+				padding-left: 0px;
+				li{
+					border-bottom: 1px solid @colorFooter;
+					margin-left: 40px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					margin-right: 40px;
+					margin-bottom: 15px;
+					
+					&.encabezado{
+						background: @gris;
+						font-size: 16px;
+						font-weight: bold;
+						padding-left: 10px;
+						margin-left: 0px;
+						margin-right: 0px;
+						border-bottom: none;
+					}
+				}
+			}
+			
 		}
 	}
 }
