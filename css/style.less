@@ -15,6 +15,7 @@ html{
 		position: absolute;
 		top: 0px;
 		padding-top: 60px;
+		left: 0px;
 	}
 	
 	[panel]{
@@ -27,6 +28,26 @@ html{
 		height: -10%;
 		height: 95%;
 		overflow-y: scroll;
+		
+		.cinta{
+			position: fixed;
+			top: 25px;
+			z-index: 1030;
+			color: white;
+			font-size: 18px;
+			width: 86%;
+			right: 7%;
+			
+			> div{
+				color: white;
+				background: @bootstrap-success;
+				border: 2px solid @bootstrap-success;
+				border-radius: 10px;
+				padding: 10px;
+				text-align: center;
+				text-transform: capitalize;
+			}
+		}
 	}
 	
 	footer{

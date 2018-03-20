@@ -43,11 +43,14 @@ var app = {
 		
 		$("button[data-target]").click(function(){
 			var self = $(this);
-			$(self.attr("data-target")).show("slide", { direction: "left" }, 500)
+			$(".cinta").hide();
+			$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
 		});
 		
 		$("#menuBack").click(function(){
-			$("#menuSecciones").hide("slide", { direction: "left" }, 500)
+			$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
+				$(".cinta").show();
+			});
 		});
 	}
 };
@@ -93,11 +96,66 @@ $(document).ready(function(){
 			$.each(depa, function(campo, valor){
 				plDepa.find("[campo=" + campo + "]").html(valor);
 			});
+			
+			if (depa.archivo != undefined || depa.archivo != "")
+				plDepa.find(".icono").prop("src", server + depa.icono);
+			
 			if (depa.color2 == undefined)
 				plDepa.css("background", depa.color1);
 			else
 				plDepa.css("background", "linear-gradient(90deg, " + depa.color1 + ", " + depa.color2 + ")");
+				
+			plDepa.attr("json", depa.json);
+			plDepa.click(function(){
+				callDepartamento(depa)
+			});
+			
 			$(".departamentos").append(plDepa);
 		});
 	}, "json");
+	
+	
+	$.get("vistas/panel.departamento.html", function(resp){
+		var el = $(resp);
+		$("body").append(el);
+		
+		el.find("#btnHideDepto").click(function(){
+			$("[panel=departamento]").hide("slide", { direction: "right" }, 500);
+			$("[panel=home]").show();
+		});
+		
+		el.find("button[data-target]").click(function(){
+			var self = $(this);
+			$(".cinta").hide();
+			$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
+		});
+		
+		el.find("#menuBack").click(function(){
+			$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
+				$(".cinta").show();
+			});
+		});
+	});
+	
+	$.get("vistas/perfil.html", function(resp){
+		var el = $(resp);
+		$("body").append(el);
+		
+		el.find("#btnHideDepto").click(function(){
+			$("[panel=departamento]").hide("slide", { direction: "right" }, 500);
+			$("[panel=home]").show();
+		});
+		
+		el.find("button[data-target]").click(function(){
+			var self = $(this);
+			$(".cinta").hide();
+			$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
+		});
+		
+		el.find("#menuBack").click(function(){
+			$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
+				$(".cinta").show();
+			});
+		});
+	});
 });

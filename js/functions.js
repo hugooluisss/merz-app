@@ -1,4 +1,5 @@
 var server = "http://192.168.2.4/merz/";
+var server = "http://localhost/merz/";
 var panelActivo = "";
 
 function showPanel(panel, efecto = 0, after){
@@ -116,6 +117,8 @@ var mensajes = {
 function getPlantillas(){
 	plantillas['menu.departamento'] = "";
 	plantillas['quienessomos'] = "";
+	plantillas['noticia'] = "";
+	plantillas['archivo'] = "";
 	
 	$.each(plantillas, function(pl, valor){
 		$.get("vistas/" + pl + ".html", function(html){
