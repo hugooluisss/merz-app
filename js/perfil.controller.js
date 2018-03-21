@@ -50,13 +50,19 @@ function callPerfil(departamento){
 				}
 				
 				var li = $("<li />", {
-					text: contacto.nombre,
+					text: contacto.nombre + " " + contacto.apellidos,
 					class: "contacto",
-					busqueda: contacto.nombre
+					busqueda: contacto.nombre + " " + contacto.apellidos
 				});
 				
 				li.click(function(){
 					$("#winContacto").modal();
+					
+					$.each(contacto, function(campo, valor){
+						$("#winContacto").find("[campo=" + campo + "]").html(valor);
+					});
+					
+					$("#winContacto").find("[campo=fotoPerfil]").prop("src", contacto.fotoPerfil == ' '?"images/usuario.jpg":(server + contacto.fotoPerfil));
 				});
 				
 				$(".listaContactos ul").append(li);
