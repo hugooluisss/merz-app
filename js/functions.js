@@ -1,5 +1,5 @@
 var server = "http://192.168.2.4/merz/";
-//var server = "http://localhost/merz/";
+var server = "http://localhost/merz/";
 var panelActivo = "";
 
 function showPanel(panel, efecto = 0, after){

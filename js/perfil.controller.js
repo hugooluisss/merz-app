@@ -12,6 +12,21 @@ function callPerfil(departamento){
 			$("[panel] [hidevista]").click(function(){
 				$("[panel] [vista]").hide();
 			});
+			
+			$(".busquedaContactos #txtBuscarContacto").keyup(function(){
+				if ($(this).val() == '')
+					$(".listaContactos").find("li").show();
+				else
+					var texto = $(this).val().toUpperCase();
+					$(".listaContactos").find("li.contacto").each(function(){
+						var li = $(this);
+						
+						if (li.attr("busqueda").toUpperCase().search(texto) >= 0)
+							li.show();
+						else
+							li.hide();
+					});
+			});
 		});
 	});
 	
@@ -26,7 +41,7 @@ function callPerfil(departamento){
 			$(".listaContactos").find("li").remove();
 			$.each(contactos, function(key, contacto){
 				if (contacto.nombre[0] != inicial){
-					li = $('<li />', {
+					var li = $("<li />", {
 						class: "encabezado",
 						text: contacto.nombre[0].toUpperCase()
 					});
@@ -34,8 +49,14 @@ function callPerfil(departamento){
 					$(".listaContactos ul").append(li);
 				}
 				
-				var li = $('<li />', {
-					text: contacto.nombre
+				var li = $("<li />", {
+					text: contacto.nombre,
+					class: "contacto",
+					busqueda: contacto.nombre
+				});
+				
+				li.click(function(){
+					$("#winContacto").modal();
 				});
 				
 				$(".listaContactos ul").append(li);
