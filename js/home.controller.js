@@ -63,16 +63,51 @@ $(document).ready(function(){
 	getPlantillas();
 	showPanel("home");
 	
+	$.post(server + "cappmovil", {
+		"codigo": "noticiaPrincipal",
+		"json": true,
+		"action": "getSeccion",
+		"movil": true
+	}, function(seccion){
+		$.each(seccion, function(key, valor){
+			console.log(key, valor);
+			$(".noticia").find('[campo="' + key + '"]').html(valor);
+		});
+		
+		$(".noticia").find("[campo=fotografia]").find("img").attr("src", server + "repositorio/images/imagenPrincipal.jpg");
+	}, "json");
+	
+	
 	$("[showpanel]").click(function(){
 		showPanel($(this).attr("showpanel"), "faderight");
 		$("div[vista]").hide();
 	});
 	
 	$("[showvista]").click(function(){
+		var codigo = $(this).attr("codigo");
+		
 		$.get("vistas/" + $(this).attr("showvista") + ".html", function(resp){
 			$("div[vista]").html(resp);
 			$("div[vista]").show();
-		});
+			
+			if ($(this).attr("codigo") != ''){
+				$.post(server + "cappmovil", {
+					"codigo": codigo,
+					"json": true,
+					"action": "getSeccion",
+					"movil": true
+				}, function(seccion){
+					$.each(seccion, function(key, valor){
+						console.log(key, valor);
+						$("div[vista]").find('[campo="' + key + '"]').html(valor);
+					});
+					
+					$("div[vista]").find("[campo=cuerpo]").find("img").each(function(){
+						$(this).attr("src", server + $(this).attr("src"));
+					});
+				}, "json");
+			}
+		});		
 	});
 	
 	objUsuario = new TUsuario;
