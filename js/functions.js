@@ -130,3 +130,35 @@ function getPlantillas(){
 		});
 	});
 };
+
+function setButtonsBack(el){
+	el.find("#btnHidePerfil").click(function(){
+		$("[panel=perfil]").hide("slide", { direction: "right" }, 500);
+		$("[panel=home]").show();
+	});
+	
+	el.find("button[data-target]").click(function(){
+		var self = $(this);
+		$(".cinta").hide();
+		$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
+	});
+	
+	el.find("#menuBack").click(function(){
+		$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
+			$(".cinta").show();
+		});
+	});
+	
+	
+	el.find("[showpanel]").click(function(){
+		showPanel($(this).attr("showpanel"), "faderight");
+		$("div[vista]").hide();
+	});
+	
+	
+	el.find("[data-target]").click(function(){
+		var self = $(this);
+		$(".cinta").hide();
+		$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
+	});
+}
