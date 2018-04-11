@@ -48,6 +48,9 @@ var app = {
 		
 		$("#txtUsuario").val(window.localStorage.getItem("loginuser"));
 		$("#txtPass").val(window.localStorage.getItem("loginpass"));
+		
+		$("#chkPass").prop("checked", $("#txtPass").val() != '');
+		
 		$("#chkPass").click(function(){
 			if (!$("#chkPass").is(":checked")){
 				window.localStorage.removeItem("loginpass");

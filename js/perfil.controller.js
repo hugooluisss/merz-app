@@ -71,4 +71,49 @@ function callPerfil(departamento){
 			$(".espera").hide();
 		}, "json");
 	});
+	
+	$("#btnSalir").click(function(){
+		window.localStorage.removeItem("session");
+		
+		location.href = "index.html";
+	});
+	
+	
+	$("#btnCamara").click(function(){
+		if (navigator.camera != undefined){
+			navigator.camera.getPicture(function(imageData) {
+					objUsuario.setImagenPerfil({
+						"imagen": imageData,
+						fn: {
+							before: function(){
+								$("#imgPerfil").prop("src", "img/user.png");
+							},
+							after: function(resp){
+								if (resp.band){
+									alertify.success("La fotografía se cargó con éxito");
+									$("#imgPerfil").attr("src", "data:image/jpeg;base64," + imageData);
+								}else
+									alertify.error("Ocurrió un error al actualizar la fotografía");
+							}
+						}
+					});
+				}, function(message){
+					alertify.error("Ocurrió un error al guardar la fotografía");
+				}, { 
+					quality: 100,
+					destinationType: Camera.DestinationType.DATA_URL,
+					encodingType: Camera.EncodingType.JPEG,
+					targetWidth: 250,
+					targetHeight: 250,
+					correctOrientation: true,
+					allowEdit: true
+				});
+		}else{
+			mensajes.log({mensaje: "No se pudo iniciar la cámara"});
+			console.log("No se pudo inicializar la cámara");
+		}
+	});
+	
+	
+	$("#imgPerfil").prop("src", (objUsuario.imagenPerfil == '' || objUsuario.imagenPerfil == undefined)?"images/usuario.jpg":(server + objUsuario.imagenPerfil));
 }

@@ -45,4 +45,22 @@ TUsuario = function(){
 				datos.fn.after(resp);
 		}, "json");
 	}
+	
+	this.setImagenPerfil = function(datos){
+		if (datos.fn.before !== undefined) datos.fn.before();
+		$.post(server + 'cusuarios', {
+			"usuario": self.idUsuario,
+			"imagen": datos.imagen,
+			"action": 'setImagenPerfil',
+			"movil": 1
+		}, function(data){
+			if (data.band == false)
+				console.log("Ocurrió un error");
+			else
+				self.imagenPerfil = datos.imagen;
+				
+			if (datos.fn.after !== undefined)
+				datos.fn.after(data);
+		}, "json");
+	}
 };
