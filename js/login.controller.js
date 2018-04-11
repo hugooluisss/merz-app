@@ -36,7 +36,7 @@ var app = {
 	// function, we must explicitly call 'app.receivedEvent(...);'
 	onDeviceReady: function() {
 		document.addEventListener("backbutton", function(){
-			return false;
+			showPanel("home", "slow");
 		}, true);
 		
 		showPanel("home", "slow");
