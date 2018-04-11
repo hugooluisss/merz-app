@@ -36,7 +36,7 @@
 
 		<preference name="android-build-tool" value="gradle" />
 		<preference name="LoadUrlTimeoutValue" value="70000"/>
-		<preference name="android-windowSoftInputMode" value="adjustPan"/>
+		<!--<preference name="android-windowSoftInputMode" value="adjustPan"/>-->
 		<preference name="EnableLocation" value="true" />
 
 		<!-- Plugins -->  
