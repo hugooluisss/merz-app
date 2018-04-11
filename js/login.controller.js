@@ -46,6 +46,14 @@ var app = {
 			showPanel($(this).attr("showPanel"));
 		});
 		
+		$("#txtUsuario").val(window.localStorage.getItem("loginuser"));
+		$("#txtPass").val(window.localStorage.getItem("loginpass"));
+		$("#chkPass").click(function(){
+			if (!$("#chkPass").is(":checked")){
+				window.localStorage.removeItem("loginpass");
+				window.localStorage.removeItem("loginuser");
+			}
+		});
 		
 		$("#frmLogin").validate({
 			debug: true,
@@ -66,9 +74,13 @@ var app = {
 						after: function(data){
 							$("#frmLogin [type=submit]").prop("disabled", false);
 							
-							if (data.band == true)
+							if (data.band == true){
+								if ($("#chkPass").is(":checked")){
+									window.localStorage.setItem("loginpass", $("#txtPass").val());
+									window.localStorage.setItem("loginuser", $("#txtUsuario").val());
+								}
 								location.href = "inicio.html";
-							else
+							}else
 								mensajes.alert({"mensaje": "Tus datos no son correctos, intenta nuevamente", "titulo": "Identificación de usuario"});
 						}
 					}

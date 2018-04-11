@@ -138,6 +138,12 @@ function setButtonsBack(el){
 		$("[panel=home]").show();
 	});
 	
+	el.find("#btnHideDepto").click(function(){
+		alert("Hola");
+		$("[panel=departamento]").hide("slide", { direction: "right" }, 500);
+		$("[panel=home]").show();
+	});
+	
 	el.find("button[data-target]").click(function(){
 		var self = $(this);
 		$(".cinta").hide();

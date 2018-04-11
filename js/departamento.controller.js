@@ -11,6 +11,11 @@ function callDepartamento(departamento){
 		$("[panel=departamento]").find("[campo=" + campo + "]").html(valor);
 	});
 	
+	$("#btnHideDepto").click(function(){
+		$("[panel=departamento]").hide();
+		$("[panel=home]").show();
+	});
+	
 	$("[panel=departamento]").find(".icono").attr("src", server + departamento.icono);
 	
 	if(departamento.portada){
