@@ -2,15 +2,18 @@ function callPerfil(departamento){
 	$("[panel=perfil] [showPanel]").click(function(){
 		showPanel($(this).attr("showpanel"), "faderight");
 		$("div[vista]").hide();
+		$(".grupo").show();
 	});
 	
 	$("[panel=perfil] [showVista]").click(function(){
+		$(".grupo").hide();
 		$.get("vistas/" + $(this).attr("showvista") + ".html", function(resp){
 			$("div[vista]").html(resp);
 			$("div[vista]").show();
 			
 			$("[panel] [hidevista]").click(function(){
 				$("[panel] [vista]").hide();
+				$(".grupo").show();
 			});
 			
 			$(".busquedaContactos #txtBuscarContacto").keyup(function(){
@@ -86,12 +89,15 @@ function callPerfil(departamento){
 						"imagen": imageData,
 						fn: {
 							before: function(){
-								$("#imgPerfil").prop("src", "img/user.png");
+								$("#imgPerfil").prop("src", "images/usuario.jpg");
+								$(".imagenUsuario").attr("src", "images/usuario.jpg");
 							},
 							after: function(resp){
 								if (resp.band){
 									alertify.success("La fotografía se cargó con éxito");
 									$("#imgPerfil").attr("src", "data:image/jpeg;base64," + imageData);
+									
+									$(".imagenUsuario").attr("src", "data:image/jpeg;base64," + imageData);
 								}else
 									alertify.error("Ocurrió un error al actualizar la fotografía");
 							}

@@ -70,7 +70,6 @@ $(document).ready(function(){
 		"movil": true
 	}, function(seccion){
 		$.each(seccion, function(key, valor){
-			console.log(key, valor);
 			$(".noticiaPrincipal").find('[campo="' + key + '"]').html(valor);
 		});
 		
@@ -117,6 +116,9 @@ $(document).ready(function(){
 				$.each(resp, function(key, valor){
 					$('[campo="usuario.' + key + '"]').html(valor);
 				});
+				
+				$(".imagenUsuario").attr("src", "images/usuario.jpg");
+				$(".imagenUsuario").prop("src", (resp.imagenPerfil == '' || resp.imagenPerfil == undefined)?"images/usuario.jpg":(server + resp.imagenPerfil));
 			}
 		}
 	});

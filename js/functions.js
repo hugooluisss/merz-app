@@ -155,6 +155,7 @@ function setButtonsBack(el){
 			$(".cinta").show();
 		});
 	});
+
 	
 	
 	el.find("[showpanel]").click(function(){

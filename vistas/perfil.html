@@ -1,56 +1,56 @@
 <div panel="perfil">
-	<div class="header">
-		<div class="row">
-			<div class="col-xs-12 head">
+	<div class="grupo">
+		<div class="header">
+			<div class="row">
+				<div class="col-xs-12 head">
 					<button id="btnHidePerfil">
 						<i class="fa fa-angle-left fa-3x" aria-hidden="true"></i>
 					</button>
 					<img src="" class="icono img-circle" />
 					<span campo="nombre">Ajustes</span>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="perfilFoto">
-		<img src="images/usuario.jpg" class="imagenUsuario img-circle" id="imgPerfil"/>
-		<div class="text-center">
-			<button id="btnCamara"><i class="fa fa-camera" aria-hidden="true"></i></button>
-			<button id="btnGaleria"><i class="fa fa-picture-o" aria-hidden="true"></i>
-</button>
+		<div class="perfilFoto">
+			<img src="images/usuario.jpg" class="imagenUsuario img-circle" id="imgPerfil"/>
+			<div class="text-center">
+				<button id="btnCamara" class="btn btn-link"><i class="fa fa-camera" aria-hidden="true"></i></button>
+				<!--<button id="btnGaleria"  class="btn btn-link"><i class="fa fa-picture-o" aria-hidden="true"></i></button>-->
+			</div>
 		</div>
-	</div>
-	
-	<div class="datos">
-		<h4><span campo="usuario.nombre"></span></h4>
-		<span><span campo="usuario.apellidos"></span></span><br />
-		<small>No de Empleado</small> <small campo="usuario.numemp"></small>
-	</div>
-	
-	<ul class="menu">
-		<li>
-			<img class="icono" src="images/iconosperfil/notificaciones.png" />
-			Notificaciones
-		</li>
-		<li showvista="privacidad">
-			<img class="icono" src="images/iconosperfil/privacidad.png" />
-			Privacidad
-		</li>
-		<li showvista="contactos">
-			<img class="icono" src="images/iconosperfil/contactos.png" />
-			Contactos
-		</li>
-		<li id="btnSalir">
-			<img class="icono" src="images/iconosperfil/logout.png" />
-			Salir
-		</li>
-		<!--
-		<li>
-			<img class="icono" src="images/iconosperfil/ayuda.png" />
-			Ayuda
-		</li>
-		-->
-	</ul>
-	
-	
+		
+		<div class="datos">
+			<h4><span campo="usuario.nombre"></span></h4>
+			<span><span campo="usuario.apellidos"></span></span><br />
+			<small>No de Empleado</small> <small campo="usuario.numemp"></small>
+		</div>
+		
+		<ul class="menu">
+			<li>
+				<img class="icono" src="images/iconosperfil/notificaciones.png" />
+				Notificaciones
+			</li>
+			<li showvista="privacidad">
+				<img class="icono" src="images/iconosperfil/privacidad.png" />
+				Privacidad
+			</li>
+			<li showvista="contactos">
+				<img class="icono" src="images/iconosperfil/contactos.png" />
+				Contactos
+			</li>
+			<li id="btnSalir">
+				<img class="icono" src="images/iconosperfil/logout.png" />
+				Salir
+			</li>
+			<!--
+			<li>
+				<img class="icono" src="images/iconosperfil/ayuda.png" />
+				Ayuda
+			</li>
+			-->
+		</ul>
+		
+	</div>	
 	
 	<div vista="vista"></div>
 	

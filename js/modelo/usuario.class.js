@@ -40,7 +40,11 @@ TUsuario = function(){
 			"id": usuario,
 			"action": 'getData',
 			"movil": 'true'
-		}, function(resp){	
+		}, function(resp){
+			self.datos = resp;
+			self.imagenPerfil = self.datos.imagenPerfil;
+			
+			console.log(self.datos);
 			if (datos.fn.after !== undefined)
 				datos.fn.after(resp);
 		}, "json");
