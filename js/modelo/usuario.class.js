@@ -67,4 +67,25 @@ TUsuario = function(){
 				datos.fn.after(data);
 		}, "json");
 	}
+	
+	this.add = function(datos){
+		if (datos.fn.before !== undefined) datos.fn.before();
+		
+		$.post(server + 'cusuarios', {
+				"id": self.idUsuario,
+				"nombre": datos.nombre,
+				"apellidos": datos.apellidos, 
+				"email": datos.email,
+				"nacimiento": datos.nacimiento,
+				"numemp": datos.empleado,
+				"action": "add",
+				"movil": 1
+			}, function(data){
+				if (data.band == false)
+					console.log(data.mensaje);
+					
+				if (datos.fn.after !== undefined)
+					datos.fn.after(data);
+			}, "json");
+	};
 };

@@ -122,4 +122,51 @@ function callPerfil(departamento){
 	
 	
 	$("#imgPerfil").prop("src", (objUsuario.imagenPerfil == '' || objUsuario.imagenPerfil == undefined)?"images/usuario.jpg":(server + objUsuario.imagenPerfil));
+	
+	$('#winDatos').on('shown.bs.modal', function (event){
+		$('#winDatos').find("input:text:visible:first").focus();
+		
+		$.each(objUsuario.datos, function(key, valor){
+			$("#winDatos").find("[campo=" + key + "]").val(valor);
+		});
+	});
+	
+	
+	$("#frmActualizarDatos").validate({
+		debug: true,
+		errorClass: "validateError",
+		rules: {
+			txtNombre: {
+				required : true
+			},
+			txtCorreo: {
+				required : true
+			}
+		},
+		wrapper: 'span',
+		submitHandler: function(form){
+			var obj = new TUsuario;
+			form = $(form);
+			objUsuario.add({
+				"nombre": $("#txtNombre").val(),
+				"apellidos": $("#txtApellidos").val(), 
+				"email": $("#txtCorreo").val(),
+				"nacimiento": $("#txtNacimiento").val(),
+				"numemp": $("#txtNumeroEmpleado").val(),
+				fn: {
+					before: function(){
+						form.find("[type=submit]").prop("disabled", true);
+					}, after: function(resp){
+						form.find("[type=submit]").prop("disabled", false);
+						
+						if (resp.band){
+							mensaje.log({mensaje: "Tus datos se actualizaron"});
+							$("#winDatos").modal("hide");
+						}else
+							mensaje.alert({titulo: "Error", mensaje: "Ocurrió un error al actualizar tus datos, prueba nuevamente"});
+					}
+				}
+			});
+		}
+	});
 }
