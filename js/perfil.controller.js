@@ -145,7 +145,6 @@ function callPerfil(departamento){
 		},
 		wrapper: 'span',
 		submitHandler: function(form){
-			var obj = new TUsuario;
 			form = $(form);
 			objUsuario.add({
 				"nombre": $("#txtNombre").val(),
@@ -160,10 +159,23 @@ function callPerfil(departamento){
 						form.find("[type=submit]").prop("disabled", false);
 						
 						if (resp.band){
-							mensaje.log({mensaje: "Tus datos se actualizaron"});
+							mensajes.log({mensaje: "Tus datos se actualizaron"});
 							$("#winDatos").modal("hide");
+							
+							objUsuario.getData({
+								fn: {
+									after: function(resp){
+										$.each(resp, function(key, valor){
+											$('[campo="usuario.' + key + '"]').html(valor);
+										});
+										
+										$(".imagenUsuario").attr("src", "images/usuario.jpg");
+										$(".imagenUsuario").prop("src", (resp.imagenPerfil == '' || resp.imagenPerfil == undefined)?"images/usuario.jpg":(server + resp.imagenPerfil));
+									}
+								}
+							});
 						}else
-							mensaje.alert({titulo: "Error", mensaje: "Ocurrió un error al actualizar tus datos, prueba nuevamente"});
+							mensajes.alert({titulo: "Error", mensaje: "Ocurrió un error al actualizar tus datos, prueba nuevamente"});
 					}
 				}
 			});

@@ -77,7 +77,7 @@ TUsuario = function(){
 				"apellidos": datos.apellidos, 
 				"email": datos.email,
 				"nacimiento": datos.nacimiento,
-				"numemp": datos.empleado,
+				"numemp": datos.numemp,
 				"action": "add",
 				"movil": 1
 			}, function(data){

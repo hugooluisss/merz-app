@@ -4,7 +4,6 @@ var server = "http://somosmerz.com/panel_app/";
 var panelActivo = "";
 
 function showPanel(panel, efecto = 0, after){
-	console.log("Ocultando ", $(this).attr("showPanel"), "Mostrando ", $(this).attr("showPanel"));
 	duracion = 500;
 	
 	if (after == undefined)
