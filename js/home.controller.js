@@ -82,6 +82,10 @@ var app = {
 		// Should be called once the device is registered successfully with Apple or Google servers
 		window.plugins.PushbotsPlugin.on("registered", function(token){
 			console.log("Token de registro", token);
+			
+			window.plugins.PushbotsPlugin.tag("app");
+			window.plugins.PushbotsPlugin.setAlias("user_" + window.localStorage.getItem("session"));
+			
 			alertify.log("Tu equipo quedó registrado para recibir notificaciones");
 		});
 		
@@ -98,9 +102,6 @@ var app = {
 		
 		window.plugins.PushbotsPlugin.resetBadge();
 		window.plugins.PushbotsPlugin.toggleNotifications(true);
-		
-		window.plugins.PushbotsPlugin.tag("app");
-		window.plugins.PushbotsPlugin.setAlias("user_" + window.localStorage.getItem("session"));
 	}
 };
 
