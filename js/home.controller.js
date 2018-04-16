@@ -52,13 +52,66 @@ var app = {
 				$(".cinta").show();
 			});
 		});
+		
+		window.plugins.PushbotsPlugin.initialize("5ad4c3cd1db2dc46e312c9a5", {
+			"android":{
+				"sender_id":"AIzaSyDdasx6uo-0YuBD0cn-ZUVCTyhXwhw_Lbw"
+			}
+		});
+		
+		window.plugins.PushbotsPlugin.on("notification:received", function(data){
+			console.log("received:", data);
+			var datos = JSON.stringify(data);
+			window.plugins.PushbotsPlugin.resetBadge();
+			
+			//Silent notifications Only [iOS only]
+			//Send CompletionHandler signal with PushBots notification Id
+			window.plugins.PushbotsPlugin.done(data.pb_n_id);
+			if (data.aps.alert != '')
+				alertify.success(data.aps.alert);
+				
+			window.plugins.PushbotsPlugin.resetBadge();
+		});
+		
+		// Should be called once the notification is clicked
+		window.plugins.PushbotsPlugin.on("notification:clicked", function(data){
+			console.log("clicked:" + JSON.stringify(data));
+			if (data.message != undefined)
+				alertify.success(data.message);
+				
+			window.plugins.PushbotsPlugin.resetBadge();
+		});	
+		
+		//window.plugins.PushbotsPlugin.debug(true);
+		// Should be called once the device is registered successfully with Apple or Google servers
+		window.plugins.PushbotsPlugin.on("registered", function(token){
+			console.log("Token de registro", token);
+			alertify.log("Tu equipo quedó registrado para recibir notificaciones");
+		});
+		
+		//Get device token
+		window.plugins.PushbotsPlugin.getRegistrationId(function(token){
+		    console.log("Registration Id:" + token);
+		});	
+		
+		window.plugins.PushbotsPlugin.on("user:ids", function (data) {
+			console.log("user:ids" + JSON.stringify(data));
+			// userToken = data.token; 
+			// userId = data.userId
+		});
+		
+		window.plugins.PushbotsPlugin.resetBadge();
+		window.plugins.PushbotsPlugin.toggleNotifications(true);
+		
+		window.plugins.PushbotsPlugin.tag("app");
+		window.plugins.PushbotsPlugin.setAlias("user_" + window.localStorage.getItem("session"));
 	}
 };
 
-//app.initialize();
+app.initialize();
 
 $(document).ready(function(){
-	app.onDeviceReady();
+//	app.onDeviceReady();
 	
 	getPlantillas();
 	showPanel("home");
