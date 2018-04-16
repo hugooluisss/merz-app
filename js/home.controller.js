@@ -53,11 +53,7 @@ var app = {
 			});
 		});
 		
-		window.plugins.PushbotsPlugin.initialize("5ad4c3cd1db2dc46e312c9a5", {
-			"android":{
-				"sender_id":"AIzaSyDdasx6uo-0YuBD0cn-ZUVCTyhXwhw_Lbw"
-			}
-		});
+		window.plugins.PushbotsPlugin.initialize("5ad4c3cd1db2dc46e312c9a5", {"android":{"sender_id":"431227519870"}});
 		
 		window.plugins.PushbotsPlugin.on("notification:received", function(data){
 			console.log("received:", data);
