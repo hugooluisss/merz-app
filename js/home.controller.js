@@ -100,6 +100,9 @@ var app = {
 			// userId = data.userId
 		});
 		
+		window.plugins.PushbotsPlugin.tag("app");
+		window.plugins.PushbotsPlugin.setAlias("user_" + window.localStorage.getItem("session"));
+		
 		window.plugins.PushbotsPlugin.resetBadge();
 		window.plugins.PushbotsPlugin.toggleNotifications(true);
 	}
