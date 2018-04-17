@@ -88,4 +88,17 @@ TUsuario = function(){
 					datos.fn.after(data);
 			}, "json");
 	};
+	
+	this.getNotificaciones = function(datos){
+		if (datos.fn.before !== undefined) datos.fn.before();
+		
+		$.post(server + 'cnotificaciones', {
+				"usuario": self.idUsuario,
+				"action": "getNotificaciones",
+				"movil": 1
+			}, function(data){
+				if (datos.fn.after !== undefined)
+					datos.fn.after(data);
+			}, "json");
+	};
 };

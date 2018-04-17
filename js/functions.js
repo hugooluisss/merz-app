@@ -1,5 +1,5 @@
 var server = "http://somosmerz.com/panel_app/";
-//var server = "http://192.168.2.4/merz/";
+var server = "http://192.168.2.4/merz/";
 //var server = "http://localhost/merz/";
 var panelActivo = "";
 
@@ -123,6 +123,7 @@ function getPlantillas(){
 	plantillas['privacidad'] = "";
 	plantillas['contactos'] = "";
 	plantillas['contacto'] = "";
+	plantillas['notificacion'] = "";
 	
 	$.each(plantillas, function(pl, valor){
 		$.get("vistas/" + pl + ".html", function(html){

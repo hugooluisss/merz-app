@@ -5,6 +5,18 @@ function callPerfil(departamento){
 		$(".grupo").show();
 	});
 	
+	$("[showvista=notificaciones]").click(function(){
+		objUsuario.getNotificaciones({
+			fn: {
+				after:function(notificaciones){
+					$.each(notificaciones, function(i, notificacion){
+						console.log(notificacion);
+					});
+				}
+			}
+		});
+	});
+	
 	$("[panel=perfil] [showVista]").click(function(){
 		$(".grupo").hide();
 		$.get("vistas/" + $(this).attr("showvista") + ".html", function(resp){

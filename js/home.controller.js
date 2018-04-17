@@ -224,4 +224,20 @@ $(document).ready(function(){
 		
 		callPerfil();
 	});
+	
+	getTotalNotificaciones();
+	
+	setTimeout(getTotalNotificaciones(), 10 * 1000);
+	
+	function getTotalNotificaciones(){
+		console.log("Buscando notificaciones");
+		$.post(server + "cnotificaciones", {
+			"usuario": window.localStorage.getItem("session"),
+			"action": "getTotalNotificaciones",
+			"movil": true
+		}, function(resp){
+			console.info(resp);
+			$(".totalNotificaciones").html(resp.sinLeer);
+		}, "json");
+	}
 });
