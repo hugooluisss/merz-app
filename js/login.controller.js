@@ -41,7 +41,9 @@ var app = {
 		
 		showPanel("home", "slow");
 		objUsuario = new TUsuario;
-		
+		if (objUsuario.isLogin())
+			location.href = "inicio.html";
+			
 		$("[showPanel]").click(function(){
 			showPanel($(this).attr("showPanel"));
 		});

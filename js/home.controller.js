@@ -96,6 +96,7 @@ var app = {
 		
 		window.plugins.PushbotsPlugin.on("user:ids", function (data) {
 			console.log("user:ids" + JSON.stringify(data));
+			
 			// userToken = data.token; 
 			// userId = data.userId
 		});
@@ -113,6 +114,10 @@ app.initialize();
 $(document).ready(function(){
 //	app.onDeviceReady();
 	
+	objUsuario = new TUsuario;
+	if (!objUsuario.isLogin())
+		location.href = "index.html";
+			
 	getPlantillas();
 	showPanel("home");
 	
