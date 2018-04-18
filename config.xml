@@ -90,6 +90,9 @@
 		<platform name="android">
 			<resource-file src="res/drawable/white_notification_icon.png" target="res/drawable/white_notification_icon.png" />
 		</platform>
+		
+		<platform name="ios">
+		</platform>
 
 		
 		<icon src="res/icon.png" />
