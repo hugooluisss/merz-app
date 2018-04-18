@@ -43,7 +43,7 @@ var app = {
 		
 		window.plugins.PushbotsPlugin.initialize("5ad4c3cd1db2dc46e312c9a5", {
 			"android": {
-				"sender_id":"431227519870"
+				"sender_id":"431227519870",
 				"icon": "white_notification_icon",
 				"iconColor": "#123456"
 			}
