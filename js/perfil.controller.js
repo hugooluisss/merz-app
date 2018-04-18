@@ -9,6 +9,7 @@ function callPerfil(departamento){
 		objUsuario.getNotificaciones({
 			fn: {
 				after:function(notificaciones){
+					console.log(notificaciones);
 					$.each(notificaciones, function(i, notificacion){
 						console.log(notificacion);
 						var pl = $(plantillas['notificacion']);

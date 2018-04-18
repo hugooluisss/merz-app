@@ -95,7 +95,8 @@ TUsuario = function(){
 		$.post(server + 'cnotificaciones', {
 				"usuario": self.idUsuario,
 				"action": "getNotificaciones",
-				"movil": 1
+				"movil": 1,
+				"json": true
 			}, function(data){
 				if (datos.fn.after !== undefined)
 					datos.fn.after(data);

@@ -116,7 +116,7 @@ var mensajes = {
 
 function getPlantillas(){
 	plantillas['menu.departamento'] = "";
-	plantillas['quienessomos'] = "";
+	//plantillas['quienessomos'] = "";
 	plantillas['noticia'] = "";
 	plantillas['archivo'] = "";
 	
@@ -139,7 +139,6 @@ function setButtonsBack(el){
 	});
 	
 	el.find("#btnHideDepto").click(function(){
-		alert("Hola");
 		$("[panel=departamento]").hide("slide", { direction: "right" }, 500);
 		$("[panel=home]").show();
 	});
