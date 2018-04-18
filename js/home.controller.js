@@ -41,19 +41,13 @@ var app = {
 			return false;
 		}, true);
 		
-		$("button[data-target]").click(function(){
-			var self = $(this);
-			$(".cinta").hide();
-			$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
+		window.plugins.PushbotsPlugin.initialize("5ad4c3cd1db2dc46e312c9a5", {
+			"android": {
+				"sender_id":"431227519870"
+				"icon": "white_notification_icon",
+				"iconColor": "#123456"
+			}
 		});
-		
-		$("#menuBack").click(function(){
-			$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
-				$(".cinta").show();
-			});
-		});
-		
-		window.plugins.PushbotsPlugin.initialize("5ad4c3cd1db2dc46e312c9a5", {"android":{"sender_id":"431227519870"}});
 		
 		window.plugins.PushbotsPlugin.on("notification:received", function(data){
 			console.log("received:", data);
@@ -121,6 +115,18 @@ $(document).ready(function(){
 	getPlantillas();
 	showPanel("home");
 	
+	$("button[data-target]").click(function(){
+		var self = $(this);
+		$(".cinta").hide();
+		$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
+	});
+	
+	$("#menuBack").click(function(){
+		$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
+			$(".cinta").show();
+		});
+	});
+	
 	$.post(server + "cappmovil", {
 		"codigo": "noticiaPrincipal",
 		"json": true,
@@ -177,6 +183,7 @@ $(document).ready(function(){
 				
 				$(".imagenUsuario").attr("src", "images/usuario.jpg");
 				$(".imagenUsuario").prop("src", (resp.imagenPerfil == '' || resp.imagenPerfil == undefined)?"images/usuario.jpg":(server + resp.imagenPerfil));
+				
 			}
 		}
 	});
