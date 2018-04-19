@@ -115,15 +115,17 @@ $(document).ready(function(){
 	getPlantillas();
 	showPanel("home");
 	
-	$("button[data-target]").click(function(){
-		var self = $(this);
-		$(".cinta").hide();
-		$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
-	});
-	
 	$("#menuBack").click(function(){
 		$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
 			$(".cinta").show();
+		});
+	});
+	
+	$(".menuDepartamentos").each(function(){
+		var el = $(this);
+		el.click(function(){
+			$(".cinta").hide();
+			$("#menuSecciones").show("slide", { direction: "left" }, 500);
 		});
 	});
 	
@@ -144,6 +146,7 @@ $(document).ready(function(){
 	$("[showpanel]").click(function(){
 		showPanel($(this).attr("showpanel"), "faderight");
 		$("div[vista]").hide();
+		$(".grupo").show();
 	});
 	
 	$("[showvista]").click(function(){
