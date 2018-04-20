@@ -25,6 +25,7 @@ function callDepartamento(departamento){
 		$("[panel=departamento]").find(".portada").height(0);
 	
 	$("[panel=departamento]").find(".head").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
+	$("[panel=departamento]").find(".icono").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
 	
 	
 	
