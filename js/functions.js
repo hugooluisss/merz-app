@@ -3,7 +3,7 @@ var server = "http://somosmerz.com/panel_app/";
 //var server = "http://localhost/merz/";
 var panelActivo = "";
 
-function showPanel(panel, efecto = 0, after){
+function showPanel(panel, efecto, after){
 	duracion = 500;
 	
 	if (after == undefined)
