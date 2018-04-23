@@ -124,6 +124,7 @@ function getPlantillas(){
 	plantillas['contactos'] = "";
 	plantillas['contacto'] = "";
 	plantillas['notificacion'] = "";
+	plantillas['resumenNoticia'] = "";
 	
 	$.each(plantillas, function(pl, valor){
 		$.get("vistas/" + pl + ".html", function(html){

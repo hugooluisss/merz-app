@@ -41,11 +41,19 @@ function callDepartamento(departamento){
 			$.each(noticias, function(){
 				var noticia = $(this);
 				var pl = $(plantillas['noticia']);
-				$.each(noticia[0], function(campo, valor){
+				noticia = noticia[0];
+				$.each(noticia, function(campo, valor){
 					pl.find("[campo=" + campo + "]").html(valor);
 				});
 				
 				$(".noticias").append(pl);
+				
+				pl.click(function(){
+					$("#winNoticia").find("[campo=titulo]").text(noticia.titulo).css("color", "white");
+					$("#winNoticia").find(".modal-header").css("background", noticia.color1);
+					$("#winNoticia").find(".modal-body").html(noticia.cuerpo);
+					$("#winNoticia").modal();
+				});
 			});
 			$(".noticias").show();
 		}
@@ -63,11 +71,16 @@ function callDepartamento(departamento){
 			$.each(archivos, function(){
 				var archivo = $(this);
 				var pl = $(plantillas['archivo']);
-				$.each(archivo[0], function(campo, valor){
+				archivo = archivo[0];
+				$.each(archivo, function(campo, valor){
 					pl.find("[campo=" + campo + "]").html(valor);
 				});
 				
 				$(".archivos").find(".contenido").append(pl);
+				
+				pl.click(function(){
+					window.open(server + archivo.archivo, '_system');
+				});
 			});
 			$(".archivos").show();
 		}
