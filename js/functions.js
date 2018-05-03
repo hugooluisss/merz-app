@@ -119,6 +119,7 @@ function getPlantillas(){
 	//plantillas['quienessomos'] = "";
 	plantillas['noticia'] = "";
 	plantillas['archivo'] = "";
+	plantillas['evento'] = "";
 	
 	plantillas['privacidad'] = "";
 	plantillas['contactos'] = "";

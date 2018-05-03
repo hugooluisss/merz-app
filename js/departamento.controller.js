@@ -49,6 +49,7 @@ function callDepartamento(departamento){
 				$(".noticias").append(pl);
 				
 				pl.click(function(){
+					console.log(noticia);
 					$("#winNoticia").find("[campo=titulo]").text(noticia.titulo).css("color", "white");
 					$("#winNoticia").find(".modal-header").css("background", noticia.color1);
 					$("#winNoticia").find(".modal-body").html(noticia.cuerpo);
@@ -83,6 +84,34 @@ function callDepartamento(departamento){
 				});
 			});
 			$(".archivos").show();
+		}
+	}, "json");
+	
+	
+	/* Eventos */
+	$.post(server + "listaeventos", {
+		"departamento": departamento.idDepartamento,
+		"json": true,
+		"movil": true
+	}, function(eventos){
+		if (archivos.length == 0)
+			$(".eventos").hide();
+		else{
+			$.each(eventos, function(){
+				var evento = $(this);
+				var pl = $(plantillas['evento']);
+				evento = evento[0];
+				$.each(evento, function(campo, valor){
+					pl.find("[campo=" + campo + "]").html(valor);
+				});
+				
+				$(".evento").find(".contenido").append(pl);
+				
+				pl.click(function(){
+					window.open(server + evento.archivo, '_system');
+				});
+			});
+			$(".eventos").show();
 		}
 	}, "json");
 	
