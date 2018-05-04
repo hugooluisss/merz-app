@@ -94,9 +94,10 @@ function callDepartamento(departamento){
 		"json": true,
 		"movil": true
 	}, function(eventos){
-		if (archivos.length == 0)
+		if (eventos.length == 0){
 			$(".eventos").hide();
-		else{
+			$("#showBtnCalendario").hide();
+		}else{
 			$.each(eventos, function(){
 				var evento = $(this);
 				var pl = $(plantillas['evento']);
@@ -105,12 +106,10 @@ function callDepartamento(departamento){
 					pl.find("[campo=" + campo + "]").html(valor);
 				});
 				
-				$(".evento").find(".contenido").append(pl);
-				
-				pl.click(function(){
-					window.open(server + evento.archivo, '_system');
-				});
+				$(".eventos").find(".contenido").append(pl);
 			});
+			
+			$("#showBtnCalendario").show();
 			$(".eventos").show();
 		}
 	}, "json");

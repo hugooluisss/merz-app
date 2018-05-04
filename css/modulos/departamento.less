@@ -6,6 +6,7 @@
 		position: fixed;
 		top: 0px;
 		width: 100%;
+		z-index: 1;
 	}
 	
 	.head{
@@ -100,7 +101,12 @@
 		}
 	}
 	
-	.archivos{
+	#btnShowCalendario{
+		width: 92%;
+		margin-top: 40px;
+	}
+	
+	.archivos, .eventos{
 		.contenido{
 			background: white;
 			border: 1px solid @colorFooter;
@@ -126,7 +132,26 @@
 				}
 				
 				[campo="registro"]{
-					font-size: 8px;
+					font-size: 10px;
+				}
+			}
+			
+			.evento{
+				border-bottom: @colorFooter 2px solid;
+				padding-bottom: 15px;
+				padding-left: 30px;
+				
+				&:last-child{
+					border: 0px;
+				}
+				
+				h3{
+					font-size: 16px;
+					font-weight: normal;
+				}
+				
+				[campo="lugar"], [campo="fecha"]{
+					font-size: 10px;
 				}
 			}
 		}
