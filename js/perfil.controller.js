@@ -60,6 +60,7 @@ function callPerfil(departamento){
 		$(".espera").show();
 		$.post(server + "contactos", {
 			"json": true,
+			"usuario": objUsuario.idUsuario,
 			"movil": true
 		},
 		function(contactos){
@@ -175,6 +176,9 @@ function callPerfil(departamento){
 				"email": $("#txtCorreo").val(),
 				"nacimiento": $("#txtNacimiento").val(),
 				"numemp": $("#txtNumeroEmpleado").val(),
+				"imss": $("#txtIMSS").val(),
+				"rfc": $("#txtRFC").val(),
+				"fechaingreso": $("#txtFechaIngreso").val(),
 				fn: {
 					before: function(){
 						form.find("[type=submit]").prop("disabled", true);

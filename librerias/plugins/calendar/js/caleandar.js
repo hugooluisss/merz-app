@@ -211,16 +211,19 @@ function createCalendar(calendar, element, adjuster){
         var evDate = calendar.Model[n].Date;
         var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month, (i+1));
         
+        number.dia = i+1;
+      number.mes = calendar.Selected.Month + 1;
+      number.anio = calendar.Selected.Year;
+      	var title = document.createElement('span');
+      	
         if(evDate.getTime() == toDate.getTime()){
           number.className += " eventday";
-          number.dia = i+1;
-          number.mes = calendar.Selected.Month + 1;
-          number.anio = calendar.Selected.Year + 1;
-          var title = document.createElement('span');
+          number.appendChild(title);
+        }
+          
           title.className += "cld-title";
           if(typeof calendar.Model[n].Link == 'function' || calendar.Options.EventClick){
           	evento = calendar.Options.EventClick.bind(null, number);
-          	console.log(evento);
             var a = document.createElement('a');
             a.setAttribute('href', '#');
             a.innerHTML += calendar.Model[n].Title;
@@ -250,8 +253,6 @@ function createCalendar(calendar, element, adjuster){
           }else{
             title.innerHTML += '<a href="' + calendar.Model[n].Link + '">' + calendar.Model[n].Title + '</a>';
           }
-          number.appendChild(title);
-        }
       }
       day.appendChild(number);
       // If Today..

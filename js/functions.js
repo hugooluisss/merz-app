@@ -145,6 +145,10 @@ function setButtonsBack(el){
 		$("[panel=home]").show();
 	});
 	
+	el.find("#btnThisPanel").click(function(){
+		$("[panel=calendarioEventos]").hide("slide", { direction: "right" }, 500);
+	});
+	
 	el.find("button[data-target]").click(function(){
 		var self = $(this);
 		$(".cinta").hide();

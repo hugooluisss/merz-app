@@ -89,6 +89,7 @@ function callDepartamento(departamento){
 	
 	
 	/* Eventos */
+	listaEventos = [];
 	$.post(server + "listaeventos", {
 		"departamento": departamento.idDepartamento,
 		"json": true,
@@ -106,13 +107,48 @@ function callDepartamento(departamento){
 					pl.find("[campo=" + campo + "]").html(valor);
 				});
 				
+				aux = {'Date': new Date(evento.anio, (evento.mes-1), evento.dia), 'Title': evento.titulo, 'Link': 'function'};
+				listaEventos.push(aux);
+				
 				$(".eventos").find(".contenido").append(pl);
 			});
-			
 			$("#showBtnCalendario").show();
 			$(".eventos").show();
 		}
 	}, "json");
 	
 	showPanel("departamento");
+	
+	$("#showBtnCalendario").click(function(){
+		$("[panel=calendarioEventos]").show();
+		var settings = {};
+		$("#dvCalendario").html("");
+		
+		caleandar(document.getElementById('dvCalendario'), listaEventos, {
+			EventClick: function (el){
+				el = $(el)[0];
+				$.post(server + "citems", {
+					'action': 'eventosDia',
+					'fecha': el.anio + '-' + el.mes + '-' + el.dia,
+					"movil": true,
+					"departamento": departamento.idDepartamento,
+				}, function(eventos){
+					div = $("[panel=calendarioEventos]").find("#dvListaEventos");
+					div.html("<center>No existen eventos</center>");
+					$.each(eventos, function(){
+						var evento = $(this);
+						console.log(evento);
+						var pl = $(plantillas['evento']);
+						evento = evento[0];
+						$.each(evento, function(campo, valor){
+							pl.find("[campo=" + campo + "]").html(valor);
+						});
+						
+						div.append(pl);
+					});
+					
+				}, "json");
+			}
+		});
+	});
 }

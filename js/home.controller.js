@@ -301,24 +301,6 @@ $(document).ready(function(){
 		var el = $(resp);
 		$("body").append(el);
 		
-		setButtonsBack($(".menu2"));
-		
-		el.show();
-		
-		var events = [
-  {'Date': new Date(2018, 4, 7), 'Title': 'Doctor appointment at 3:25pm.', 'Link': 'function'},
-  {'Date': new Date(2018, 4, 18), 'Title': 'New Garfield movie comes out!', 'Link': 'https://garfield.com'},
-  {'Date': new Date(2018, 4, 27), 'Title': '25 year anniversary', 'Link': 'https://www.google.com.au/#q=anniversary+gifts'},
-];
-		var settings = {};
-		caleandar(document.getElementById('dvCalendario'), events, {
-			EventClick: function (el){
-				el = $(el)[0];
-				console.log(el);
-				
-				console.log(el.dia)
-			}
-		}
-		);
+		setButtonsBack($(el));
 	});
 });

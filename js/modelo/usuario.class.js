@@ -78,6 +78,9 @@ TUsuario = function(){
 				"email": datos.email,
 				"nacimiento": datos.nacimiento,
 				"numemp": datos.numemp,
+				"imss": datos.imss,
+				"rfc": datos.rfc,
+				"fechaingreso": datos.fechaingreso,
 				"action": "add",
 				"movil": 1
 			}, function(data){
