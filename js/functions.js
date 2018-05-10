@@ -120,6 +120,7 @@ function getPlantillas(){
 	plantillas['noticia'] = "";
 	plantillas['archivo'] = "";
 	plantillas['evento'] = "";
+	plantillas['eventoCalendario'] = "";
 	
 	plantillas['privacidad'] = "";
 	plantillas['contactos'] = "";

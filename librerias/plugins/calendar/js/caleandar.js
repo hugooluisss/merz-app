@@ -17,7 +17,8 @@ var Calendar = function(model, options, date){
     EventClick: '',
     EventTargetWholeDay: false,
     DisabledDays: [0],
-    ModelChange: model
+    ModelChange: model,
+    backgroundDateTime: ""
   };
   // Overwriting default values
   for(var key in options){
@@ -128,6 +129,8 @@ function createCalendar(calendar, element, adjuster){
   function AddDateTime(){
       var datetime = document.createElement('div');
       datetime.className += "cld-datetime";
+      datetime.style.background = calendar.Options.backgroundDateTime;
+      console.log(calendar.Options);
       if(calendar.Options.NavShow && !calendar.Options.NavVertical){
         var rwd = document.createElement('div');
         rwd.className += " cld-rwd cld-nav";

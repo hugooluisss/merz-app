@@ -27,6 +27,8 @@ function callDepartamento(departamento){
 	$("[panel=departamento]").find(".head").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
 	$("[panel=departamento]").find(".icono").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
 	
+	$("[panel=calendarioEventos]").find(".head").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
+	
 	
 	
 	/* Noticias */
@@ -121,10 +123,10 @@ function callDepartamento(departamento){
 	
 	$("#showBtnCalendario").click(function(){
 		$("[panel=calendarioEventos]").show();
-		var settings = {};
 		$("#dvCalendario").html("");
 		
 		caleandar(document.getElementById('dvCalendario'), listaEventos, {
+			backgroundDateTime: departamento.color1,
 			EventClick: function (el){
 				el = $(el)[0];
 				$.post(server + "citems", {
@@ -134,17 +136,21 @@ function callDepartamento(departamento){
 					"departamento": departamento.idDepartamento,
 				}, function(eventos){
 					div = $("[panel=calendarioEventos]").find("#dvListaEventos");
-					div.html("<center>No existen eventos</center>");
+					var center = $("<center>No existen eventos</center>");
+					div.html("");
+					div.append(center);
+					
 					$.each(eventos, function(){
 						var evento = $(this);
 						console.log(evento);
-						var pl = $(plantillas['evento']);
+						var pl = $(plantillas['eventoCalendario']);
 						evento = evento[0];
 						$.each(evento, function(campo, valor){
 							pl.find("[campo=" + campo + "]").html(valor);
 						});
 						
 						div.append(pl);
+						center.remove();
 					});
 					
 				}, "json");
