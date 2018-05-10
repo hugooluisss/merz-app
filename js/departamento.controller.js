@@ -101,6 +101,7 @@ function callDepartamento(departamento){
 			$(".eventos").hide();
 			$("#showBtnCalendario").hide();
 		}else{
+			$(".eventos").find(".contenido").find(".evento").remove();
 			$.each(eventos, function(){
 				var evento = $(this);
 				var pl = $(plantillas['evento']);
