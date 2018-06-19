@@ -1,72 +1,44 @@
 [modulo=home]{
-	background: @background-color;
-	font-family: "Open Sans";
-	color: @navBlue;
-	
-	.newNoticia{
-		width: 35px;
-		margin-top: 17px;
-	}
-	
-	h1, h2, h3, h4, h5{
-		color: @navBlue;
-		font-family: 'Russo One', sans-serif;
-	}
-	
-	footer{
-		height: 15px;
-		min-height: inherit;
-		font-size: 8px;
-	}
-	
-	.panel{
-		border: none;
-		background: none;
+	[panel=home]{
+		background-image: url("../img/bg_home.png");
+		background-color: black;
 		
-		.panel-heading{
-			border-top-left-radius: 20px;
-			border-top-right-radius: 20px;
-		}
-		
-		.panel-body{
-			background: @blue2;
-			
-			border-bottom-left-radius: 20px;
-			border-bottom-right-radius: 20px;
-			
-			.titulo{
-				color: @panelNoticia-texto-color;
-				font-weight: bold;
-			}
-			
-			.fuente{
-				color: @panelNoticia-texto-color;
-			}
-		}
-		
-		h3{
+		.barra{
+			.degradado(@nav-c1, @nav-c2);
+			height: 140px;
+			text-align: center;
 			color: white;
-			font-family: sans-serif;
-		}
-	}
-	
-	.searchNoticias{
-		.input-group-addon{
-			background: white;
-			border-right: none;
-			border-top-left-radius: 25px;
-			border-bottom-left-radius: 25px;
+			font-size: 16px;
+			padding-top: 20px;
+			
+			h1{
+				margin-top: 5px;
+			}
 		}
 		
-		input{
-			border-left: none;
-			background: white;
-			border-top-right-radius: 25px;
-			border-bottom-right-radius: 25px;
+		.noticiaPrincipal{
+			margin-top: 20px;
+			background: #9e9e9e;
+			background-image: url("../img/noticia.png");
+			background-image: url("../img/noticia.png"), linear-gradient(to right, #9e9e9e, #c8c7c7);
+			background-position: right bottom;
+			
+			background-repeat: no-repeat;
+			min-height: 150px;
+			padding-left: 10px;
+			padding-top: 5px;
+			
+			color: white;
+			
+			[campo=titulo]{
+				background-color: @noticiaBg;
+				min-height: 100px;
+				max-width: 70%;
+				margin-left: 18px;
+				margin-top: 5px;
+				padding: 15px;
+				font-size: 18px;
+			}
 		}
 	}
-	
-	@import "departamento.less";
-	@import "perfil.less";
-	@import "calendarioEventos.less";
 }

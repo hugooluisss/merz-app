@@ -11,10 +11,8 @@ html{
 	
 	[panel], [vista]{
 		display: none;
-		background: @background-color;
 		position: absolute;
 		top: 0px;
-		padding-top: 60px;
 		left: 0px;
 	}
 	
@@ -29,31 +27,21 @@ html{
 		height: 95%;
 		overflow-y: scroll;
 		width: 100%;
+	}
+	
+	.searchNoticias{
+		.input-group-addon{
+			background: white;
+			border-right: none;
+			border-top-left-radius: 25px;
+			border-bottom-left-radius: 25px;
+		}
 		
-		.cinta{
-			position: fixed;
-			top: 25px;
-			z-index: 1000;
-			color: white;
-			font-size: 18px;
-			width: 86%;
-			right: 7%;
-			
-			@media (max-width: @mq-xs-max){
-				font-size: 14px;
-				width: 100%;
-				right: 0;
-			}
-			
-			> div{
-				color: white;
-				background: @bootstrap-success;
-				border: 2px solid @bootstrap-success;
-				border-radius: 10px;
-				padding: 10px;
-				text-align: center;
-				text-transform: capitalize;
-			}
+		input{
+			border-left: none;
+			background: white;
+			border-top-right-radius: 25px;
+			border-bottom-right-radius: 25px;
 		}
 	}
 	
@@ -76,7 +64,7 @@ html{
 		
 		.barraTop{
 			height: 50px;
-			background: @colorCabezas;
+			//background: @colorCabezas;
 			color: white;
 			padding-top: 12px;
 			text-align: center;
@@ -89,20 +77,14 @@ html{
 			overflow-y: scroll;
 			
 			.noticia{
-				.media-left img{
-					background: @colorCabezas;
-				}
-				
 				[campo=resumen]{
 					color: black;
 					font-size: 12px;
 				}
 				.referencias{
 					font-size: 10px;
-					color: @gris;
 				}
 				
-				border-bottom: @gris + #000 1px solid;
 				min-height: 70px;
 			}
 		}
