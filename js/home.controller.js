@@ -248,13 +248,22 @@ $(document).ready(function(){
 				plDepa.find("[campo=" + campo + "]").html(valor);
 			});
 			
-			if (depa.archivo != undefined || depa.archivo != "")
+			if (depa.icono != undefined && depa.icono != ""){
 				plDepa.find(".icono").prop("src", server + depa.icono);
+				plDepa.find(".icono2").prop("src", server + depa.icono);
+				plDepa.css("background-image", "url(" + server + depa.icono + ")");
+				
+				plDepa.find(".icono").show();
+				plDepa.find(".icono2").show();
+			}else{
+				plDepa.find(".icono").remove();
+				plDepa.find(".icono2").hide();
+			}
 			
 			if (depa.color2 == undefined)
-				plDepa.css("background", depa.color1);
+				plDepa.css("background-color", depa.color1);
 			else
-				plDepa.css("background", "linear-gradient(90deg, " + depa.color1 + ", " + depa.color2 + ")");
+				plDepa.css("background-image", "linear-gradient(90deg, " + depa.color1 + ", " + depa.color2 + ")");
 				
 			plDepa.attr("json", depa.json);
 			plDepa.click(function(){

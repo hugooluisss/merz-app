@@ -30,6 +30,10 @@
 			
 			color: white;
 			
+			@media (max-width: @mq-xs-max){
+				background-position: center bottom;
+			}
+			
 			[campo=titulo]{
 				background-color: @noticiaBg;
 				min-height: 100px;
@@ -38,6 +42,82 @@
 				margin-top: 5px;
 				padding: 15px;
 				font-size: 18px;
+				
+				@media (max-width: @mq-xs-max){
+					max-width: 40%;
+					float: right;
+					font-size: 14px;
+					opacity: 0.5;
+				}
+			}
+		}
+		
+		.departamentos{
+			margin-top: 20px;
+			
+			.departamento{
+				min-height: 100px;
+				width: 48%;
+				float: left;
+				background-repeat: no-repeat;
+				background-position: right center;
+				position: relative;
+				overflow:hidden;
+				
+				.icono2{
+					opacity: 0.5;
+					width: 170px;
+					line-height: 100px;
+					margin-top: 15px;
+					margin-left: 10px;
+					position: absolute;
+					left: 10px;
+				}
+				
+				&:nth-child(even){
+					border-top-left-radius: 15px;
+					border-bottom-left-radius: 15px;
+					float: right;
+					[campo=nombre]{
+						float: left;
+					}
+					
+					.icono{
+						float: right;
+					}
+				}
+				
+				&:nth-child(odd){
+					border-top-right-radius: 15px;
+					border-bottom-right-radius: 15px;
+					[campo=nombre]{
+						float: right;
+					}
+					
+					.icono{
+						float: left;
+					}
+					
+					.icono2{
+						right: 10px;
+						left: auto;
+					}
+				}
+				
+				[campo=nombre]{
+					width: 50%;
+					font-size: 18px;
+					color: white;
+					text-align: center;
+					line-height: 100px;
+				}
+				
+				.icono{
+					width: 70px;
+					line-height: 100px;
+					margin-top: 15px;
+					margin-left: 10px;
+				}
 			}
 		}
 	}
