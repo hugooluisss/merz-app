@@ -1,6 +1,6 @@
-//var server = "http://somosmerz.com/panel_app/";
+var server = "http://somosmerz.com/panel_app/";
 //var server = "http://192.168.2.4/merz/";
-var server = "http://localhost/merz/";
+//var server = "http://localhost/merz/";
 var panelActivo = "";
 
 function showPanel(panel, efecto, after){
@@ -138,7 +138,7 @@ function getPlantillas(){
 function setButtonsBack(el){
 	el.find("#btnHidePerfil").click(function(){
 		$("[panel=perfil]").hide("slide", { direction: "right" }, 500);
-		$("[panel=home]").show();
+		$("[panel=departamento]").show();
 	});
 	
 	el.find("#btnHideDepto").click(function(){

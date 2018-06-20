@@ -1,5 +1,4 @@
 function callDepartamento(departamento){
-	$("#menuSecciones").hide("slide", { direction: "left" }, 500);
 	var portadaHeight = $("[panel=departamento]").find(".portada").height();
 	$(".noticia").remove();
 	$(".noticias").hide();
@@ -18,14 +17,13 @@ function callDepartamento(departamento){
 	
 	$("[panel=departamento]").find(".icono").attr("src", server + departamento.icono);
 	
-	if(departamento.portada){
+	if(departamento.portada != ''){
 		$("[panel=departamento]").find(".portada").css("background-image", "url(" + server + departamento.portada + ")");
-		$("[panel=departamento]").find(".portada").height(portadaHeight);
-	}else
-		$("[panel=departamento]").find(".portada").height(0);
+		//$("[panel=departamento]").find(".portada").height(portadaHeight);
+	}
 	
-	$("[panel=departamento]").find(".head").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
-	$("[panel=departamento]").find(".icono").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
+	//$("[panel=departamento]").find(".head").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
+	//$("[panel=departamento]").find(".icono").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
 	
 	$("[panel=calendarioEventos]").find(".head").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
 	

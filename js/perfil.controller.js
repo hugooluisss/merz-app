@@ -65,24 +65,18 @@ function callPerfil(departamento){
 		},
 		function(contactos){
 			var inicial = "";
-			$(".listaContactos").find("li").remove();
+			$(".listaContactos").find("div").remove();
 			$.each(contactos, function(key, contacto){
-				if (contacto.nombre[0] != inicial){
-					var li = $("<li />", {
-						class: "encabezado",
-						text: contacto.nombre[0].toUpperCase()
-					});
-					
-					$(".listaContactos ul").append(li);
-				}
-				
-				var li = $("<li />", {
-					text: contacto.nombre + " " + contacto.apellidos,
-					class: "contacto",
-					busqueda: contacto.nombre + " " + contacto.apellidos
+				var dvContacto = $(plantillas['contacto']);
+				$.each(contacto, function(campo, valor){
+					dvContacto.find("[campo=" + campo + "]").html(valor);
 				});
 				
-				li.click(function(){
+				dvContacto.find(".media-object").attr("src", server + contacto.fotoPerfil);
+				$(".listaContactos").append(dvContacto);
+				
+				
+				dvContacto.click(function(){
 					$("#winContacto").modal();
 					
 					$.each(contacto, function(campo, valor){
@@ -91,8 +85,6 @@ function callPerfil(departamento){
 					
 					$("#winContacto").find("[campo=fotoPerfil]").prop("src", contacto.fotoPerfil == ' '?"images/usuario.jpg":(server + contacto.fotoPerfil));
 				});
-				
-				$(".listaContactos ul").append(li);
 			});
 			
 			$(".espera").hide();

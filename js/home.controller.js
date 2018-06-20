@@ -251,7 +251,7 @@ $(document).ready(function(){
 			if (depa.icono != undefined && depa.icono != ""){
 				plDepa.find(".icono").prop("src", server + depa.icono);
 				plDepa.find(".icono2").prop("src", server + depa.icono);
-				plDepa.css("background-image", "url(" + server + depa.icono + ")");
+				//plDepa.css("background-image", "url(" + server + depa.icono + ")");
 				
 				plDepa.find(".icono").show();
 				plDepa.find(".icono2").show();
@@ -260,7 +260,7 @@ $(document).ready(function(){
 				plDepa.find(".icono2").hide();
 			}
 			
-			if (depa.color2 == undefined)
+			if (depa.color2 == undefined || depa.color2 == "")
 				plDepa.css("background-color", depa.color1);
 			else
 				plDepa.css("background-image", "linear-gradient(90deg, " + depa.color1 + ", " + depa.color2 + ")");

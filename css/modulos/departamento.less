@@ -1,0 +1,178 @@
+[panel=departamento]{
+	padding-top: 0px;
+	z-index: 1000;
+	background: @bg-contenidoDepartamento;
+	height: 100%;
+	
+	.header{
+		position: fixed;
+		top: 0px;
+		width: 100%;
+		z-index: 1;
+		.degradado(@nav-c1, @nav-c2);
+		color: white;
+		min-height: 60px;
+		padding-top: 10px;
+		
+		#btnHideDepto{
+			background: none;
+			color: white;
+			border: none;
+			display: table-cell;
+			vertical-align: middle;
+			height: 50px;
+			
+			span{
+				display: inline-block;
+				font-size: 14px;
+				margin-left: 5px;
+				top: 26px;
+				position: absolute;
+			}
+		}
+		
+		.nombreDepartamento{
+			font-size: 25px;
+			text-align: center;
+			margin-bottom: 20px;
+			height: 50px;
+		}
+		
+		.iconoDepartamento{
+			@tamCirculoDepto: 80px;
+			width: 100%;
+			height: @tamCirculoDepto;
+			background: linear-gradient(to right, @nav-c1, @nav-c2);
+			//.degradado(@nav-c1, @nav-c2);
+			position: fixed;
+			top: 100px;
+			
+			clip-path: circle(@tamCirculoDepto/2 at 50% 30%);
+			-webkit-clip-path: circle(@tamCirculoDepto/2 at 50% 30%) top center / cover;
+			
+			.icono{
+				position: fixed;
+				left: 50%;
+				margin-left: @tamCirculoDepto/-2/2-5px;
+				top: 100px;
+				
+				width: @tamCirculoDepto/2+(@tamCirculoDepto/8);
+				height: @tamCirculoDepto/2+(@tamCirculoDepto/8);
+			}
+		}
+	}
+	
+	.portada{
+		background: url(@fondo-merz);
+		margin-top: 100px;
+		height: 350px;
+		background-color: black;
+		background-position: center center;
+		background-size: cover;
+		@media (max-width: @mq-xs-max){
+			background-position: center bottom;
+			height: 180px;
+		}
+	}
+	
+	.noticias{
+		padding: 15px 15px 15px 15px;
+		font-family: arial;
+		
+		h2{
+			font-size: 20px;
+		}
+		
+		.noticia{
+			border-bottom: white 2px solid;
+			padding-bottom: 15px;
+			
+			&:last-child{
+				border: 0px;
+			}
+			
+			h3{
+				font-size: 16px;
+				font-weight: normal;
+				font-family: arial;
+			}
+			
+			[campo="actualizada"]{
+				font-size: 12px;
+			}
+		}
+	}
+	
+	.contenidoDepartamento{
+		padding-bottom: 100px;
+		background: @bg-contenidoDepartamento;
+		
+		&>div{
+			//margin-bottom: 20px;
+		}
+		
+		.logoIcono{
+			position: relative;
+			top: 38px;
+			left: 50%;
+			width: 70px;
+			margin-left: -35px;
+		}
+	}
+	
+	#btnShowCalendario{
+		width: 92%;
+		margin-top: 40px;
+	}
+	
+	.archivos, .eventos{
+		.contenido{
+			background: white;
+			border: @borderContenidoDepartamento 1px solid ;
+			border-radius: 10px;
+			
+			padding-top: 20px;
+			padding-bottom: 20px;
+			padding-left: 10px;
+			padding-right: 10px;
+			
+			.archivo{
+				border-bottom: @borderContenidoDepartamento 2px solid;
+				padding-bottom: 15px;
+				padding-left: 30px;
+				
+				&:last-child{
+					border: 0px;
+				}
+				
+				h3{
+					font-size: 16px;
+					font-weight: normal;
+				}
+				
+				[campo="registro"]{
+					font-size: 10px;
+				}
+			}
+			
+			.evento{
+				border-bottom: @borderContenidoDepartamento 2px solid;
+				padding-bottom: 15px;
+				padding-left: 30px;
+				
+				&:last-child{
+					border: 0px;
+				}
+				
+				h3{
+					font-size: 16px;
+					font-weight: normal;
+				}
+				
+				[campo="lugar"], [campo="fecha"]{
+					font-size: 10px;
+				}
+			}
+		}
+	}
+}

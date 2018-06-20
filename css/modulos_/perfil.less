@@ -184,4 +184,64 @@
 			}
 		}
 	}
+	
+	[vista]{
+		.header{
+			position: fixed;
+			top: 0px;
+			width: 100%;
+			z-index: 1;
+			.degradado(@nav-c1, @nav-c2);
+			color: white;
+			min-height: 60px;
+			padding-top: 10px;
+			
+			#btnHideDepto{
+				background: none;
+				color: white;
+				border: none;
+				display: table-cell;
+				vertical-align: middle;
+				height: 50px;
+				
+				span{
+					display: inline-block;
+					font-size: 14px;
+					margin-left: 5px;
+					top: 26px;
+					position: absolute;
+				}
+			}
+			
+			.nombreDepartamento{
+				font-size: 25px;
+				text-align: center;
+				margin-bottom: 20px;
+				height: 50px;
+			}
+			
+			.iconoDepartamento{
+				@tamCirculoDepto: 80px;
+				width: 100%;
+				height: @tamCirculoDepto;
+				background: linear-gradient(to right, @nav-c1, @nav-c2);
+				//.degradado(@nav-c1, @nav-c2);
+				position: fixed;
+				top: 100px;
+				
+				clip-path: circle(@tamCirculoDepto/2 at 50% 30%);
+				-webkit-clip-path: circle(@tamCirculoDepto/2 at 50% 30%) top center / cover;
+				
+				.icono{
+					position: fixed;
+					left: 50%;
+					margin-left: @tamCirculoDepto/-2/2-5px;
+					top: 100px;
+					
+					width: @tamCirculoDepto/2+(@tamCirculoDepto/8);
+					height: @tamCirculoDepto/2+(@tamCirculoDepto/8);
+				}
+			}
+		}
+	}
 }
