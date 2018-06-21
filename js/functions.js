@@ -1,5 +1,5 @@
 var server = "http://somosmerz.com/panel_app/";
-//var server = "http://192.168.2.4/merz/";
+var server = "http://192.168.2.4/merz/";
 //var server = "http://localhost/merz/";
 var panelActivo = "";
 

@@ -69,9 +69,24 @@
 		background-color: black;
 		background-position: center center;
 		background-size: cover;
+		position: relative;
 		@media (max-width: @mq-xs-max){
 			background-position: center bottom;
-			height: 180px;
+			height: 230px;
+		}
+		
+		.banda{
+			height: 80px;
+			line-height: 80px;
+			background: url("../img/fondoTextoNoticia.png");
+			width: 100%;
+			bottom: 0px;
+			color: white;
+			position: absolute;
+			padding: 5px;
+			text-align: center;
+			//font-size: 18px;
+			overflow-y: scroll;
 		}
 	}
 	
@@ -125,7 +140,7 @@
 		margin-top: 40px;
 	}
 	
-	.archivos, .eventos{
+	.archivos, .eventos, .formulario{
 		.contenido{
 			background: white;
 			border: @borderContenidoDepartamento 1px solid ;

@@ -27,7 +27,10 @@ function callDepartamento(departamento){
 	
 	$("[panel=calendarioEventos]").find(".head").css("background", "linear-gradient(180deg, " + departamento.color1 + ", " + departamento.color2 + ")");
 	
+	$(".formulario").hide();
 	
+	if (departamento.formulario != '' && departamento.formulario != null)
+		$(".formulario").show();
 	
 	/* Noticias */
 	$.post(server + "listanoticias", {
@@ -155,5 +158,29 @@ function callDepartamento(departamento){
 				}, "json");
 			}
 		});
+	});
+	
+	$("[campo=formulario]").submit(function(){
+		var datos = [];
+		$("[campo=formulario]").find("input, textarea, select").each(function(){
+			var el = $(this);
+			var data = {};
+			data.titulo = el.attr("titulo");
+			data.valor = el.val();
+			datos.push(data);
+		});
+		
+		$.post(server + "csolicitudes", {
+			"action": "add",
+			"data": JSON.stringify(datos),
+			"usuario": objUsuario.idUsuario,
+			"departamento": departamento.idDepartamento,
+			"movil": true
+		}, function(resp){
+			if (resp.band){
+				mensajes.alert({"titulo": "Solicitud", "mensaje": "Tu solicitud fue registrada"});
+				$("[campo=formulario]")[0].reset();
+			}
+		}, "json");
 	});
 }
