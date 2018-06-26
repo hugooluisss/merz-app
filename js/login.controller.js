@@ -92,6 +92,20 @@ var app = {
 				});
 			}
 		});
+		
+		$("#btnRecuperarPass").click(function(){
+			mensajes.prompt({"titulo": "Recuperar contraseña", "mensaje": "Escribe tu dirección de correo electrónico", "botones": ["Enviar", "Cancelar"], "funcion": function(result){
+				if (result.buttonIndex == 1){
+					$.post(server + "clogin", {
+						"action": "recuperarPass",
+						"correo": result.input1,
+						"movil": true
+					}, function(result){
+						mensajes.alert({"mensaje": "Enviamos un correo con los datos solicitados"});
+					}, "json");
+				}
+			}});
+		});
 	}
 };
 
