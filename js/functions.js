@@ -1,6 +1,6 @@
 var server = "http://somosmerz.com/panel_app/";
 //var server = "http://192.168.2.4/merz/";
-//var server = "http://localhost/merz/";
+var server = "http://localhost/merz/";
 var panelActivo = "";
 
 function showPanel(panel, efecto, after){
@@ -12,13 +12,13 @@ function showPanel(panel, efecto, after){
 	$("[panel=" + panelActivo + "]").hide();
 	
 	switch(efecto){
-		case 'faderight':
+		case 'faderight_':
 			$("[panel=" + panel + "]").show("slide", { direction: "right" }, duracion);
 		break;
-		case 'fadeleft':
+		case 'fadeleft_':
 			$("[panel=" + panel + "]").show("slide", { direction: "left" }, duracion);
 		break;
-		case 'slow':
+		case 'slow_':
 			$("[panel=" + panel + "]").show("slow", after);
 		break;
 		default:
@@ -115,8 +115,9 @@ var mensajes = {
 
 
 function getPlantillas(){
-	plantillas['menu.departamento'] = "";
+	//plantillas['menu.departamento'] = "";
 	//plantillas['quienessomos'] = "";
+	/*
 	plantillas['noticia'] = "";
 	plantillas['archivo'] = "";
 	plantillas['evento'] = "";
@@ -127,52 +128,33 @@ function getPlantillas(){
 	plantillas['contacto'] = "";
 	plantillas['notificacion'] = "";
 	plantillas['resumenNoticia'] = "";
+	*/
+	
+	plantillas['noticiaCorousel'] = "";
+	plantillas['menu.departamento'] = "";
 	
 	$.each(plantillas, function(pl, valor){
 		$.get("vistas/" + pl + ".html", function(html){
 			plantillas[pl] = html;
 		});
 	});
-};
-
-function setButtonsBack(el){
-	el.find("#btnHidePerfil").click(function(){
-		$("[panel=perfil]").hide("slide", { direction: "right" }, 500);
-		$("[panel=departamento]").show();
-	});
 	
-	el.find("#btnHideDepto").click(function(){
-		$("[panel=departamento]").hide("slide", { direction: "right" }, 500);
-		$("[panel=home]").show();
-	});
+	cargaInit = ["buscar"];
 	
-	el.find("#btnThisPanel").click(function(){
-		$("[panel=calendarioEventos]").hide("slide", { direction: "right" }, 500);
-	});
-	
-	el.find("button[data-target]").click(function(){
-		var self = $(this);
-		$(".cinta").hide();
-		$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
-	});
-	
-	el.find("#menuBack").click(function(){
-		$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
-			$(".cinta").show();
+	$.each(cargaInit, function(pl, valor){
+		console.log("cargando " + valor);
+		$.get("vistas/" + valor + ".html", function(html){
+			$("body").append(html);
 		});
 	});
+};
 
-	
-	
-	el.find("[showpanel]").click(function(){
-		showPanel($(this).attr("showpanel"), "faderight");
-		$("div[vista]").hide();
+function setDatos(plantilla, datos){
+	console.log(datos);
+	$.each(datos, function(i, valor){
+		plantilla.find("[campo=" + i + "]").html(valor);
+		plantilla.find("[campo=" + i + "]").val(valor);
 	});
 	
-	
-	el.find("[data-target]").click(function(){
-		var self = $(this);
-		$(".cinta").hide();
-		$(self.attr("data-target")).show("slide", { direction: "left" }, 500);
-	});
+	console.log(plantilla);
 }

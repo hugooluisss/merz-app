@@ -28,8 +28,7 @@
 		<link rel="stylesheet" href="librerias/awesome/css/font-awesome.min.css" />
 		<link rel="stylesheet/less" type="text/css" href="css/style.less"/>
 		<script type="text/javascript" src="cordova.js"></script>
-		<link rel="stylesheet" href="librerias/plugins/tether/css/tether-theme-basic.min.css" />
-        <link rel="stylesheet" href="librerias/plugins/tether/css/tether.min.css" />
+		
 		<title>MERZ</title>
 		
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Russo+One" rel="stylesheet">
@@ -38,234 +37,39 @@
 	<body modulo="home">
 		<div panel="home">
 			<div class="barra">
-				<div class="row">
-					<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 text-center">
-						<div class="input-group searchNoticias">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-							<input type="text" class="form-control" placeholder="Buscar">
-						</div>
-					</div>
-				</div>
 				<h1>¡Hola <span campo="usuario.nombre"></span>!</h1>
 				¿en que podemos ayudarte?
 			</div>
-			
-			
-			<div class="noticiaPrincipal">
-				<div class="row">
-					<div class="col-xs-12">
-						<img src="img/noticiaBand.png" />
-						
-					</div>
-				</div>
-				<div class="row">
-					<div campo="titulo">
-						
-					</div>
-				</div>
-			</div>
-			
-			<div class="departamentos">
-			</div>
-		</div>
-		
-		<div id="dvBusqueda">
-			<div class="barraTop">MERZ</div>
-			<a href="#" class="cerrar"><i class="glyphicon glyphicon-remove"></i></a>
-			<br />
-			<div class="row">
-				<div class="col-xs-10 col-xs-offset-1 text-center">
-					<div class="input-group searchNoticias">
-						<span class="input-group-addon" id="btnBuscar"><i class="glyphicon glyphicon-search"></i></span>
-						<input type="text" class="form-control" placeholder="Buscar" id="txtBusquedaNoticia">
-					</div>
-					<small class="text-muted">Presiona <i class="glyphicon glyphicon-search"></i> para buscar</small>
-					<hr />
-				</div>
-			</div>
-			<div id="contenidoBusqueda" class="container">&nbsp;</div>
-		</div>
-		
-		<div class="modal fade" tabindex="-1" role="dialog" id="winNoticia">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" campo="titulo"></h4>
-					</div>
-					<div class="modal-body">
-					</div>
-				</div>
-			</div>
-		</div>
-	
-	
-	
-		<!--
-	
-	
-	
-		<div id="menuSecciones">
-			<div class="">
-				<div class="encabezado">
-					<div>
-						<button id="menuBack">
-							<i class="fa fa-angle-left fa-3x" aria-hidden="true"></i>
-						</button>
-						<img src="images/usuario.jpg" class="imagenUsuario img-circle" />
-					</div>
-					
-					<div>
-						<h4><span campo="usuario.nombre"></span></h4>
-						<span><span campo="usuario.apellidos"></span></span><br />
-						<small>No de Empleado</small> <small campo="usuario.numemp"></small>
-					</div>
+			<div class="bandNoticia">Noticias</div>
+			<div id="ultimasNoticias" class="carousel slide">
+				<div class="carousel-inner">
 				</div>
 			</div>
 			<div class="departamentos">
 			</div>
-		</div>
 			
-		<nav class="navbar blue navbar-fixed-top">
-			<div class="navbar-header">
-				<button class="pull-left menuDepartamentos" type="button">
-					<img src="images/buttonMenu.png" />
-				</button>
-				
-				<button class="pull-right" type="button" showpanel="perfil">
-					<i class="fa fa-envelope-o" aria-hidden="true"></i>
-					<span class="badge badge-danger totalNotificaciones"></span>
-					<img src="images/usuario.jpg" class="imagenUsuario img-circle"/>
-				</button>
-			</div>
-		</nav>
-		
-		<div panel="home" class="container">
-			<h1 style="margin-top: 30px;" class="text-center">¡Hola <span campo="usuario.nombre"></span>!</h1>
-			<p class="text-center">¿en qué te podemos ayudar?</p>
-			<br />
-			<div class="row">
-				<div class="col-xs-8 col-xs-offset-2 text-center">
-					<div class="input-group searchNoticias">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-						<input type="text" class="form-control" placeholder="Buscar">
+			<footer>
+				<div class="row">
+					<div class="col-xs-4 text-center opcion">
+						<img src="img/footer-user.png" />
+						<span class="badge badge-danger">4</span>
 					</div>
-				</div>
-			</div>
-			<br />
-			
-			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 text-center">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-xs-2">
-								<img src="images/noticia.png" class="newNoticia"/>
-							</div>
-							<div class="col-xs-10 text-left"><h3>Al momento</h3></div>
-						</div>
+					<div class="col-xs-4 text-center opcion">
+						<img src="img/footer-comunidad.png" />
 					</div>
-					<div class="panel-body noticiaPrincipal">
-						<div class="row">
-							<div class="col-xs-8">
-								<div class="fuente" campo="referencia">
-									reforma.com.mx
-								</div>
-								<div class="titulo" campo="titulo">
-									Repunte de casos de influenza Tipo b
-								</div>
-							</div>
-							<div class="col-xs-4 text-center" campo="fotografia">
-								<img src="#" alt="..." class="img-thumbnail">
-							</div>
-						</div>
+					<div class="col-xs-4 text-center opcion">
+						<img src="img/footer-merz.png" />
 					</div>
-				</div>
-			</div>
-			<br />
-			<br />
-			<br />
-			<div class="row">
-				<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 text-center">
-					<button class="btn btn-success btn-block" showpanel="quienessomos">¿QUIENES SOMOS?</button>
-					<button class="btn btn-success btn-block menuDepartamentos">¿QUE SUCEDE EN MERZ?</button>
-				</div>
-			</div>
-			
-			<footer class="navbar navbar-fixed-bottom">
-				<div class="text-info text-center">
-					Copyright &#9400; MARZ 2018
 				</div>
 			</footer>
 		</div>
 		
 		
-		<div panel="quienessomos" class="container">
-			<div class="row">
-				<div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-					<button class="btn btn-success btn-block" showvista="quienessomos.plantilla" codigo="quienesSomos-Areas">AREAS</button>
-					<br />
-					<button class="btn btn-success btn-block" showvista="quienessomos.plantilla" codigo="quienesSomos-organigrama">ORGANIGRAMA</button>
-					<br />
-					<button class="btn btn-success btn-block" showvista="quienessomos.plantilla" codigo="quienesSomos-directorio">DIRECTORIO</button>
-					<br />
-					<button class="btn btn-success btn-block" showvista="quienessomos.plantilla" codigo="quienesSomos-priorityNorms">PRIORITY NORMS</button>
-					<br />
-				</div>
-			</div>
-			
-			<div vista="vista">
 				
-			</div>
-			
-			<footer class="navbar navbar-fixed-bottom menu2">
-				<div class="text-info text-center">
-					<div class="col-xs-4" showpanel="perfil">
-						<i class="fa fa-4x fa-user-circle"></i>
-					</div>
-					<div class="col-xs-4" showpanel="home">
-						<i class="fa fa-4x fa-home"></i>
-					</div>
-					<div class="col-xs-4" data-target="#menuSecciones">
-						<i class="fa fa-4x fa-bars"></i>
-					</div>
-				</div>
-			</footer>
-		</div>
-		
-		<div id="dvBusqueda">
-			<div class="barraTop">MERZ</div>
-			<a href="#" class="cerrar"><i class="glyphicon glyphicon-remove"></i></a>
-			<br />
-			<div class="row">
-				<div class="col-xs-10 col-xs-offset-1 text-center">
-					<div class="input-group searchNoticias">
-						<span class="input-group-addon" id="btnBuscar"><i class="glyphicon glyphicon-search"></i></span>
-						<input type="text" class="form-control" placeholder="Buscar" id="txtBusquedaNoticia">
-					</div>
-					<small class="text-muted">Presiona <i class="glyphicon glyphicon-search"></i> para buscar</small>
-					<hr />
-				</div>
-			</div>
-			<div id="contenidoBusqueda" class="container">&nbsp;</div>
-		</div>
-		
-		<div class="modal fade" tabindex="-1" role="dialog" id="winNoticia">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" campo="titulo"></h4>
-					</div>
-					<div class="modal-body">
-					</div>
-				</div>
-			</div><!-- /.modal-content
-		</div><!-- /.modal-dialog -->
-		
 		<script src="librerias/jquery.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="librerias/plugins/jQueryUI/jquery-ui.css" />
 		<script src="librerias/plugins/jQueryUI/jquery-ui.js" type="text/javascript"></script>
-		<script src="librerias/plugins/tether/js/tether.js"></script>
+		
 		<!-- Bootstrap Core JavaScript -->
 		<script src="librerias/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 		
@@ -283,7 +87,10 @@
 		<script type="text/javascript" src="js/functions.js"></script>
 		<script type="text/javascript" src="js/modelo/usuario.class.js"></script>
 		<script type="text/javascript" src="js/home.controller.js"></script>
+		<!--
+		<script type="text/javascript" src="js/modelo/usuario.class.js"></script>
 		<script type="text/javascript" src="js/departamento.controller.js"></script>
 		<script type="text/javascript" src="js/perfil.controller.js"></script>
+		-->
 	</body>
 </html>

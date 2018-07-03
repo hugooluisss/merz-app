@@ -80,7 +80,7 @@ var app = {
 			window.plugins.PushbotsPlugin.tag("app");
 			window.plugins.PushbotsPlugin.setAlias("user_" + window.localStorage.getItem("session"));
 			
-			alertify.log("Tu equipo quedó registrado para recibir notificaciones");
+			alertify.log("Tu equipo quedÃ³ registrado para recibir notificaciones");
 		});
 		
 		//Get device token
@@ -115,128 +115,29 @@ $(document).ready(function(){
 	getPlantillas();
 	showPanel("home");
 	
-	$("#menuBack").click(function(){
-		$("#menuSecciones").hide("slide", { direction: "left" }, 500, function(){
-			$(".cinta").show();
-		});
-	});
-	
-	$(".menuDepartamentos").each(function(){
-		var el = $(this);
-		el.click(function(){
-			$(".cinta").hide();
-			$("#menuSecciones").show("slide", { direction: "left" }, 500);
-		});
-	});
-	
-	$.post(server + "cappmovil", {
-		"codigo": "noticiaPrincipal",
-		"json": true,
-		"action": "getSeccion",
+	/*Ãšltimas noticias*/
+	$.post(server + "citems", {
+		"action": "getUltimasNoticias",
 		"movil": true
-	}, function(seccion){
-		$.each(seccion, function(key, valor){
-			$(".noticiaPrincipal").find('[campo="' + key + '"]').html(valor);
+	}, function(items){
+		var primero = true;
+		$.each(items, function(i, noticia){
+			var pl = $(plantillas['noticiaCorousel']);
+			setDatos(pl, noticia);
+			
+			if (primero){
+				primero = false;
+				pl.addClass("active");
+			}
+			
+			$("#ultimasNoticias").find(".carousel-inner").append(pl);
 		});
 		
-		$(".noticiaPrincipal").find("[campo=fotografia]").find("img").attr("src", server + "repositorio/images/imagenPrincipal.jpg");
+		$("#ultimasNoticias").carousel();
 	}, "json");
 	
 	
-	$("[showpanel]").click(function(){
-		showPanel($(this).attr("showpanel"), "faderight");
-		$("div[vista]").hide();
-		$(".grupo").show();
-	});
-	
-	$("[showvista]").click(function(){
-		var codigo = $(this).attr("codigo");
-		
-		$.get("vistas/" + $(this).attr("showvista") + ".html", function(resp){
-			$("div[vista]").html(resp);
-			$("div[vista]").show();
-			
-			if ($(this).attr("codigo") != ''){
-				$.post(server + "cappmovil", {
-					"codigo": codigo,
-					"json": true,
-					"action": "getSeccion",
-					"movil": true
-				}, function(seccion){
-					$.each(seccion, function(key, valor){
-						console.log(key, valor);
-						$("div[vista]").find('[campo="' + key + '"]').html(valor);
-					});
-					
-					$("div[vista]").find("[campo=cuerpo]").find("img").each(function(){
-						$(this).attr("src", server + $(this).attr("src"));
-					});
-				}, "json");
-			}
-		});		
-	});
-	
-	
-	/*Búsqueda de la noticia*/
-	$(".searchNoticias").find("input").click(function(){
-		$("#dvBusqueda").show("blind", {}, 1000, function(){
-			$("#dvBusqueda").find("#txtBusquedaNoticia").select();
-			$(".searchNoticias").find("input").val("");
-			$("#contenidoBusqueda").find(".noticia").remove();
-		});
-	});
-	
-	$("#dvBusqueda").find(".cerrar").click(function(){
-		$("#dvBusqueda").hide();
-	});
-	
-	$("#dvBusqueda").find("#btnBuscar").click(function(){
-		if ($("#dvBusqueda").find("#txtBusquedaNoticia").val() == '')
-			$("#dvBusqueda").find("#txtBusquedaNoticia").select();
-		else{
-			$.post(server + "citems", {
-				"movil": true,
-				"action": "search",
-				"texto": $("#dvBusqueda").find("#txtBusquedaNoticia").val()
-			}, function(noticias){
-				$("#contenidoBusqueda").find(".noticia").remove();
-				$.each(noticias, function(i, noticia){
-					var pl = $(plantillas['resumenNoticia']);
-					$.each(noticia, function(key, valor){
-						pl.find("[campo=" + key +"]").html(valor);
-					});
-					pl.find(".media-left").find("img").css("background", noticia.color1);
-					pl.find("[campo=titulo]").css("color", noticia.color1);
-					
-					$("#contenidoBusqueda").append(pl);
-					
-					pl.click(function(){
-						$("#winNoticia").find("[campo=titulo]").text(noticia.titulo).css("color", "white");
-						$("#winNoticia").find(".modal-header").css("background", noticia.color1);
-						$("#winNoticia").find(".modal-body").html(noticia.cuerpo);
-						$("#winNoticia").modal();
-					});
-				});
-			}, "json");
-		}
-	});
-	
-	
-	objUsuario = new TUsuario;
-	objUsuario.getData({
-		fn: {
-			after: function(resp){
-				$.each(resp, function(key, valor){
-					$('[campo="usuario.' + key + '"]').html(valor);
-				});
-				
-				$(".imagenUsuario").attr("src", "images/usuario.jpg");
-				$(".imagenUsuario").prop("src", (resp.imagenPerfil == '' || resp.imagenPerfil == undefined)?"images/usuario.jpg":(server + resp.imagenPerfil));
-				
-			}
-		}
-	});
-	
+	/*Departamentos*/
 	$.post(server + "listadepartamentos", {
 		"movil": true,
 		"json": true
@@ -274,42 +175,19 @@ $(document).ready(function(){
 		});
 	}, "json");
 	
-	
-	$.get("vistas/panel.departamento.html", function(resp){
-		var el = $(resp);
-		$("body").append(el);
-		
-		setButtonsBack($(".menu2"));
-	});
-	
-	$.get("vistas/perfil.html", function(resp){
-		var el = $(resp);
-		$("body").append(el);
-		setButtonsBack(el);
-		
-		callPerfil();
-	});
-	
-	getTotalNotificaciones();
-	
-	setTimeout(getTotalNotificaciones(), 10 * 1000);
-	
-	function getTotalNotificaciones(){
-		console.log("Buscando notificaciones");
-		$.post(server + "cnotificaciones", {
-			"usuario": window.localStorage.getItem("session"),
-			"action": "getTotalNotificaciones",
-			"movil": true
-		}, function(resp){
-			console.info(resp);
-			$(".totalNotificaciones").html(resp.sinLeer);
-		}, "json");
-	}
-	
-	$.get("vistas/panel.calendarioEventos.html", function(resp){
-		var el = $(resp);
-		$("body").append(el);
-		
-		setButtonsBack($(el));
+	/* Datos del perfil */
+	objUsuario = new TUsuario;
+	objUsuario.getData({
+		fn: {
+			after: function(resp){
+				$.each(resp, function(key, valor){
+					$('[campo="usuario.' + key + '"]').html(valor);
+				});
+				
+				$(".imagenUsuario").attr("src", "images/usuario.jpg");
+				$(".imagenUsuario").prop("src", (resp.imagenPerfil == '' || resp.imagenPerfil == undefined)?"images/usuario.jpg":(server + resp.imagenPerfil));
+				
+			}
+		}
 	});
 });
