@@ -190,4 +190,12 @@ $(document).ready(function(){
 			}
 		}
 	});
+	
+	$.post(server + "cnotificaciones", {
+		"movil": true,
+		"action": "getTotalNotificaciones",
+		"usuario": objUsuario.idUsuario
+	}, function(resp){
+		$("[notificaciones]").text(resp.total);
+	}, "json");
 });

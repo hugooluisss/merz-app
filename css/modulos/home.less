@@ -87,9 +87,17 @@
 			position: absolute;
 			width: 100%;
 			top: 300px;
+			background-image: url(@fondo-merz);
+		background-color: black;
+			
+			@media (max-width: @mq-xs-max){
+				padding-bottom: 50px;
+			}
+			
 			.departamento{
-				@alto: 60px;
+				@alto: 70px;
 				height: @alto;
+				line-height: @alto;
 				margin-bottom: 15px;
 				width: 45%;
 				margin-left: 2.5%;
@@ -100,28 +108,39 @@
 				position: relative;
 				overflow:hidden;
 				box-shadow: 0px 0px 5px 0px #ff8d61;
+				text-align: center;
 				
 				@media (max-width: @mq-xs-max){
 					border-radius: 15px;
 					min-height: 140px;
 					margin-bottom: 10px;
+					padding-top: 10px;
+					line-height: inherit;
 				}
 				
 				border-radius: 15px;
 				
 				[campo=nombre]{
 					width: 50%;
-					margin-left: 25%;
-					font-size: 20px;
+					//margin-left: 25%;
+					font-size: 18px;
+					text-transform: uppercase;
+					letter-spacing: 5px;
 					color: white;
 					text-align: center;
 					//line-height: 70px;
 					vertical-align: middle;
+					display: inline-block;
+					line-height: normal;
 					
 					@media (max-width: @mq-xs-max){
 						line-height: inherit;
 						position: absolute;
 						bottom: 10px;
+						width: 90%;
+						left: 5%;
+						font-size: 14px;
+						line-height: inherit;
 					}
 				}
 				
@@ -135,8 +154,8 @@
 					right: 5px;
 					
 					@media (max-width: @mq-xs-max){
-						margin-left: -35px;
-						left: 50%;
+						width: 60px;
+						height: 60px;
 						position: inherit;
 					}
 				}
@@ -144,14 +163,16 @@
 				.icono2{
 					opacity: 0.1;
 					width: 100px;
-					line-height: 100px;
 					margin-top: 0px;
 					margin-left: 10px;
 					position: absolute;
 					//right: 10px;
 					
 					@media (max-width: @mq-xs-max){
-						visibility: hidden;
+						position: absolute;
+						left: 0px;
+						margin-left: -70px;
+						width: 150px;
 					}
 				}
 			}
