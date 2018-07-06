@@ -1,0 +1,65 @@
+[panel=perfil]{
+	height: 100%;
+	background: #efeff4;
+	@altoImagen: 260px;
+	
+	.imagenPerfil{
+		@alto: @altoImagen;
+		width: 100%;
+		margin-top: 140px;
+		height: @alto;
+		position: absolute;
+		
+		img{
+			width: 100%;
+			height: @alto;
+		}
+		
+		i{
+			right: 20px;
+			top: 10px;
+			position: absolute;
+			z-index: 1;
+			color: #cfced1;
+			opacity: 0.5;
+		}
+		
+		.cinta{
+			background: url("../img/bgContacto.png");
+			height: 100px;
+			width: 100%;
+			position: absolute;
+			bottom: 0px;
+			text-align: center;
+			color: white;
+			.fontRoboto;
+			
+			h3{
+				font-size: 24px;
+			}
+			
+			[campo=puesto]{
+				font-size: 16px;
+			}
+		}
+	}
+	
+	.contenidoPerfil{
+		margin-top: (140px+@altoImagen);
+		position: absolute;
+		width: 100%;
+		padding-bottom: 60px;
+		.menu{
+			//margin-top: 40px;
+			list-style-type: none;
+			//margin-bottom: 100px;
+			li{
+				margin-bottom: 35px;
+				.icono{
+					width: 25px;
+					margin-right: 30px;
+				}
+			}
+		}
+	}
+}

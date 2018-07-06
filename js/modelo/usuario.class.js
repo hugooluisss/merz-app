@@ -43,8 +43,6 @@ TUsuario = function(){
 		}, function(resp){
 			self.datos = resp;
 			self.imagenPerfil = self.datos.imagenPerfil;
-			
-			console.log(self.datos);
 			if (datos.fn.after !== undefined)
 				datos.fn.after(resp);
 		}, "json");
@@ -104,5 +102,18 @@ TUsuario = function(){
 				if (datos.fn.after !== undefined)
 					datos.fn.after(data);
 			}, "json");
+	};
+	
+	this.getTotalNewsNotificaciones = function(datos){
+		if (datos.fn.before !== undefined) datos.fn.before();
+		
+		$.post(server + "cnotificaciones", {
+			"movil": true,
+			"action": "getTotalNotificaciones",
+			"usuario": self.idUsuario
+		}, function(data){
+			if (datos.fn.after !== undefined)
+				datos.fn.after(data);
+		}, "json");
 	};
 };

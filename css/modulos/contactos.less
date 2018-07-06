@@ -1,0 +1,38 @@
+[panel=contactos]{
+	height: 100%;
+	background-color: #00213f;
+	background-image: url(@fondo-merz);
+	@altoImagen: 50px;
+	
+	.listaContactos{
+		margin-top: (140px+10px);
+		position: absolute;
+		width: 100%;
+		padding-bottom: 60px;
+		.contacto{
+			background-image: url("../img/bgContacto.png");
+			margin-bottom: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			color: white;
+			img{
+				width: @altoImagen;
+				height: @altoImagen;
+				margin-right: 10px;
+			}
+			
+			[campo]{
+			}
+		}
+		
+		.datosContacto{
+			background: #b0b5ba;
+			margin-top: -10px;
+			margin-bottom: 10px;
+			margin-left: 5px;
+			margin-right: 5px;
+			
+			padding: 50px;
+		}
+	}
+}

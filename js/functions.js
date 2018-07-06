@@ -1,6 +1,6 @@
 var server = "http://somosmerz.com/panel_app/";
 var server = "http://192.168.2.4/merz/";
-//var server = "http://localhost/merz/";
+var server = "http://localhost/merz/";
 var panelActivo = "";
 
 function showPanel(panel, efecto, after){
@@ -10,6 +10,7 @@ function showPanel(panel, efecto, after){
 		after = null;
 	
 	$("[panel=" + panelActivo + "]").hide();
+	$("#buscar").removeClass("panelBtnBuscar");
 	
 	switch(efecto){
 		case 'faderight_':
@@ -24,7 +25,8 @@ function showPanel(panel, efecto, after){
 		default:
 			$("[panel=" + panel + "]").show(1, after);
 	}
-	
+	if ($("[panel=" + panel + "]").attr("btnAtras") != "no")
+		$("#panelBuscar").addClass("panelBtnBuscar");
 	panelActivo = panel;
 }
 
@@ -114,47 +116,29 @@ var mensajes = {
 };
 
 
-function getPlantillas(){
-	//plantillas['menu.departamento'] = "";
-	//plantillas['quienessomos'] = "";
-	/*
-	plantillas['noticia'] = "";
-	plantillas['archivo'] = "";
-	plantillas['evento'] = "";
-	plantillas['eventoCalendario'] = "";
-	
-	plantillas['privacidad'] = "";
-	plantillas['contactos'] = "";
-	plantillas['contacto'] = "";
-	plantillas['notificacion'] = "";
-	plantillas['resumenNoticia'] = "";
-	*/
-	
-	plantillas['noticiaCorousel'] = "";
-	plantillas['menu.departamento'] = "";
+function getPlantillas(after){
+	var cont = 0;
+	$.each(plantillas, function(){
+		cont++;
+	});
 	
 	$.each(plantillas, function(pl, valor){
 		$.get("vistas/" + pl + ".html", function(html){
 			plantillas[pl] = html;
-		});
-	});
-	
-	cargaInit = ["buscar"];
-	
-	$.each(cargaInit, function(pl, valor){
-		console.log("cargando " + valor);
-		$.get("vistas/" + valor + ".html", function(html){
-			$("body").append(html);
+			
+			cont--;
+			if (cont == 0)
+				after();
 		});
 	});
 };
 
 function setDatos(plantilla, datos){
-	console.log(datos);
 	$.each(datos, function(i, valor){
+		antes = plantilla.find("[campo=" + i + "]").attr("before") || ""; 
+		despues = plantilla.find("[campo=" + i + "]").attr("after") || ""; 
+		valor =  antes + valor + despues;
 		plantilla.find("[campo=" + i + "]").html(valor);
 		plantilla.find("[campo=" + i + "]").val(valor);
 	});
-	
-	console.log(plantilla);
 }
