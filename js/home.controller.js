@@ -57,7 +57,7 @@ function callHome(){
 				
 			plDepa.attr("json", depa.json);
 			plDepa.click(function(){
-				callDepartamento(depa)
+				callDepartamento(depa);
 			});
 			
 			$(".departamentos").append(plDepa);

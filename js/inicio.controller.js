@@ -122,10 +122,20 @@ $(document).ready(function(){
 	plantillas["privacidad"] = "";
 	plantillas["notificaciones"] = "";
 	plantillas["notificacion"] = "";
+	plantillas["departamento"] = "";
+	plantillas["noticia"] = "";
+	plantillas["archivo"] = "";
+	plantillas["evento"] = "";
+	plantillas["eventoCalendario"] = "";
+	plantillas["resumenNoticia"] = "";
+	plantillas["resumenEvento"] = "";
 	
 	getPlantillas(function(){
 		$("body").append(plantillas["buscar"]);
 		callHome();
-		//callPerfil();
+		callBusqueda();
+		$("[panel=calendarioEventos]").find(".btnAtras").click(function(){
+			$("[panel=calendarioEventos]").hide();
+		});
 	});
 });

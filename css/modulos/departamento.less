@@ -1,0 +1,124 @@
+[panel=departamento]{
+	height: 100%;
+	background: #efeff4;
+	@altoImagen: 260px;
+	
+	.portada{
+		background: url(@fondo-merz);
+		margin-top: 100px;
+		height: 350px;
+		background-color: black;
+		background-position: center center;
+		background-size: cover;
+		position: relative;
+		@media (max-width: @mq-xs-max){
+			background-position: center bottom;
+			height: 230px;
+		}
+		
+		.banda{
+			height: 80px;
+			line-height: 80px;
+			background: url("../img/fondoTextoNoticia.png");
+			width: 100%;
+			bottom: 0px;
+			color: white;
+			position: absolute;
+			padding: 5px;
+			text-align: center;
+			//font-size: 18px;
+			overflow-y: scroll;
+		}
+	}
+	
+	.contenidoDepartamento{
+		position: absolute;
+		padding-bottom: 60px;
+		width: 100%;
+		
+		padding: 15px 15px 15px 15px;
+		font-family: arial;
+		
+		h2{
+			font-size: 20px;
+			text-transform: uppercase;
+			text-align: center;
+		}
+		
+		#btnShowCalendario{
+			margin-top: 40px;
+		}
+		
+		.contEnmarcado-body{
+			color: #6595A6; 
+		}
+		
+		.noticias, .archivos, .eventos, form[campo=formulario]{
+			margin-top: -60px;
+		}
+		
+		.noticia{
+			border-bottom: white 2px solid;
+			padding-bottom: 15px;
+			padding-left: 30px;
+			
+			&:last-child{
+				border: 0px;
+			}
+			
+			h3{
+				font-size: 16px;
+				font-weight: normal;
+				font-family: arial;
+				margin-bottom: 0px;
+			}
+			
+			[campo="actualizada"]{
+				font-size: 10px;
+				color: black;
+			}
+			
+			[campo="cuerpo"]{
+				font-size: 12px;
+				height:20px;
+				padding:20px;
+				text-overflow:ellipsis;
+				white-space:nowrap; 
+				overflow:hidden; 
+			}
+		}
+		
+		.archivo{
+			//border-bottom: @borderContenidoDepartamento 2px solid;
+			padding-bottom: 15px;
+			padding-left: 30px;
+			
+			h3{
+				font-size: 16px;
+				font-weight: normal;
+				margin-bottom: 0px;
+			}
+			
+			[campo="registro"]{
+				font-size: 10px;
+				color: black;
+			}
+		}
+		
+		.evento{
+			//border-bottom: @borderContenidoDepartamento 2px solid;
+			padding-bottom: 15px;
+			padding-left: 30px;
+			
+			h3{
+				font-size: 16px;
+				font-weight: normal;
+				margin-bottom: 0px;
+			}
+			
+			[campo="lugar"], [campo="fecha"]{
+				font-size: 10px;
+			}
+		}
+	}
+}

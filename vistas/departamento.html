@@ -1,8 +1,8 @@
 <div panel="departamento">
 	<div class="grupo">
-		<header class="barra">
-			<div class="btnAtras" showpanel="perfil"><i class="fa fa-chevron-left" aria-hidden="true"></i> <span>Atrás</span></div>
-			<h1 class="titulo">Privacidad</h1>
+		<header class="barra rosa">
+			<div class="btnAtras" showpanel="home"><i class="fa fa-chevron-left" aria-hidden="true"></i> <span>Atrás</span></div>
+			<h1 class="titulo" campo="nombre"></h1>
 		</header>
 	</div>
 	
@@ -11,54 +11,44 @@
 	</div>
 	
 	<div class="contenidoDepartamento">
-		<div class="noticias">
-			<h2>Noticias</h2>
-			
+		<div class="contEnmarcado col-sm-10 col-sm-offset-1">
+			<div class="contEnmarcado-body">
+				<img src="img/iconoEventos.png" class="logoIcono"/>
+				<div class="noticias">
+				</div>
+			</div>
 		</div>
 		
-		<div class="archivos container">
-			<img src="img/iconoArchivos.png" class="logoIcono"/>
-			<div class="contenido">
+		<div class="contEnmarcado col-sm-10 col-sm-offset-1">
+			<div class="contEnmarcado-body">
+				<img src="img/iconoArchivos.png" class="logoIcono"/>
+				<div class="archivos"></div>
 			</div>
 		</div>
 		
 		<br />
+		<br />
 		
-		<div class="row" id="showBtnCalendario">
+		<div class="col-sm-10 col-sm-offset-1" id="showBtnCalendario">
 			<div class="col-xs-12 text-center">
 				<button class="btn btn-success" id="btnShowCalendario">CALENDARIO DE EVENTOS</button>
 			</div>
 		</div>
 		
-		<div class="eventos container">
-			<img src="img/iconoEventos.png" class="logoIcono"/>
-			<div class="contenido">
+		<div class="contEnmarcado col-sm-10 col-sm-offset-1">
+			<div class="contEnmarcado-body">
+				<img src="img/iconoEventos.png" class="logoIcono"/>
+				<div class="eventos"></div>
 			</div>
 		</div>
 		
-		<div class="formulario container">
-			<img src="img/iconoFormulario.png" class="logoIcono"/>
-			<div class="contenido">
+		<div class="formulario contEnmarcado col-sm-10 col-sm-offset-1">
+			<div class="contEnmarcado-body">
+				<img src="img/iconoFormulario.png" class="logoIcono"/>
 				<form campo="formulario" onsubmit="javascript: return false;">
 				
 				</form>
 			</div>
 		</div>
 	</div>
-	
-	<footer class="navbar navbar-fixed-bottom menu2">
-		<div class="text-info text-center">
-			<div class="col-xs-6" showpanel="perfil">
-				<i class="fa fa-2x fa-user-circle"></i>
-			</div>
-			<div class="col-xs-6" showpanel="home">
-				<i class="fa fa-2x fa-home"></i>
-			</div>
-			<!--
-			<div class="col-xs-4" data-target="#menuSecciones">
-				<i class="fa fa-2x fa-bars"></i>
-			</div>
-			-->
-		</div>
-	</footer>
 </div>
