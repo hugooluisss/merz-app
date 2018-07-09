@@ -119,6 +119,9 @@ $(document).ready(function(){
 	
 	plantillas["contactos"] = "";
 	plantillas["contacto"] = "";
+	plantillas["privacidad"] = "";
+	plantillas["notificaciones"] = "";
+	plantillas["notificacion"] = "";
 	
 	getPlantillas(function(){
 		$("body").append(plantillas["buscar"]);

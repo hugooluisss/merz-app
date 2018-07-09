@@ -142,3 +142,40 @@ function setDatos(plantilla, datos){
 		plantilla.find("[campo=" + i + "]").val(valor);
 	});
 }
+
+function setPanel(){
+	$("[showpanel]").click(function(){
+		callPanel($(this).attr("showpanel"));
+	});
+	
+	objUsuario.getTotalNewsNotificaciones({
+		fn: {
+			after: function(resp){
+				$("[notificaciones]").text(resp.sinLeer);
+			}
+		}
+	});
+}
+
+function callPanel(panel){
+	switch(panel){
+		case 'contactos':
+			callContactos();
+		break;
+		case 'perfil':
+			callPerfil();
+		break;
+		case 'privacidad':
+			callPrivacidad();
+		break;
+		case 'notificaciones':
+			callNotificaciones();
+		break;
+		case 'home':
+			callHome();
+		break;
+		default:
+			console.log("Panel desconocido", panel);
+		break;
+	}
+}

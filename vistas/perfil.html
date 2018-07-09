@@ -1,33 +1,33 @@
 <div panel="perfil">
 	<div class="grupo">
 		<header class="barra">
-			<div id="btnAtras"><i class="fa fa-chevron-left" aria-hidden="true"></i> <span>Atrás</span></div>
+			<div showpanel="home" class="btnAtras"><i class="fa fa-chevron-left" aria-hidden="true"></i> <span>Atrás</span></div>
 			<h1 class="titulo">Perfil</h1>
 		</header>
 	</div>
-	<div class="imagenPerfil">
+	<div class="imagenPerfil col-sm-8 col-sm-offset-2">
 		<img id="imgPerfil" src="" />
-		<i class="fa fa-2x fa-pencil" aria-hidden="true"></i>
+		<i class="fa fa-2x fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#winDatos"></i>
 		<div class="cinta">
 			<h3><span campo="nombre"></span> <span campo="apellidos"></span></h3>
 			<span campo="puesto"></span>
 		</div>
 	</div>
-	<div class="contenidoPerfil">
+	<div class="contenidoPerfil col-sm-8 col-sm-offset-2">
 		<div class="contEnmarcado">
 			<div class="contEnmarcado-body">
 				<img src="img/perfilIcono.png" class="logoIcono"/>
 				<div class="contenido">
 					<ul class="menu">
-						<li showvista="notificaciones">
+						<li showpanel="notificaciones">
 							<img class="icono" src="img/iconosperfil/notificaciones.png" />
-							Notificaciones <span class="badge badge-danger" campo="totalNotificaciones">0</span>
+							Notificaciones <span class="badge badge-danger" notificaciones>0</span>
 						</li>
-						<li showvista="privacidad">
+						<li showpanel="privacidad">
 							<img class="icono" src="img/iconosperfil/privacidad.png" />
 							Privacidad
 						</li>
-						<li showvista="contactos">
+						<li showpanel="contactos">
 							<img class="icono" src="img/iconosperfil/contactos.png" />
 							Contactos
 						</li>
@@ -40,14 +40,65 @@
 		<div class="row">
 			<div class="col-xs-4 text-center opcion" showpanel="perfil">
 				<img src="img/footer-user.png" />
-				<span class="badge badge-danger" campo="totalNotificaciones"></span>
+				<span class="badge badge-danger" notificaciones></span>
 			</div>
 			<div class="col-xs-4 text-center opcion">
 				<img src="img/footer-comunidad.png" />
 			</div>
-			<div class="col-xs-4 text-center opcion">
+			<div class="col-xs-4 text-center opcion" showpanel="contactos">
 				<img src="img/footer/contactos.png" />
 			</div>
 		</div>
 	</footer>
+	
+	<div class="modal fade" tabindex="-1" role="dialog" id="winDatos">
+		<form action="javascript: return false;" id="frmActualizarDatos">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Modificar mis datos</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="txtNombre">Nombre</label>
+							<input type="text" class="form-control" id="txtNombre" name="txtNombre" campo="nombre"/>
+						</div>
+						<div class="form-group">
+							<label for="txtApellidos">Apellidos</label>
+							<input type="text" class="form-control" id="txtApellidos" name="txtApellidos" campo="apellidos"/>
+						</div>
+						<div class="form-group">
+							<label for="txtCorreo">Correo electrónico</label>
+							<input type="text" class="form-control" id="txtCorreo" name="txtCorreo" campo="email"/>
+						</div>
+						<div class="form-group">
+							<label for="txtNumeroEmpleado">Número de empleado</label>
+							<input type="text" class="form-control" id="txtNumeroEmpleado" name="txtNumeroEmpleado" campo="numemp"/>
+						</div>
+						<div class="form-group">
+							<label for="txtNacimiento">Fecha de nacimiento</label>
+							<input type="text" class="form-control" id="txtNacimiento" name="txtNacimiento" campo="nacimiento"/>
+						</div>
+						<div class="form-group">
+							<label for="txtIMSS">Número de seguridad social</label>
+							<input type="text" class="form-control" id="txtIMSS" name="txtIMSS" campo="imss"/>
+						</div>
+						<div class="form-group">
+							<label for="txtRFC">RFC</label>
+							<input type="text" class="form-control" id="txtRFC" name="txtRFC" campo="rfc"/>
+						</div>
+						<div class="form-group">
+							<label for="txtFechaIngreso">Fecha de ingreso</label>
+							<input type="text" class="form-control" id="txtFechaIngreso" name="txtFechaIngreso" campo="fechaingreso" disabled="true" readonly="true"/>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary btn-xs" data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-primary btn-xs">Guardar cambios</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>

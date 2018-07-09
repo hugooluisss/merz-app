@@ -1,6 +1,8 @@
 function callHome(){
 	console.info("Llamando a home");
 	$("[modulo]").html(plantillas["home"]);
+	$("#panelBuscar").removeClass("panelBtnBuscar");
+	setPanel();
 	
 	/*Últimas noticias*/
 	$.post(server + "citems", {
@@ -78,22 +80,9 @@ function callHome(){
 		}
 	});
 	
-	objUsuario.getTotalNewsNotificaciones({
-		fn: {
-			after: function(resp){
-				$("[notificaciones]").text(resp.total);
-			}
-		}
-	});
-	
-	
 	$("[showpanel]").each(function(){
 		$(this).click(function(){
-			switch($(this).attr("showpanel")){
-				case 'perfil':
-					callPerfil();
-				break;
-			}
+			callPanel($(this).attr("showpanel"));
 		});
 	});
 	
