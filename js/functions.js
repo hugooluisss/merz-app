@@ -174,8 +174,11 @@ function callPanel(panel){
 		case 'home':
 			callHome();
 		break;
+		case 'quienesSomos':
+			callQuienesSomos();
+		break;
 		default:
-			console.log("Panel desconocido", panel);
+			console.log("Sin llamada", panel);
 		break;
 	}
 }

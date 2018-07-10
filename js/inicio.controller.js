@@ -129,6 +129,7 @@ $(document).ready(function(){
 	plantillas["eventoCalendario"] = "";
 	plantillas["resumenNoticia"] = "";
 	plantillas["resumenEvento"] = "";
+	plantillas["quienesSomos"] = "";
 	
 	getPlantillas(function(){
 		$("body").append(plantillas["buscar"]);
