@@ -16,6 +16,16 @@ function callPerfil(){
 		});
 	});
 	
+	$("#btnSalir").click(function(){
+		mensajes.confirm({"mensaje": "¿Seguro?", "titulo": "Salir", "funcion": function(resp){
+				if (resp == 1){
+					window.localStorage.removeItem("session");
+					location.href = "index.html";
+				}
+			}
+		})
+	});
+	
 	
 	$("#frmActualizarDatos").validate({
 		debug: true,

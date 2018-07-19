@@ -13,12 +13,12 @@ function callContactos(){
 		var inicial = "";
 		$(".listaContactos").find("div").remove();
 		$.each(contactos, function(key, contacto){
+			console.log(contacto);
 			var dvContacto = $(plantillas['contacto']);
 			setDatos(dvContacto, contacto);
-			
-			dvContacto.find("img.foto").attr("src", server + contacto.fotoPerfil);
+			if (contacto.fotoPerfil != ' ')
+				dvContacto.find("img.foto").attr("src", server + contacto.fotoPerfil);
 			nombreClass = "item" + contacto.idUsuario;
-			console.log(dvContacto, dvContacto.find(".datosContacto.row"));
 			dvContacto.find(".datosContacto.row").addClass(nombreClass);
 			dvContacto.find(".fa").attr("data-target", "." + nombreClass);
 			$(".listaContactos").append(dvContacto);
