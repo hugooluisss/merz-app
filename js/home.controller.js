@@ -50,11 +50,13 @@ function callHome(){
 				plDepa.find(".icono2").hide();
 			}
 			
+			plDepa.css("background-color", depa.color1);
+			/*
 			if (depa.color2 == undefined || depa.color2 == "")
 				plDepa.css("background-color", depa.color1);
 			else
 				plDepa.css("background-image", "linear-gradient(90deg, " + depa.color1 + ", " + depa.color2 + ")");
-				
+			*/	
 			plDepa.attr("json", depa.json);
 			plDepa.click(function(){
 				callDepartamento(depa);

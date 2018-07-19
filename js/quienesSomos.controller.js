@@ -6,6 +6,12 @@ function callQuienesSomos(){
 	
 	$("button[codigo]").click(function(){
 		var btn = $(this);
+		
+		if ("quienesSomos-quienesSomos" == btn.attr("codigo"))
+			$(".portada").show();
+		else
+			$(".portada").hide();
+		
 		$.post(server + "cappmovil", {
 			"movil": true,
 			"action": "getSeccion",
@@ -19,11 +25,12 @@ function callQuienesSomos(){
 				el.attr("src", server + el.attr("src"));
 			});
 			$("#vista").find("[campo=cuerpo]").html(cuerpo);
+			$("#vista").find(".titulo").html(resp.titulo);
 			$("#vista").show();
 		}, "json");
 	});
 	
-	$(".cerrar").click(function(){
+	$("#vista").find(".btnAtras").click(function(){
 		$("#vista").hide();
 	});
 	

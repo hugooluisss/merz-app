@@ -6,25 +6,39 @@
 		</header>
 	</div>
 	<div class="container" style="padding-bottom: 40px;">
-		<div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-			<button class="btn btn-success btn-block" codigo="quienesSomos-Areas">AREAS</button>
-			<br />
-			<button class="btn btn-success btn-block" codigo="quienesSomos-organigrama">ORGANIGRAMA</button>
-			<br />
-			<button class="btn btn-success btn-block" codigo="quienesSomos-directorio">DIRECTORIO</button>
-			<br />
-			<button class="btn btn-success btn-block" codigo="quienesSomos-priorityNorms">PRIORITY NORMS</button>
-			<br />
+		<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0 text-center">
+			<button class="btn btn-icono btn-block" codigo="quienesSomos-quienesSomos">
+				<img src="img/cultura/quienesSomos.png"/>
+				<br />
+				QUIENES SOMOS
+			</button>
+		</div>
+		<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0 text-center">
+			<button class="btn btn-icono btn-success btn-block" codigo="quienesSomos-organigrama">
+				<img src="img/cultura/organigrama.png"/>
+				<br />
+				ORGANIGRAMA
+			</button>
+		</div>
+		<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0 text-center">
+			<button class="btn btn-success btn-icono btn-block" codigo="quienesSomos-avisoLegal">
+				<img src="img/cultura/avisoLegal.png"/>
+				<br />
+				AVISO LEGAL
+			</button>
 		</div>
 	</div>
 	
-	<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" id="vista">
-		<a href="#" class="cerrar"><i class="glyphicon glyphicon-remove"></i></a>
-		<div class="row barraTop">
-			<div class="col-xs-10 col-xs-offset-1 text-center" campo="titulo">
-			</div>
+	<div class="col-xs-12" id="vista">
+		<div class="grupo">
+			<header class="barra">
+				<div class="btnAtras"><i class="fa fa-chevron-left" aria-hidden="true"></i> <span>Atrás</span></div>
+				<h1 class="titulo">Quienes somos</h1>
+			</header>
 		</div>
-	
+		<div class="portada">
+			<div class="cinta">Desafiamos los límites</div>
+		</div>
 		
 		<div campo="cuerpo"></div>
 	</div>
@@ -34,8 +48,8 @@
 				<img src="img/footer-user.png" />
 				<span class="badge badge-danger" notificaciones></span>
 			</div>
-			<div class="col-xs-4 text-center opcion">
-				<img src="img/footer-comunidad.png" />
+			<div class="col-xs-4 text-center opcion" showpanel="home">
+				<img src="img/footer/home.png" />
 			</div>
 			<div class="col-xs-4 text-center opcion" showpanel="contactos">
 				<img src="img/footer/contactos.png" />
