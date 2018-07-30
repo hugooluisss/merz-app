@@ -47,7 +47,7 @@ function callBusqueda(){
 								pl.find("img.foto").attr("src", server + item.fotoPerfil);
 								
 							nombreClass = "item" + item.idUsuario;
-							pl.find(".datosContacto.row").addClass(nombreClass);
+							pl.find("[contacto]").addClass(nombreClass);
 							pl.find(".fa").attr("data-target", "." + nombreClass);
 							
 							$(".espera").hide();

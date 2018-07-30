@@ -18,10 +18,13 @@ function callContactos(){
 			setDatos(dvContacto, contacto);
 			if (contacto.fotoPerfil != ' ')
 				dvContacto.find("img.foto").attr("src", server + contacto.fotoPerfil);
-			nombreClass = "item" + contacto.idUsuario;
-			dvContacto.find(".datosContacto.row").addClass(nombreClass);
-			dvContacto.find(".fa").attr("data-target", "." + nombreClass);
+				
 			$(".listaContactos").append(dvContacto);
+			
+			nombreClass = "item" + contacto.idUsuario;
+			dvContacto.find("[contacto]").addClass(nombreClass);
+			dvContacto.find(".fa").attr("data-target", "." + nombreClass);
+			
 		});
 		
 		$(".espera").hide();
