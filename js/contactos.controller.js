@@ -23,7 +23,7 @@ function callContactos(){
 			
 			nombreClass = "item" + contacto.idUsuario;
 			dvContacto.find("[contacto]").addClass(nombreClass);
-			dvContacto.find(".fa").attr("data-target", "." + nombreClass);
+			dvContacto.find(".mostrar").attr("data-target", "." + nombreClass);
 			
 		});
 		

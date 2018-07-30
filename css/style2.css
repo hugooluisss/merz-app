@@ -96,14 +96,6 @@ body[modulo="login"] .btn-link:hover {
     width: 70px;
   }
 }
-[modulo=home] [panel=home] .showCalendario {
-  position: fixed;
-  bottom: 60px;
-  right: 10px;
-  border-radius: 30px;
-  width: 40px;
-  height: 40px;
-}
 [modulo=home] [panel=home] .bandNoticia {
   position: fixed;
   top: 140px;
@@ -733,8 +725,8 @@ body[modulo="login"] .btn-link:hover {
   top: 50px;
 }
 #panelBuscar .input-group {
+  right: 30%;
   width: 40%;
-  margin-left: 30%;
   position: inherit;
 }
 @media (min-width: 768px) {
@@ -745,17 +737,24 @@ body[modulo="login"] .btn-link:hover {
 }
 #panelBuscar .input-group .input-group-addon {
   background: white;
-  border-right: none;
   padding-left: 8px;
   padding-right: 8px;
+  width: 20px;
+}
+#panelBuscar .input-group .left {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  border-right: none;
+}
+#panelBuscar .input-group .right {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: none;
 }
 #panelBuscar .input-group input {
   border-left: none;
+  border-right: none;
   box-shadow: inherit;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
   float: right;
 }
 #panelBuscar button {
@@ -802,6 +801,38 @@ body[modulo="login"] .btn-link:hover {
 }
 #dvBusqueda .barraTop .text-muted {
   color: white;
+}
+#dvBusqueda .input-group {
+  width: 100%;
+  position: inherit;
+}
+@media (min-width: 768px) {
+  #dvBusqueda .input-group {
+    width: 40%;
+    margin-left: 30%;
+  }
+}
+#dvBusqueda .input-group .input-group-addon {
+  background: white;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 20px;
+}
+#dvBusqueda .input-group .left {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: none;
+}
+#dvBusqueda .input-group .right {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: none;
+}
+#dvBusqueda .input-group input {
+  border-left: none;
+  border-right: none;
+  box-shadow: inherit;
+  float: right;
 }
 #dvBusqueda button {
   margin-top: 5px;
@@ -950,6 +981,7 @@ footer {
   width: 100%;
   height: 50px;
   opacity: 0.8;
+  z-index: 999;
 }
 footer .opcion {
   padding-top: 8.75px;

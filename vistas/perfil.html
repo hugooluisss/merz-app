@@ -7,10 +7,14 @@
 	</div>
 	<div class="imagenPerfil col-sm-8 col-sm-offset-2">
 		<img id="imgPerfil" src="" />
-		<i class="fa fa-2x fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#winDatos"></i>
+		<a href="#" data-toggle="modal" data-target="#winDatos"><i class="fa fa-2x fa-pencil" aria-hidden="true"></i></a>
 		<div class="cinta">
 			<h3><span campo="nombre"></span> <span campo="apellidos"></span></h3>
 			<span campo="puesto"></span>
+			<span campo="email"></span>
+			<br />
+			<span campo="imss"></span> <span campo="numemp"></span>
+			<span campo="telefono"></span> <span campo="rfc"></span>
 		</div>
 	</div>
 	<div class="contenidoPerfil col-sm-8 col-sm-offset-2">
@@ -77,20 +81,20 @@
 							<input type="text" class="form-control" id="txtCorreo" name="txtCorreo" campo="email"/>
 						</div>
 						<div class="form-group">
-							<label for="txtNumeroEmpleado">Número de empleado</label>
-							<input type="text" class="form-control" id="txtNumeroEmpleado" name="txtNumeroEmpleado" campo="numemp"/>
-						</div>
-						<div class="form-group">
 							<label for="txtNacimiento">Fecha de nacimiento</label>
 							<input type="text" class="form-control" id="txtNacimiento" name="txtNacimiento" campo="nacimiento"/>
 						</div>
 						<div class="form-group">
+							<label for="txtNumeroEmpleado">Número de empleado</label>
+							<input type="text" class="form-control" id="txtNumeroEmpleado" name="txtNumeroEmpleado" campo="numemp" readonly="true" disabled="true"/>
+						</div>
+						<div class="form-group">
 							<label for="txtIMSS">Número de seguridad social</label>
-							<input type="text" class="form-control" id="txtIMSS" name="txtIMSS" campo="imss"/>
+							<input type="text" class="form-control" id="txtIMSS" name="txtIMSS" campo="imss" readonly="true" disabled="true"/>
 						</div>
 						<div class="form-group">
 							<label for="txtRFC">RFC</label>
-							<input type="text" class="form-control" id="txtRFC" name="txtRFC" campo="rfc"/>
+							<input type="text" class="form-control" id="txtRFC" name="txtRFC" campo="rfc" readonly="true" disabled="true"/>
 						</div>
 						<div class="form-group">
 							<label for="txtFechaIngreso">Fecha de ingreso</label>

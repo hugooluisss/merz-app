@@ -20,6 +20,14 @@ function callHome(){
 			}
 			
 			$("#ultimasNoticias").find(".carousel-inner").append(pl);
+			
+			pl.click(function(){
+				console.log(noticia);
+				$("#winNoticia").find("[campo=titulo]").text(noticia.titulo).css("color", "white");
+				$("#winNoticia").find(".modal-header").css("background", "#152b8e");
+				$("#winNoticia").find(".modal-body").html(noticia.cuerpo);
+				$("#winNoticia").modal();
+			});
 		});
 		
 		$("#ultimasNoticias").carousel();

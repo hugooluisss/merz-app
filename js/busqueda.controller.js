@@ -76,7 +76,7 @@ function callBusqueda(){
 		}
 	});
 	
-	$("#dvBusqueda").find(".barraTop").find("button").click(function(){
+	$("#dvBusqueda").find(".barraTop").find(".limpiar").click(function(){
 		$("#dvBusqueda").find("#txtBusquedaNoticia").val("");
 		$("#dvBusqueda").find("#txtBusquedaNoticia").select();
 		$("#contenidoBusqueda").find(".item").remove();
