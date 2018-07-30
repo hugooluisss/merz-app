@@ -48,7 +48,7 @@ function callBusqueda(){
 								
 							nombreClass = "item" + item.idUsuario;
 							pl.find("[contacto]").addClass(nombreClass);
-							pl.find(".fa").attr("data-target", "." + nombreClass);
+							pl.find(".mostrar").attr("data-target", "." + nombreClass);
 							
 							$(".espera").hide();
 							
