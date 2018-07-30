@@ -41,6 +41,20 @@ function callBusqueda(){
 							setDatos(pl, item);
 							setDatos(pl, item.datos);
 						break;
+						case 'Contacto':
+							var pl = $(plantillas['contacto']);
+							if (item.fotoPerfil != ' ' && item.fotoPerfil != undefined)
+								pl.find("img.foto").attr("src", server + item.fotoPerfil);
+								
+							nombreClass = "item" + item.idUsuario;
+							pl.find(".datosContacto.row").addClass(nombreClass);
+							pl.find(".fa").attr("data-target", "." + nombreClass);
+							
+							$(".espera").hide();
+							
+							setDatos(pl, item);
+							console.info("Contacto definido");
+						break;
 					}
 					
 					if (pl != undefined){

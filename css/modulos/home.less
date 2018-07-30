@@ -6,6 +6,28 @@
 		background-color: black;
 		overflow: auto;
 		
+		.logoMerz{
+			width: 90px;
+			position: fixed;
+			top: 30px;
+			left: 80px;
+			
+			@media (max-width: @mq-xs-max){
+				left: 20px;
+				top: 40px;
+				width: 70px;
+			}
+		}
+		
+		.showCalendario{
+			position: fixed;
+			bottom: 60px;
+			right: 10px;
+			border-radius: 30px;
+			width: 40px;
+			height: 40px;
+		}
+		
 		.bandNoticia{
 			position: fixed;
 			top: 140px;

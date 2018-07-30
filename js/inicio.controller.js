@@ -106,7 +106,7 @@ var app = {
 app.initialize();
 
 $(document).ready(function(){
-//	app.onDeviceReady();
+	//app.onDeviceReady();
 	objUsuario = new TUsuario;
 	if (!objUsuario.isLogin())
 		location.href = "index.html";

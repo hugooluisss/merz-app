@@ -66,6 +66,8 @@ function callHome(){
 		});
 	}, "json");
 	
+	
+	
 	/* Datos del perfil */
 	objUsuario = new TUsuario;
 	objUsuario.getData({
@@ -81,6 +83,78 @@ function callHome(){
 			}
 		}
 	});
+	
+	
+	/* Eventos */
+	listaEventos = [];
+	$.post(server + "listaeventos", {
+		"json": true,
+		"movil": true
+	}, function(eventos){
+		if (eventos.length == 0){
+			$(".eventos").hide();
+			$("#showBtnCalendario").hide();
+		}else{
+			$(".eventos").find(".contenido").find(".evento").remove();
+			$.each(eventos, function(){
+				var evento = $(this);
+				var pl = $(plantillas['evento']);
+				evento = evento[0];
+				$.each(evento, function(campo, valor){
+					pl.find("[campo=" + campo + "]").html(valor);
+				});
+				
+				aux = {'Date': new Date(evento.anio, (evento.mes-1), evento.dia), 'Title': evento.titulo, 'Link': 'function'};
+				listaEventos.push(aux);
+				
+				$(".eventos").append(pl);
+			});
+			$("#showBtnCalendario").show();
+			$(".eventos").show();
+		}
+	}, "json");
+	
+	$(".showCalendario").click(function(){
+		$("[panel=calendarioEventos]").show();
+		
+		caleandar(document.getElementById('dvCalendario'), listaEventos, {
+			backgroundDateTime: "#152b8e",
+			EventClick: function (el){
+				el = $(el)[0];
+				$.post(server + "citems", {
+					'action': 'eventosDia',
+					'fecha': el.anio + '-' + el.mes + '-' + el.dia,
+					"movil": true,
+					//"departamento": departamento.idDepartamento,
+				}, function(eventos){
+					div = $("[panel=calendarioEventos]").find("#dvListaEventos");
+					var center = $("<center>No existen eventos</center>");
+					div.html("");
+					div.append(center);
+					
+					$.each(eventos, function(){
+						var evento = $(this);
+						console.log(evento);
+						var pl = $(plantillas['eventoCalendario']);
+						evento = evento[0];
+						$.each(evento, function(campo, valor){
+							pl.find("[campo=" + campo + "]").html(valor);
+						});
+						
+						div.append(pl);
+						center.remove();
+					});
+					
+				}, "json");
+			}
+		});
+		
+		$("[panel=calendarioEventos]").find("#dvListaEventos").html("<center>No existen eventos</center>");
+	});
+	
+	
+	
+	
 	
 	$("[showpanel]").each(function(){
 		$(this).click(function(){

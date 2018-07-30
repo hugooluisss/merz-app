@@ -4,7 +4,7 @@ function callPerfil(){
 	$("#panelBuscar").addClass("panelBtnBuscar");
 	setPanel();
 	
-	$("#imgPerfil").prop("src", (objUsuario.imagenPerfil == '' || objUsuario.imagenPerfil == undefined)?"img/usuario.jpg":(server + objUsuario.imagenPerfil));
+	$("#imgPerfil").prop("src", (objUsuario.imagenPerfil == '' || objUsuario.imagenPerfil == undefined)?"img/fotoContacto.png":(server + objUsuario.imagenPerfil));
 	
 	setDatos($("[panel=perfil]"), objUsuario.datos);
 	

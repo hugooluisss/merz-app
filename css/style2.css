@@ -1,4 +1,3 @@
-
 .fontRoboto {
   font-family: 'Roboto', sans-serif;
 }
@@ -83,6 +82,27 @@ body[modulo="login"] .btn-link:hover {
   background-image: url("../img/bg_home.png");
   background-color: black;
   overflow: auto;
+}
+[modulo=home] [panel=home] .logoMerz {
+  width: 90px;
+  position: fixed;
+  top: 30px;
+  left: 80px;
+}
+@media (max-width: 767px) {
+  [modulo=home] [panel=home] .logoMerz {
+    left: 20px;
+    top: 40px;
+    width: 70px;
+  }
+}
+[modulo=home] [panel=home] .showCalendario {
+  position: fixed;
+  bottom: 60px;
+  right: 10px;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
 }
 [modulo=home] [panel=home] .bandNoticia {
   position: fixed;
@@ -713,14 +733,14 @@ body[modulo="login"] .btn-link:hover {
   top: 50px;
 }
 #panelBuscar .input-group {
-  width: 80%;
-  margin-left: 10%;
+  width: 40%;
+  margin-left: 30%;
   position: inherit;
 }
 @media (min-width: 768px) {
   #panelBuscar .input-group {
-    width: 60%;
-    margin-left: 20%;
+    width: 40%;
+    margin-left: 30%;
   }
 }
 #panelBuscar .input-group .input-group-addon {
@@ -745,14 +765,14 @@ body[modulo="login"] .btn-link:hover {
   padding: 0px;
   border: 1px solid white;
   border-radius: 25px;
-  right: 2%;
+  right: 20%;
   position: inherit;
   color: #c7c7c7;
   background: white;
 }
 @media (min-width: 768px) {
   #panelBuscar button {
-    right: 16%;
+    right: 25%;
   }
 }
 #dvBusqueda {
@@ -818,6 +838,34 @@ body[modulo="login"] .btn-link:hover {
 }
 #dvBusqueda #contenidoBusqueda .noticia .referencias {
   font-size: 10px;
+}
+#dvBusqueda #contenidoBusqueda .groupContacto .contacto {
+  background-image: url("../img/bgContacto.png");
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  position: relative;
+}
+#dvBusqueda #contenidoBusqueda .groupContacto .contacto img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#dvBusqueda #contenidoBusqueda .groupContacto .contacto i.fa {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+#dvBusqueda #contenidoBusqueda .groupContacto .datosContacto {
+  background-image: url("../img/bgContacto.png");
+  margin-top: -10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 30px;
 }
 @media (max-width: 767px) {
   .contEnmarcado {
