@@ -398,6 +398,19 @@ body[modulo="login"] .btn-link:hover {
   height: 100%;
   background: #efeff4;
 }
+[panel=departamento] .logoDepartamento {
+  width: 90px;
+  position: fixed;
+  top: 30px;
+  left: 120px;
+}
+@media (max-width: 767px) {
+  [panel=departamento] .logoDepartamento {
+    left: 40px;
+    top: 60px;
+    width: 50px;
+  }
+}
 [panel=departamento] .portada {
   background: url("../img/bg_home.png");
   margin-top: 100px;
@@ -756,6 +769,9 @@ body[modulo="login"] .btn-link:hover {
   border-right: none;
   box-shadow: inherit;
   float: right;
+}
+#panelBuscar .input-group [readonly] {
+  background: white;
 }
 #panelBuscar button {
   margin-top: 5px;

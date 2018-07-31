@@ -3,6 +3,19 @@
 	background: #efeff4;
 	@altoImagen: 260px;
 	
+	.logoDepartamento{
+		width: 90px;
+		position: fixed;
+		top: 30px;
+		left: 120px;
+		
+		@media (max-width: @mq-xs-max){
+			left: 40px;
+			top: 60px;
+			width: 50px;
+		}
+	}
+	
 	.portada{
 		background: url(@fondo-merz);
 		margin-top: 100px;

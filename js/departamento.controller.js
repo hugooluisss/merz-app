@@ -7,6 +7,8 @@ function callDepartamento(departamento){
 	
 	setDatos($("[modulo]"), departamento);
 	$(".grupo").find(".barra").css("background", departamento.color1);
+	$(".logoDepartamento").prop("src", server + departamento.icono);
+	
 	if(departamento.portada != '')
 		$("[panel=departamento]").find(".portada").css("background-image", "url(" + server + departamento.portada + ")");
 	else

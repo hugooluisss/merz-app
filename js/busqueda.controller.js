@@ -1,8 +1,8 @@
 function callBusqueda(){
 	$("#panelBuscar").find("input").click(function(){
 		$("#dvBusqueda").show("blind", {}, 1000, function(){
-			$("#dvBusqueda").find("#txtBusquedaNoticia").select();
 			$(".searchNoticias").find("input").val("");
+			$("#dvBusqueda").find("#txtBusquedaNoticia").select();
 			$("#contenidoBusqueda").find(".noticia").remove();
 		});
 	});
