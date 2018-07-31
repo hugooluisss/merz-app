@@ -2,6 +2,7 @@ function callBusqueda(){
 	$("#panelBuscar").find("input").click(function(){
 		$("#dvBusqueda").show("blind", {}, 1000, function(){
 			$(".searchNoticias").find("input").val("");
+			$("#dvBusqueda").find("#txtBusquedaNoticia").focus();
 			$("#dvBusqueda").find("#txtBusquedaNoticia").select();
 			$("#contenidoBusqueda").find(".noticia").remove();
 		});
