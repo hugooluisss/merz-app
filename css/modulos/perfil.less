@@ -57,7 +57,7 @@
 			@media (min-width: @mq-sm-min){
 				position: relative;
 				top: 30px;
-				width: 70%;
+				width: 65%;
 				float: left;
 				background:none;
 				color: #746062;
@@ -65,10 +65,30 @@
 			
 			h3{
 				font-size: 24px;
+				margin-top: 0px;
 			}
 			
 			[campo=puesto]{
 				font-size: 16px;
+			}
+			
+			.datosAdicionales{
+				font-size: 10px;
+				width: 100%;
+				text-align: left;
+				margin-left: 0px;
+				
+				li{
+					width: 49%;
+					float: left;
+					list-style: none;
+					
+					@media (max-width: @mq-xs-max){
+						b{
+							display: none;
+						}
+					}
+				}
 			}
 		}
 	}

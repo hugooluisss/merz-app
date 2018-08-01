@@ -298,7 +298,7 @@ body[modulo="login"] .btn-link:hover {
   [panel=perfil] .imagenPerfil .cinta {
     position: relative;
     top: 30px;
-    width: 70%;
+    width: 65%;
     float: left;
     background: none;
     color: #746062;
@@ -306,9 +306,26 @@ body[modulo="login"] .btn-link:hover {
 }
 [panel=perfil] .imagenPerfil .cinta h3 {
   font-size: 24px;
+  margin-top: 0px;
 }
 [panel=perfil] .imagenPerfil .cinta [campo=puesto] {
   font-size: 16px;
+}
+[panel=perfil] .imagenPerfil .cinta .datosAdicionales {
+  font-size: 10px;
+  width: 100%;
+  text-align: left;
+  margin-left: 0px;
+}
+[panel=perfil] .imagenPerfil .cinta .datosAdicionales li {
+  width: 49%;
+  float: left;
+  list-style: none;
+}
+@media (max-width: 767px) {
+  [panel=perfil] .imagenPerfil .cinta .datosAdicionales li b {
+    display: none;
+  }
 }
 [panel=perfil] .contenidoPerfil {
   margin-top: 340px;
@@ -803,9 +820,23 @@ body[modulo="login"] .btn-link:hover {
 }
 #dvBusqueda .cerrar {
   position: fixed;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  left: 10px;
   background: none;
+  color: white;
+  border: none;
+  box-shadow: none;
+  font-size: 16px;
+  font-family: arial;
+  vertical-align: middle;
+}
+#dvBusqueda .cerrar i {
+  font-size: 26px;
+}
+#dvBusqueda .cerrar span {
+  top: 3px;
+  position: absolute;
+  left: 25px;
 }
 #dvBusqueda .barraTop {
   height: 80px;

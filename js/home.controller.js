@@ -18,6 +18,11 @@ function callHome(){
 				primero = false;
 				pl.addClass("active");
 			}
+			if ($(noticia.cuerpo).find("img").length > 0){
+				pl.css("background-image", "url(" + $(noticia.cuerpo).find("img").attr("src") + ")");
+				pl.css("background-position", "middle right"); 
+				console.log($(noticia.cuerpo).find("img").prop("src"));
+			}
 			
 			$("#ultimasNoticias").find(".carousel-inner").append(pl);
 			
@@ -124,7 +129,7 @@ function callHome(){
 	
 	$(".showCalendario").click(function(){
 		$("[panel=calendarioEventos]").show();
-		
+		$("#dvCalendario").html("");
 		caleandar(document.getElementById('dvCalendario'), listaEventos, {
 			backgroundDateTime: "#152b8e",
 			EventClick: function (el){

@@ -11,11 +11,14 @@
 		<div class="cinta">
 			<h3><span campo="nombre"></span> <span campo="apellidos"></span></h3>
 			<span campo="puesto"></span>
-			<span campo="email"></span>
 			<br />
-			<span campo="numemp"></span><span campo="imss"></span>
-			<br />
-			<span campo="telefono"></span> <span campo="rfc"></span>
+			<ul class="datosAdicionales">
+				<li before="<b>CORREO: </b>" campo="email"></li>
+				<li before="<b>NO EMP: </b>" campo="numemp"></li>
+				<li before="<b>RFC: </b>" campo="rfc"></li>
+				<li before="<b>IMSS: </b>" campo="imss"></li>
+				<li before="<b>TEL: </b>" campo="telefono"></li>
+			</ul>
 		</div>
 	</div>
 	<div class="contenidoPerfil col-sm-8 col-sm-offset-2">
