@@ -117,7 +117,7 @@ function callHome(){
 					pl.find("[campo=" + campo + "]").html(valor);
 				});
 				
-				aux = {'Date': new Date(evento.anio, (evento.mes-1), evento.dia), 'Title': evento.titulo, 'Link': 'function'};
+				aux = {'Date': new Date(evento.anio, (evento.mes-1), evento.dia), 'Title': evento.titulo, 'Link': 'function', 'color': evento.color1};
 				listaEventos.push(aux);
 				
 				$(".eventos").append(pl);

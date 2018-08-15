@@ -116,4 +116,42 @@ function callPerfil(){
 	});
 	
 	console.info("Perfil cargado");
+	
+	$(".showCalendario").click(function(){
+		$("[panel=calendarioEventos]").show();
+		$("#dvCalendario").html("");
+		caleandar(document.getElementById('dvCalendario'), listaEventos, {
+			backgroundDateTime: "#152b8e",
+			EventClick: function (el){
+				el = $(el)[0];
+				$.post(server + "citems", {
+					'action': 'eventosDia',
+					'fecha': el.anio + '-' + el.mes + '-' + el.dia,
+					"movil": true,
+					//"departamento": departamento.idDepartamento,
+				}, function(eventos){
+					div = $("[panel=calendarioEventos]").find("#dvListaEventos");
+					var center = $("<center>No existen eventos</center>");
+					div.html("");
+					div.append(center);
+					
+					$.each(eventos, function(){
+						var evento = $(this);
+						console.log(evento);
+						var pl = $(plantillas['eventoCalendario']);
+						evento = evento[0];
+						$.each(evento, function(campo, valor){
+							pl.find("[campo=" + campo + "]").html(valor);
+						});
+						
+						div.append(pl);
+						center.remove();
+					});
+					
+				}, "json");
+			}
+		});
+		
+		$("[panel=calendarioEventos]").find("#dvListaEventos").html("<center>No existen eventos</center>");
+	});
 }

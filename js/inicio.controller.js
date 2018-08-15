@@ -103,7 +103,7 @@ var app = {
 	}
 };
 
-//app.initialize();
+app.initialize();
 
 $(document).ready(function(){
 	//app.onDeviceReady();
@@ -129,6 +129,7 @@ $(document).ready(function(){
 	plantillas["eventoCalendario"] = "";
 	plantillas["resumenNoticia"] = "";
 	plantillas["resumenEvento"] = "";
+	plantillas["resumenArchivo"] = "";
 	plantillas["quienesSomos"] = "";
 	
 	getPlantillas(function(){

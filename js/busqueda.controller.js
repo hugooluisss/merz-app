@@ -44,6 +44,12 @@ function callBusqueda(){
 							setDatos(pl, item);
 							setDatos(pl, item.datos);
 						break;
+						case 'Documento':
+							var pl = $(plantillas['resumenArchivo']);
+							setDatos(pl, item);
+							setDatos(pl, item.datos);
+							click =  true;
+						break;
 						case 'Contacto':
 							var pl = $(plantillas['contacto']);
 							if (item.fotoPerfil != ' ' && item.fotoPerfil != undefined)
@@ -66,13 +72,22 @@ function callBusqueda(){
 					}
 					
 					if (click && pl != undefined){
-						pl.click(function(){
-							item = $.parseJSON($(this).attr("datos"));
-							$("#winNoticia").find("[campo=titulo]").text(item.titulo).css("color", "white");
-							$("#winNoticia").find(".modal-header").css("background", item.departamento.color1);
-							$("#winNoticia").find(".modal-body").html(item.datos.cuerpo);
-							$("#winNoticia").modal();
-						});
+						switch(item.tipo){
+							case 'Noticia':
+								pl.click(function(){
+									item = $.parseJSON($(this).attr("datos"));
+									$("#winNoticia").find("[campo=titulo]").text(item.titulo).css("color", "white");
+									$("#winNoticia").find(".modal-header").css("background", item.departamento.color1);
+									$("#winNoticia").find(".modal-body").html(item.datos.cuerpo);
+									$("#winNoticia").modal();
+								});
+							break;
+							case 'Documento':
+								pl.click(function(){
+									window.open(server + item.archivo, '_system');
+								});
+							break;
+						}
 					}
 				});
 			}, "json");

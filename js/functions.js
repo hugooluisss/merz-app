@@ -157,25 +157,25 @@ function setPanel(){
 	});
 }
 
-function callPanel(panel){
+function callPanel(panel, vista){
 	switch(panel){
 		case 'contactos':
-			callContactos();
+			callContactos(vista);
 		break;
 		case 'perfil':
-			callPerfil();
+			callPerfil(vista);
 		break;
 		case 'privacidad':
-			callPrivacidad();
+			callPrivacidad(vista);
 		break;
 		case 'notificaciones':
-			callNotificaciones();
+			callNotificaciones(vista);
 		break;
 		case 'home':
-			callHome();
+			callHome(vista);
 		break;
 		case 'quienesSomos':
-			callQuienesSomos();
+			callQuienesSomos(vista);
 		break;
 		default:
 			console.log("Sin llamada", panel);

@@ -297,7 +297,6 @@ body[modulo="login"] .btn-link:hover {
 @media (min-width: 768px) {
   [panel=perfil] .imagenPerfil .cinta {
     position: relative;
-    top: 30px;
     width: 65%;
     float: left;
     background: none;
@@ -318,7 +317,7 @@ body[modulo="login"] .btn-link:hover {
   margin-left: 0px;
 }
 [panel=perfil] .imagenPerfil .cinta .datosAdicionales li {
-  width: 49%;
+  width: 100%;
   float: left;
   list-style: none;
 }

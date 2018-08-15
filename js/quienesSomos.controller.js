@@ -1,4 +1,4 @@
-function callQuienesSomos(){
+function callQuienesSomos(view){
 	console.info("Llamando a quienes somos");
 	$("[modulo]").html(plantillas["quienesSomos"]);
 	$("#panelBuscar").addClass("panelBtnBuscar");
@@ -7,7 +7,17 @@ function callQuienesSomos(){
 	$("button[codigo]").click(function(){
 		var btn = $(this);
 		
-		if ("quienesSomos-quienesSomos" == btn.attr("codigo"))
+		showVista(btn.attr("codigo"));
+	});
+	
+	$("#vista").find(".btnAtras").click(function(){
+		$("#vista").hide();
+	});
+	
+	console.info("Quienes somos cargado");
+	
+	function showVista(vista){
+		if ("quienesSomos-quienesSomos" == vista)
 			$(".portada").show();
 		else
 			$(".portada").hide();
@@ -15,7 +25,7 @@ function callQuienesSomos(){
 		$.post(server + "cappmovil", {
 			"movil": true,
 			"action": "getSeccion",
-			"codigo": btn.attr("codigo")
+			"codigo": vista
 		}, function(resp){
 			cuerpo = $(resp.cuerpo);
 			setDatos($("#vista"), resp);
@@ -28,11 +38,10 @@ function callQuienesSomos(){
 			$("#vista").find(".titulo").html(resp.titulo);
 			$("#vista").show();
 		}, "json");
-	});
+	}
 	
-	$("#vista").find(".btnAtras").click(function(){
-		$("#vista").hide();
-	});
 	
-	console.info("Quienes somos cargado");
+	if (view != null || view != undefined){
+		showVista(view);
+	}
 }
