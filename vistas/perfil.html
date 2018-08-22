@@ -7,13 +7,16 @@
 	</div>
 	<div class="imagenPerfil col-sm-8 col-sm-offset-2">
 		<img id="imgPerfil" src="" />
+		<i class="fa fa-2x fa-camera" aria-hidden="true" id="btnCamara"></i>
+		<i class="fa fa-2x fa-picture-o" aria-hidden="true" id="btnGaleria"></i>
+
 		<a href="#" data-toggle="modal" data-target="#winDatos"><i class="fa fa-2x fa-pencil" aria-hidden="true"></i></a>
 		<div class="cinta">
 			<h3><span campo="nombre"></span> <span campo="apellidos"></span></h3>
 			<span campo="puesto"></span>
 			<br /><br />
 			<ul class="datosAdicionales">
-				<li before="<b>NO EMP: </b>" campo="numemp"></li>
+				<li before="<b>NO. EMPLEADO: </b>" campo="numemp"></li>
 				<li before="<b>INGRESO: </b>" campo="fechaingreso"></li>
 				<li before="<b>IMSS: </b>" campo="imss"></li>
 				<li before="<b>RFC: </b>" campo="rfc"></li>
@@ -102,6 +105,10 @@
 						<div class="form-group">
 							<label for="txtFechaIngreso">Fecha de ingreso</label>
 							<input type="text" class="form-control" id="txtFechaIngreso" name="txtFechaIngreso" campo="fechaingreso" disabled="true" readonly="true"/>
+						</div>
+						<div class="form-group">
+							<label for="txtPass">Contraseña</label>
+							<input type="password" class="form-control" id="txtPass" name="txtPass"/>
 						</div>
 					</div>
 					<div class="modal-footer">

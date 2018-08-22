@@ -2,7 +2,7 @@ function callDepartamento(departamento){
 	console.info("Llamando a un departamento");
 	console.log(departamento);
 	
-	if (departamento.panel != undefined){
+	if (departamento.panel != "" && departamento.panel != undefined){
 		callPanel(departamento.panel, departamento.vista);
 	}else{
 		$("[modulo]").html(plantillas["departamento"]);

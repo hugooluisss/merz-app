@@ -243,7 +243,7 @@ body[modulo="login"] .btn-link:hover {
   background: #efeff4;
 }
 [panel=perfil] .imagenPerfil {
-  margin-top: 140px;
+  margin-top: 120px;
   height: 260px;
   position: absolute;
 }
@@ -271,7 +271,16 @@ body[modulo="login"] .btn-link:hover {
     float: left;
   }
 }
-[panel=perfil] .imagenPerfil i {
+[panel=perfil] .imagenPerfil #btnCamara,
+[panel=perfil] .imagenPerfil #btnGaleria {
+  position: absolute;
+  left: 35px;
+  bottom: 20px;
+}
+[panel=perfil] .imagenPerfil #btnGaleria {
+  left: 100px;
+}
+[panel=perfil] .imagenPerfil i.fa-pencil {
   right: 20px;
   top: 10px;
   position: absolute;
@@ -280,7 +289,7 @@ body[modulo="login"] .btn-link:hover {
   opacity: 0.5;
 }
 @media (min-width: 768px) {
-  [panel=perfil] .imagenPerfil i {
+  [panel=perfil] .imagenPerfil i.fa-pencil {
     top: 70px;
   }
 }
@@ -320,6 +329,7 @@ body[modulo="login"] .btn-link:hover {
   width: 100%;
   float: left;
   list-style: none;
+  font-size: 14px;
 }
 @media (max-width: 767px) {
   [panel=perfil] .imagenPerfil .cinta .datosAdicionales li b {
@@ -327,7 +337,7 @@ body[modulo="login"] .btn-link:hover {
   }
 }
 [panel=perfil] .contenidoPerfil {
-  margin-top: 340px;
+  margin-top: 400px;
   position: absolute;
   padding-bottom: 60px;
 }

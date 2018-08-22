@@ -4,6 +4,12 @@ function callQuienesSomos(view){
 	$("#panelBuscar").addClass("panelBtnBuscar");
 	setPanel();
 	
+	if (view != undefined){
+		$("#vista").find(".btnAtras").click(function(){
+			callPanel("home");
+		});
+	}
+	
 	$("button[codigo]").click(function(){
 		var btn = $(this);
 		

@@ -79,6 +79,7 @@ TUsuario = function(){
 				"imss": datos.imss,
 				"rfc": datos.rfc,
 				"fechaingreso": datos.fechaingreso,
+				"pass": datos.pass,
 				"action": "add",
 				"movil": 1
 			}, function(data){
