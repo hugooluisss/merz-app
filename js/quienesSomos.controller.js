@@ -1,14 +1,14 @@
 function callQuienesSomos(view){
 	console.info("Llamando a quienes somos");
 	$("[modulo]").html(plantillas["quienesSomos"]);
-	$("#panelBuscar").addClass("panelBtnBuscar");
-	setPanel();
-	
 	if (view != undefined){
 		$("#vista").find(".btnAtras").click(function(){
 			callPanel("home");
 		});
 	}
+	
+	$("#panelBuscar").addClass("panelBtnBuscar");
+	setPanel();
 	
 	$("button[codigo]").click(function(){
 		var btn = $(this);
