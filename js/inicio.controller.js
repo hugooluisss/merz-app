@@ -124,6 +124,7 @@ $(document).ready(function(){
 	plantillas["notificacion"] = "";
 	plantillas["departamento"] = "";
 	plantillas["noticia"] = "";
+	plantillas["noticiaFija"] = "";
 	plantillas["archivo"] = "";
 	plantillas["evento"] = "";
 	plantillas["eventoCalendario"] = "";

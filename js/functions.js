@@ -182,3 +182,20 @@ function callPanel(panel, vista){
 		break;
 	}
 }
+
+function mesLetra(mes){
+	switch(mes){
+		case 1: case '01': return "Enero"; break;
+		case 2: case '02': return "Febrero"; break;
+		case 3: case '03': return "Marzo"; break;
+		case 4: case '04': return "Abril"; break;
+		case 5: case '05': return "Mayo"; break;
+		case 6: case '06': return "Junio"; break;
+		case 7: case '07': return "Julio"; break;
+		case 8: case '08': return "Agosto"; break;
+		case 9: case '09': return "Septiembre"; break;
+		case 10: case '10': return "Octubre"; break;
+		case 11: case '11': return "Noviembre"; break;
+		case 12: case '12': return "Diciembre"; break;
+	}
+}

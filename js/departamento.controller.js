@@ -37,6 +37,13 @@ function callDepartamento(departamento){
 					$.each(noticia, function(campo, valor){
 						pl.find("[campo=" + campo + "]").html(valor);
 					});
+					img = $(noticia.cuerpo).find("img").attr("src");
+					if (img != undefined)
+						pl.find("img").attr("src", img);
+						
+					pl.find("[campo=dia]").html(noticia.objActualizada.dia);
+					pl.find("[campo=mes]").html(mesLetra(noticia.objActualizada.mes));
+					pl.find("[campo=anio]").html(noticia.objActualizada.anio);
 					
 					$(".noticias").append(pl);
 					
@@ -49,6 +56,44 @@ function callDepartamento(departamento){
 					});
 				});
 				$(".noticias").show();
+			}
+		}, "json");
+		
+		/* Noticias */
+		$.post(server + "getNoticiaFija", {
+			"departamento": departamento.idDepartamento,
+			"json": true,
+			"movil": true
+		}, function(noticias){
+			if (noticias.length == 0)
+				$(".noticiasFijas").hide();
+			else{
+				$.each(noticias, function(){
+					var noticia = $(this);
+					var pl = $(plantillas['noticiaFija']);
+					noticia = noticia[0];
+					$.each(noticia, function(campo, valor){
+						pl.find("[campo=" + campo + "]").html(valor);
+					});
+					img = $(noticia.cuerpo).find("img").attr("src");
+					if (img != undefined)
+						pl.find("img").attr("src", img);
+					console.info(noticia.objActualizada);
+					pl.find("[campo=dia]").html(noticia.objActualizada.dia);
+					pl.find("[campo=mes]").html(mesLetra(noticia.objActualizada.mes));
+					pl.find("[campo=anio]").html(noticia.objActualizada.anio);
+					
+					$(".noticiasFijas").append(pl);
+					
+					pl.click(function(){
+						console.log(noticia);
+						$("#winNoticia").find("[campo=titulo]").text(noticia.titulo).css("color", "white");
+						$("#winNoticia").find(".modal-header").css("background", noticia.color1);
+						$("#winNoticia").find(".modal-body").html(noticia.cuerpo);
+						$("#winNoticia").modal();
+					});
+				});
+				$(".noticiasFijas").show();
 			}
 		}, "json");
 		
