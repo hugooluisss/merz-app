@@ -18,7 +18,7 @@ var Calendar = function(model, options, date){
     EventTargetWholeDay: false,
     DisabledDays: [0],
     ModelChange: model,
-    backgroundDateTime: ""
+    backgroundDateTime: "#0404B4"
   };
   // Overwriting default values
   for(var key in options){

@@ -68,43 +68,16 @@
 		
 		.contEnmarcado-body{
 			color: #6595A6; 
+			
+			&.gris{
+				background: @inputBorderColor;
+			}
 		}
 		
 		.noticias, .archivos, .eventos, form[campo=formulario]{
 			margin-top: -60px;
 		}
-		/*
-		.noticia{
-			border-bottom: white 2px solid;
-			padding-bottom: 15px;
-			padding-left: 30px;
-			
-			&:last-child{
-				border: 0px;
-			}
-			
-			h3{
-				font-size: 16px;
-				font-weight: normal;
-				font-family: arial;
-				margin-bottom: 0px;
-			}
-			
-			[campo="actualizada"]{
-				font-size: 10px;
-				color: black;
-			}
-			
-			[campo="cuerpo"]{
-				font-size: 12px;
-				height:20px;
-				padding:20px;
-				text-overflow:ellipsis;
-				white-space:nowrap; 
-				overflow:hidden; 
-			}
-		}
-		*/
+		
 		.noticiasFijas, .noticias{
 			margin-top: -40px;
 			.noticiaFija, .noticia{
@@ -163,6 +136,10 @@
 			[campo="lugar"], [campo="fecha"]{
 				font-size: 10px;
 			}
+		}
+		
+		#calendario{
+			margin-top: -50px;
 		}
 	}
 }

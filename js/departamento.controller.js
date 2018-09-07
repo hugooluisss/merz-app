@@ -78,7 +78,7 @@ function callDepartamento(departamento){
 					img = $(noticia.cuerpo).find("img").attr("src");
 					if (img != undefined)
 						pl.find("img").attr("src", img);
-					console.info(noticia.objActualizada);
+						
 					pl.find("[campo=dia]").html(noticia.objActualizada.dia);
 					pl.find("[campo=mes]").html(mesLetra(noticia.objActualizada.mes));
 					pl.find("[campo=anio]").html(noticia.objActualizada.anio);
@@ -132,14 +132,14 @@ function callDepartamento(departamento){
 			"json": true,
 			"movil": true
 		}, function(eventos){
+			$("#dvCalendario").html("");
 			if (eventos.length == 0){
-				$(".eventos").hide();
-				$("#showBtnCalendario").hide();
+				$("#dvListaEventosPanel").hide();
 			}else{
-				$(".eventos").find(".contenido").find(".evento").remove();
-				$.each(eventos, function(){
-					var evento = $(this);
-					var pl = $(plantillas['evento']);
+				$("#dvListaEventosPanel").find(".contenido").find(".evento").remove();
+				for (i in eventos){
+					var evento = $(eventos[i]);
+					var pl = $(plantillas['eventoCalendario']);
 					evento = evento[0];
 					$.each(evento, function(campo, valor){
 						pl.find("[campo=" + campo + "]").html(valor);
@@ -148,10 +148,42 @@ function callDepartamento(departamento){
 					aux = {'Date': new Date(evento.anio, (evento.mes-1), evento.dia), 'Title': evento.titulo, 'Link': 'function'};
 					listaEventos.push(aux);
 					
-					$(".eventos").append(pl);
-				});
-				$("#showBtnCalendario").show();
-				$(".eventos").show();
+					$("#dvListaEventosPanel").append(pl);
+				}
+				$("#dvListaEventosPanel").show();
+				
+				caleandar(document.getElementById('calendario'), listaEventos, {
+						//backgroundDateTime: departamento.color1,
+						EventClick: function (el){
+							el = $(el)[0];
+							$.post(server + "citems", {
+								'action': 'eventosDia',
+								'fecha': el.anio + '-' + el.mes + '-' + el.dia,
+								"movil": true,
+								"departamento": departamento.idDepartamento,
+							}, function(eventos){
+								console.log("Eventos");
+								div = $("#dvListaEventosPanel");
+								var center = $("<center>No existen eventos</center>");
+								div.html("");
+								div.append(center);
+								
+								$.each(eventos, function(){
+									var evento = $(this);
+									console.log(evento);
+									var pl = $(plantillas['eventoCalendario']);
+									evento = evento[0];
+									$.each(evento, function(campo, valor){
+										pl.find("[campo=" + campo + "]").html(valor);
+									});
+									
+									div.append(pl);
+									center.remove();
+								});
+								
+							}, "json");
+						}
+					});
 			}
 		}, "json");
 			
@@ -159,67 +191,38 @@ function callDepartamento(departamento){
 			$(".formulario").show();
 			
 			$("[campo=formulario]").submit(function(){
-			var datos = [];
-			$("[campo=formulario]").find("input, textarea, select").each(function(){
-				var el = $(this);
-				var data = {};
-				data.titulo = el.attr("titulo");
-				data.valor = el.val();
-				datos.push(data);
+				var datos = [];
+				$("[campo=formulario]").find("input, textarea, select").each(function(){
+					var el = $(this);
+					var data = {};
+					data.titulo = el.attr("titulo");
+					data.valor = el.val();
+					datos.push(data);
+				});
+				
+				$.post(server + "csolicitudes", {
+					"action": "add",
+					"data": JSON.stringify(datos),
+					"usuario": objUsuario.idUsuario,
+					"departamento": departamento.idDepartamento,
+					"movil": true
+				}, function(resp){
+					if (resp.band){
+						mensajes.alert({"titulo": "Solicitud", "mensaje": "Tu solicitud fue registrada"});
+						$("[campo=formulario]")[0].reset();
+					}
+				}, "json");
 			});
-			
-			$.post(server + "csolicitudes", {
-				"action": "add",
-				"data": JSON.stringify(datos),
-				"usuario": objUsuario.idUsuario,
-				"departamento": departamento.idDepartamento,
-				"movil": true
-			}, function(resp){
-				if (resp.band){
-					mensajes.alert({"titulo": "Solicitud", "mensaje": "Tu solicitud fue registrada"});
-					$("[campo=formulario]")[0].reset();
-				}
-			}, "json");
-		});
 		}
-			
+		
+		/*	
 		$("#showBtnCalendario").click(function(){
 			$("[panel=calendarioEventos]").show();
 			$("#dvCalendario").html("");
 			
-			caleandar(document.getElementById('dvCalendario'), listaEventos, {
-				backgroundDateTime: departamento.color1,
-				EventClick: function (el){
-					el = $(el)[0];
-					$.post(server + "citems", {
-						'action': 'eventosDia',
-						'fecha': el.anio + '-' + el.mes + '-' + el.dia,
-						"movil": true,
-						"departamento": departamento.idDepartamento,
-					}, function(eventos){
-						div = $("[panel=calendarioEventos]").find("#dvListaEventos");
-						var center = $("<center>No existen eventos</center>");
-						div.html("");
-						div.append(center);
-						
-						$.each(eventos, function(){
-							var evento = $(this);
-							console.log(evento);
-							var pl = $(plantillas['eventoCalendario']);
-							evento = evento[0];
-							$.each(evento, function(campo, valor){
-								pl.find("[campo=" + campo + "]").html(valor);
-							});
-							
-							div.append(pl);
-							center.remove();
-						});
-						
-					}, "json");
-				}
-			});
+			
 		});
-		
+		*/
 		console.info("Departamento cargado");
 	}
 }
