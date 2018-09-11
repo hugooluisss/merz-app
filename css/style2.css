@@ -470,38 +470,6 @@ body[modulo="login"] .btn-link:hover {
   padding-bottom: 60px;
   width: 100%;
   font-family: arial;
-  /*
-		.noticia{
-			border-bottom: white 2px solid;
-			padding-bottom: 15px;
-			padding-left: 30px;
-			
-			&:last-child{
-				border: 0px;
-			}
-			
-			h3{
-				font-size: 16px;
-				font-weight: normal;
-				font-family: arial;
-				margin-bottom: 0px;
-			}
-			
-			[campo="actualizada"]{
-				font-size: 10px;
-				color: black;
-			}
-			
-			[campo="cuerpo"]{
-				font-size: 12px;
-				height:20px;
-				padding:20px;
-				text-overflow:ellipsis;
-				white-space:nowrap; 
-				overflow:hidden; 
-			}
-		}
-		*/
 }
 [panel=departamento] .contenidoDepartamento .row {
   margin-right: 0px;
@@ -518,10 +486,14 @@ body[modulo="login"] .btn-link:hover {
 [panel=departamento] .contenidoDepartamento .contEnmarcado-body {
   color: #6595A6;
 }
+[panel=departamento] .contenidoDepartamento .contEnmarcado-body.gris {
+  background: #F2F2F2;
+}
 [panel=departamento] .contenidoDepartamento .noticias,
 [panel=departamento] .contenidoDepartamento .archivos,
 [panel=departamento] .contenidoDepartamento .eventos,
-[panel=departamento] .contenidoDepartamento form[campo=formulario] {
+[panel=departamento] .contenidoDepartamento form[campo=formulario],
+[panel=departamento] .contenidoDepartamento .contactos {
   margin-top: -60px;
 }
 [panel=departamento] .contenidoDepartamento .noticiasFijas,
@@ -533,15 +505,8 @@ body[modulo="login"] .btn-link:hover {
 [panel=departamento] .contenidoDepartamento .noticiasFijas .noticia img,
 [panel=departamento] .contenidoDepartamento .noticias .noticia img {
   width: 100%;
-  height: 140px;
 }
 @media (min-width: 992px) {
-  [panel=departamento] .contenidoDepartamento .noticiasFijas .noticiaFija img,
-  [panel=departamento] .contenidoDepartamento .noticias .noticiaFija img,
-  [panel=departamento] .contenidoDepartamento .noticiasFijas .noticia img,
-  [panel=departamento] .contenidoDepartamento .noticias .noticia img {
-    height: 220px;
-  }
 }
 [panel=departamento] .contenidoDepartamento .noticiasFijas .noticiaFija .registrada,
 [panel=departamento] .contenidoDepartamento .noticias .noticiaFija .registrada,
@@ -588,6 +553,23 @@ body[modulo="login"] .btn-link:hover {
 [panel=departamento] .contenidoDepartamento .evento [campo="fecha"] {
   font-size: 10px;
 }
+[panel=departamento] .contenidoDepartamento #calendario {
+  margin-top: -50px;
+}
+[panel=departamento] .contenidoDepartamento .contactos .contacto {
+  color: #848484;
+  font-size: 13px;
+}
+[panel=departamento] .contenidoDepartamento .contactos .contacto img {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+[panel=departamento] .contenidoDepartamento .contactos .contacto .text-muted {
+  font-size: 12px;
+}
 [panel=calendarioEventos] {
   padding-top: 0px;
   z-index: 1001;
@@ -632,63 +614,6 @@ body[modulo="login"] .btn-link:hover {
   position: absolute;
   left: 25px;
 }
-[panel=calendarioEventos] #dvCalendario {
-  margin-top: 120px;
-  height: 270px;
-  margin-bottom: 10px;
-  width: 90%;
-  position: relative;
-  left: 5%;
-}
-[panel=calendarioEventos] #dvCalendario .cld-main {
-  width: 100%;
-}
-[panel=calendarioEventos] #dvCalendario .cld-main .cld-datetime {
-  width: 100%;
-  height: 50px;
-  background: #0d61ae;
-  max-width: 100%;
-  font-size: 26px;
-}
-[panel=calendarioEventos] #dvCalendario .cld-main .cld-datetime .today {
-  font-size: 26px;
-  color: white;
-  text-transform: uppercase;
-  padding-top: 5px;
-  width: 80%;
-}
-[panel=calendarioEventos] #dvCalendario .cld-main .cld-datetime .cld-nav {
-  color: white;
-  padding-right: 10px;
-  padding-left: 10px;
-  width: 10%;
-}
-[panel=calendarioEventos] #dvCalendario .cld-labels {
-  background: #0d61ae;
-  color: white;
-}
-[panel=calendarioEventos] #dvCalendario .cld-days .disableDay {
-  color: #0d61ae;
-  font-weight: bold;
-  opacity: 1;
-}
-[panel=calendarioEventos] #dvCalendario .cld-days .cld-day .cld-number {
-  margin-top: 0px;
-  padding-top: 0px;
-}
-[panel=calendarioEventos] #dvCalendario .cld-days .today .cld-number {
-  color: red;
-  background: none;
-}
-[panel=calendarioEventos] #dvCalendario .cld-days .eventday {
-  background-image: url("../img/diaEventoMark.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  border: none;
-  height: 27px;
-  width: 40px;
-  color: white;
-}
 [panel=calendarioEventos] #dvListaEventos .evento {
   border-top: 1px solid #c0dbee;
   text-align: justify;
@@ -697,6 +622,111 @@ body[modulo="login"] .btn-link:hover {
   background: white;
 }
 [panel=calendarioEventos] #dvListaEventos .evento [campo="dia"] {
+  background-image: url("../img/diaEventoDescripcion.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-width: 80px;
+  text-align: center;
+  color: white;
+  padding-top: 13px;
+  padding-left: 10px;
+}
+[panel=calendarioEventos] #dvCalendario,
+[panel=departamento] #dvCalendario,
+[panel=calendarioEventos] #calendario,
+[panel=departamento] #calendario {
+  margin-top: 120px;
+  height: 270px;
+  margin-bottom: 10px;
+  width: 90%;
+  position: relative;
+  left: 5%;
+}
+[panel=calendarioEventos] #dvCalendario .cld-main,
+[panel=departamento] #dvCalendario .cld-main,
+[panel=calendarioEventos] #calendario .cld-main,
+[panel=departamento] #calendario .cld-main {
+  width: 100%;
+}
+[panel=calendarioEventos] #dvCalendario .cld-main .cld-datetime,
+[panel=departamento] #dvCalendario .cld-main .cld-datetime,
+[panel=calendarioEventos] #calendario .cld-main .cld-datetime,
+[panel=departamento] #calendario .cld-main .cld-datetime {
+  width: 100%;
+  height: 50px;
+  max-width: 100%;
+  font-size: 26px;
+}
+[panel=calendarioEventos] #dvCalendario .cld-main .cld-datetime .today,
+[panel=departamento] #dvCalendario .cld-main .cld-datetime .today,
+[panel=calendarioEventos] #calendario .cld-main .cld-datetime .today,
+[panel=departamento] #calendario .cld-main .cld-datetime .today {
+  font-size: 26px;
+  color: white;
+  text-transform: uppercase;
+  padding-top: 5px;
+  width: 80%;
+}
+[panel=calendarioEventos] #dvCalendario .cld-main .cld-datetime .cld-nav,
+[panel=departamento] #dvCalendario .cld-main .cld-datetime .cld-nav,
+[panel=calendarioEventos] #calendario .cld-main .cld-datetime .cld-nav,
+[panel=departamento] #calendario .cld-main .cld-datetime .cld-nav {
+  color: white;
+  padding-right: 10px;
+  padding-left: 10px;
+  width: 10%;
+}
+[panel=calendarioEventos] #dvCalendario .cld-labels,
+[panel=departamento] #dvCalendario .cld-labels,
+[panel=calendarioEventos] #calendario .cld-labels,
+[panel=departamento] #calendario .cld-labels {
+  background: #0d61ae;
+  color: white;
+}
+[panel=calendarioEventos] #dvCalendario .cld-days .disableDay,
+[panel=departamento] #dvCalendario .cld-days .disableDay,
+[panel=calendarioEventos] #calendario .cld-days .disableDay,
+[panel=departamento] #calendario .cld-days .disableDay {
+  color: #0d61ae;
+  font-weight: bold;
+  opacity: 1;
+}
+[panel=calendarioEventos] #dvCalendario .cld-days .cld-day .cld-number,
+[panel=departamento] #dvCalendario .cld-days .cld-day .cld-number,
+[panel=calendarioEventos] #calendario .cld-days .cld-day .cld-number,
+[panel=departamento] #calendario .cld-days .cld-day .cld-number {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+[panel=calendarioEventos] #dvCalendario .cld-days .today .cld-number,
+[panel=departamento] #dvCalendario .cld-days .today .cld-number,
+[panel=calendarioEventos] #calendario .cld-days .today .cld-number,
+[panel=departamento] #calendario .cld-days .today .cld-number {
+  color: red;
+  background: none;
+}
+[panel=calendarioEventos] #dvCalendario .cld-days .eventday,
+[panel=departamento] #dvCalendario .cld-days .eventday,
+[panel=calendarioEventos] #calendario .cld-days .eventday,
+[panel=departamento] #calendario .cld-days .eventday {
+  background-image: url("../img/diaEventoMark.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none;
+  height: 27px;
+  width: 40px;
+  color: white;
+}
+[panel=calendarioEventos] #dvListaEventosPanel .evento,
+[panel=departamento] #dvListaEventosPanel .evento {
+  border-top: 1px solid #c0dbee;
+  text-align: justify;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: white;
+}
+[panel=calendarioEventos] #dvListaEventosPanel .evento [campo="dia"],
+[panel=departamento] #dvListaEventosPanel .evento [campo="dia"] {
   background-image: url("../img/diaEventoDescripcion.png");
   background-position: center center;
   background-repeat: no-repeat;
@@ -770,13 +800,14 @@ body[modulo="login"] .btn-link:hover {
   padding-left: 15px;
   padding-right: 15px;
   color: black;
-  overflow-x: scroll;
-  height: 75%;
+  overflow: scroll;
+  height: 20%;
 }
 @media (min-width: 768px) {
   [panel=quienesSomos] #vista [campo=cuerpo] {
     padding-left: 15%;
     padding-right: 15%;
+    height: 27%;
   }
 }
 [panel=quienesSomos] #vista [campo=cuerpo] img {
@@ -786,12 +817,12 @@ body[modulo="login"] .btn-link:hover {
   background-image: url("../img/cultura/quienesSomosPortada.jpg");
   background-position: center bottom;
   background-size: cover;
-  height: 150px;
+  height: 45%;
   position: relative;
 }
 @media (min-width: 768px) {
   [panel=quienesSomos] #vista .portada {
-    height: 350px;
+    height: 40%;
   }
 }
 [panel=quienesSomos] #vista .portada .cinta {

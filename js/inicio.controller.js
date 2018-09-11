@@ -132,6 +132,7 @@ $(document).ready(function(){
 	plantillas["resumenEvento"] = "";
 	plantillas["resumenArchivo"] = "";
 	plantillas["quienesSomos"] = "";
+	plantillas["contactoDepto"] = "";
 	
 	getPlantillas(function(){
 		$("body").append(plantillas["buscar"]);

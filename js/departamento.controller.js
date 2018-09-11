@@ -186,6 +186,34 @@ function callDepartamento(departamento){
 					});
 			}
 		}, "json");
+		
+		/* Contactos */
+		$.post(server + "listacontactosdepartamento", {
+			"departamento": departamento.idDepartamento,
+			"json": true,
+			"movil": true
+		}, function(contactos){
+			if (contactos.length == 0)
+				$(".contactos").hide();
+			else{
+				$.each(contactos, function(){
+					var contacto = $(this);
+					contacto = contacto[0];
+					var pl = $(plantillas['contactoDepto']);
+					console.log(contacto);
+					$.each(contacto, function(campo, valor){
+						pl.find("[campo=" + campo + "]").html(valor);
+						
+					});
+					
+					if (contacto.fotoPerfil != ' ')
+						pl.find("img.foto").attr("src", server + contacto.fotoPerfil);
+					
+					$(".contactos").append(pl);
+				});
+				$(".contactos").show();
+			}
+		}, "json");
 			
 		if (departamento.formulario != '' && departamento.formulario != null){
 			$(".formulario").show();
