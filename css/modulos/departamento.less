@@ -146,7 +146,17 @@
 			.contacto{
 				color: #848484;
 				@altoImagen: 70px;
-				font-size: 13px;
+				font-size: 11px;
+				height: 110px;
+				overflow: hidden;
+				
+				@media (min-width: @mq-md-min){
+					height: 140px;
+				}
+				
+				@media (min-width: @mq-lg-min){
+					height: 12px;
+				}
 				
 				img{
 					width: @altoImagen;
@@ -157,7 +167,11 @@
 				}
 				
 				.text-muted{
-					font-size: 12px;
+					font-size: 11px;
+					
+					@media (min-width: @mq-lg-min){
+						height: 12px;
+					}
 				}
 			}
 		}
