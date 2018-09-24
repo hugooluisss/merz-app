@@ -558,7 +558,24 @@ body[modulo="login"] .btn-link:hover {
 }
 [panel=departamento] .contenidoDepartamento .contactos .contacto {
   color: #848484;
-  font-size: 13px;
+  font-size: 11px;
+  height: 110px;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  [panel=departamento] .contenidoDepartamento .contactos .contacto {
+    height: 180px;
+  }
+}
+@media (min-width: 992px) {
+  [panel=departamento] .contenidoDepartamento .contactos .contacto {
+    height: 140px;
+  }
+}
+@media (min-width: 1200px) {
+  [panel=departamento] .contenidoDepartamento .contactos .contacto {
+    height: 12px;
+  }
 }
 [panel=departamento] .contenidoDepartamento .contactos .contacto img {
   width: 70px;
@@ -568,7 +585,12 @@ body[modulo="login"] .btn-link:hover {
   margin-bottom: 10px;
 }
 [panel=departamento] .contenidoDepartamento .contactos .contacto .text-muted {
-  font-size: 12px;
+  font-size: 11px;
+}
+@media (min-width: 1200px) {
+  [panel=departamento] .contenidoDepartamento .contactos .contacto .text-muted {
+    height: 12px;
+  }
 }
 [panel=calendarioEventos] {
   padding-top: 0px;
