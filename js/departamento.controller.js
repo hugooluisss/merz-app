@@ -42,7 +42,7 @@ function callDepartamento(departamento){
 						});
 						img = $(noticia.cuerpo).find("img").attr("src");
 						if (img != undefined)
-							pl.find("img").attr("src", img);
+							pl.find("img.img-responsive:first-child").attr("src", img);
 							
 						pl.find("[campo=dia]").html(noticia.objActualizada.dia);
 						pl.find("[campo=mes]").html(mesLetra(noticia.objActualizada.mes));
@@ -84,7 +84,7 @@ function callDepartamento(departamento){
 						});
 						img = $(noticia.cuerpo).find("img").attr("src");
 						if (img != undefined)
-							pl.find("img").attr("src", img);
+							pl.find("img.img-responsive:first-child").attr("src", img);
 							
 						pl.find("[campo=dia]").html(noticia.objActualizada.dia);
 						pl.find("[campo=mes]").html(mesLetra(noticia.objActualizada.mes));

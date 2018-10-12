@@ -23,10 +23,12 @@ function callQuienesSomos(view){
 	console.info("Quienes somos cargado");
 	
 	function showVista(vista){
-		if ("quienesSomos-quienesSomos" == vista)
+		if ("quienesSomos-quienesSomos" == vista){
 			$(".portada").show();
-		else
+		}else{
 			$(".portada").hide();
+			$("[campo=cuerpo]").css("height", "70%");
+		}
 		
 		$.post(server + "cappmovil", {
 			"movil": true,
@@ -38,7 +40,8 @@ function callQuienesSomos(view){
 			
 			cuerpo.find("img").each(function(){
 				el = $(this);
-				el.attr("src", server + el.attr("src"));
+				//el.attr("src", server + el.attr("src"));
+				el.attr("src", el.attr("src"));
 			});
 			$("#vista").find("[campo=cuerpo]").html(cuerpo);
 			$("#vista").find(".titulo").html(resp.titulo);
