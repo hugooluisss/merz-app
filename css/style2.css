@@ -1170,3 +1170,26 @@ body [panel] {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.noticiaFija{
+  height: 180px !important;
+  overflow: hidden;
+  border-bottom: 1px solid;
+}
+
+.noticiaFija img{
+  width: auto !important;
+  margin: auto;
+  height: 150px;
+  margin-top: 15px;
+}
+
+.noticiaFija h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 25px;
+  max-height: 75px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
